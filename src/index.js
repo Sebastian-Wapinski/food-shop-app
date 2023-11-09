@@ -11,15 +11,22 @@ import ResetStyle from './components/style/Reset'
 import { Provider } from 'react-redux'
 import { store } from './store'
 
+import { BrowserRouter as Router } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
+
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <ResetStyle />
-        <App />
-      </ThemeProvider>
-    </Provider>
+    <HelmetProvider>
+      <Router>
+        <Provider store={store}>
+          <ThemeProvider theme={theme}>
+            <ResetStyle />
+            <App />
+          </ThemeProvider>
+        </Provider>
+      </Router>
+    </HelmetProvider>
   </React.StrictMode>
 )
 
