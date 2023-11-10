@@ -1,6 +1,6 @@
 export const theme = {
   mainColor: '#00A650',
-  primaryBackground: '#FAF8F4',
+  firstBackground: '#FFF',
   secondaryBackground: '#DCFAEB',
   thirdBackground: '#F0DCFA',
   forthBackground: '#A89CAD',

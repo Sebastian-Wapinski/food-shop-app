@@ -5,6 +5,12 @@
         "plugin:react/recommended"
     ],
     "rules": {
+        "max-len": [
+            "error",
+            {
+                "code": 120
+            }
+        ],
         "no-throw-literal": [
             "off"
         ],

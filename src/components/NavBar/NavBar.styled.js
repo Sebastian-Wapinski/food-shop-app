@@ -6,49 +6,90 @@ display: flex;
 justify-content: center;
 width: 100%;
 background-color: ${props => props.theme.mainColor};
+position: relative;
 `
 
 const StyledNavBar = styled(DefaultStyledNavBar)(
   props => props.style
 )
 
-const StyledNavUl = styled.ul`
+const StyledZeroFloorNavUl = styled.ul`
 list-style-type: none;
 display: flex;
 width: 100%;
 max-width: ${responsiveSizes.pageWidth};
 padding: 0 1rem;
+`
+const StyledZeroFloorNavLi = styled.li`
+padding: 0.8rem 1rem;
+font-size: 1rem;
+transition: all 0.2s ease-in-out;
+
+&:hover {
+  background-color: ${props => props.theme.firstBackground};
+  cursor: pointer;
+}
 
 ${
-  props => props.$floorUl === '1Floor' && css`
+  props => props.$isActiveTab && css`
+  background-color: ${props => props.theme.firstBackground};
+  `
+}
+`
+
+const StyledNavContainer = styled.div`
+transition: all 0.4s ease-in-out;
+min-height: 0;
+position: absolute;
+top: 100%;
+left: 0;
+width: 100%;
+
+${
+  props => props.$isActive && css`
+  min-height: 20rem;
   position: absolute;
-  left: 0;
   top: 100%;
-  font-size: 2rem;
-  `
-}
-`
-
-const StyledNavLi = styled.li`
-font-size: 3rem;
-position: relative;
-
-${
-  props => props.$floor === '1Floor' && css`
-  display: block;
-  /* position: absolute;
   left: 0;
-  top: 100%; */
-  font-size: 2rem;
-  `
-}
-
-${
-  props => props.$floor === '2Floor' && css`
-  font-size: 1rem;
-  display: none;
+  width: 100%;
+  box-shadow: 0px 20px 40px -5px ${props => props.theme.mainColor};
+  display: flex;
+  justify-content: center;
   `
 }
 `
 
-export { StyledNavBar, StyledNavUl, StyledNavLi }
+const StyledFirstFloorNavUl = styled.ul`
+display: flex;
+justify-content: flex-start;
+align-items: flex-start;
+flex-direction: column;
+flex-basis: 20%;
+`
+
+const StyledFirstFloorNavLi = styled.li`
+list-style-type: none;
+padding: 1rem 2rem;
+width: 100%;
+cursor: pointer;
+transition: all 0.2s ease-in-out;
+
+&:hover{
+  background-color: ${props => props.theme.mainColor};
+}
+`
+
+const StyledSecondFloorNavUl = styled.ul`
+display: flex;
+flex-basis: 80%;
+`
+
+export {
+  StyledNavBar,
+  StyledZeroFloorNavUl,
+  StyledZeroFloorNavLi,
+  StyledNavContainer,
+  StyledFirstFloorNavUl,
+  StyledFirstFloorNavLi,
+  StyledSecondFloorNavUl
+}
