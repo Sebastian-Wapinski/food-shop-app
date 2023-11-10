@@ -1,25 +1,25 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import { StyledHomePage } from './HomePage.styled'
+import { Helmet } from 'react-helmet-async'
 
-export const HomePage = (props) => {
-  const {
-    children,
-    ...otherProps
-  } = props
+import Header from '../../components/Header/Header'
+import NavBar from '../../components/NavBar/NavBar'
 
+export const HomePage = () => {
   return (
-    <StyledHomePage
-      {...otherProps}
-    >
-      Home
+    <StyledHomePage>
+      <Helmet>
+        <title>FOOD SHOP</title>
+        <meta
+          name={'Home-page'}
+          content={'Icons with navBar and most popular tabs'}
+        />
+      </Helmet>
+      <Header />
+      <NavBar />
     </StyledHomePage>
   )
-}
-
-HomePage.propTypes = {
-  children: PropTypes.node
 }
 
 export default HomePage

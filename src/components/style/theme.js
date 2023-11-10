@@ -1,4 +1,5 @@
 export const theme = {
+  mainColor: '#00A650',
   primaryBackground: '#FAF8F4',
   secondaryBackground: '#DCFAEB',
   thirdBackground: '#F0DCFA',
