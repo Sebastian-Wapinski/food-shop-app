@@ -1,22 +1,15 @@
-/* eslint-disable no-unused-vars */
 import React from 'react'
 
 import {
   StyledNavBar,
   StyledZeroFloorNavUl,
-  StyledZeroFloorNavLi,
-  StyledNavContainer,
-  StyledFirstFloorNavUl,
-  StyledFirstFloorNavLi,
-  StyledSecondFloorNavUl,
-  StyledSecondFloorNavLi,
-  StyledVerticalLine,
-  StyledTabTitle
+  StyledZeroFloorNavLi
 } from './NavBar.styled'
 
 import { ref, onValue } from 'firebase/database'
 import { database } from '../../firebaseConfig'
 import { checkIsNameEqualHomeIfNotReturnName, createNavData, searchMenuList } from './NavBarHelper'
+import NestedTabs from '../NestedTabs/NestedTabs'
 
 export const NavBar = () => {
   const [navListData, setNavListData] = React.useState(null)
@@ -35,73 +28,32 @@ export const NavBar = () => {
     })
   }, [])
 
+  const onMouseEnterZeroFloorHandler = React.useCallback((e, name, menuList) => {
+    const searchedMenuList = searchMenuList(e, navListData)
+    setMenu(searchedMenuList)
+    setIsMenuShow(true)
+    setZeroFloorName(name.toLowerCase())
+    const firstTabName = menuList[0].name
+    setFirstFloorName(firstTabName)
+  }, [navListData])
+
   const create0FloorNavList = React.useCallback((data) => {
     return data.map(tag => {
       const { name, id, hasSubcategory, menuList } = tag
-
+      const onMouseEnterCallback = hasSubcategory ? (e) => onMouseEnterZeroFloorHandler(e, name, menuList) : null
       return (
         <StyledZeroFloorNavLi
           id={id}
           key={id}
           to={checkIsNameEqualHomeIfNotReturnName(name)}
-          onMouseEnter={hasSubcategory
-            ? (e) => {
-                const searchedMenuList = searchMenuList(e, navListData)
-                setMenu(searchedMenuList)
-                setIsMenuShow(true)
-
-                setZeroFloorName(name.toLowerCase())
-
-                const firstTabName = menuList[0].name
-                setFirstFloorName(firstTabName)
-              }
-            : null}
-          onMouseLeave={() => {
-            setIsMenuShow(false)
-          }}
+          onMouseEnter={onMouseEnterCallback}
+          onMouseLeave={() => setIsMenuShow(false)}
         >
           {name}
         </StyledZeroFloorNavLi>
       )
     })
-  }, [navListData])
-
-  const create1FloorNavList = React.useCallback((menu) => {
-    return menu.menuList.map(tab => {
-      const { name, id } = tab
-      return (
-        <StyledFirstFloorNavLi
-          id={id}
-          key={id}
-          to={`${zeroFloorName}/${firstFloorName.toLowerCase()}`}
-          onMouseEnter={() => setFirstFloorName(name)}
-        >
-          {name}
-        </StyledFirstFloorNavLi>
-      )
-    })
-  }, [firstFloorName, zeroFloorName])
-
-  const create2FloorNavList = React.useCallback((menu) => {
-    const secondFloorData = menu.menuList.find(tab => {
-      return tab.name === firstFloorName
-    })
-
-    const secondFloorMenuList = secondFloorData.menuList
-
-    return secondFloorMenuList.map(tab => {
-      const { name, id } = tab
-      return (
-        <StyledSecondFloorNavLi
-          id={id}
-          key={id}
-          to={`${zeroFloorName}/${firstFloorName.toLowerCase()}/${name.toLowerCase()}`}
-        >
-          {name}
-        </StyledSecondFloorNavLi>
-      )
-    })
-  }, [firstFloorName, zeroFloorName])
+  }, [onMouseEnterZeroFloorHandler])
 
   return (
     navListData !== null ?
@@ -111,35 +63,14 @@ export const NavBar = () => {
             create0FloorNavList(navListData)
           }
         </StyledZeroFloorNavUl>
-        {
-        isMenuShow ?
-          <StyledNavContainer
-            $isActive={true}
-            onMouseEnter={() => {
-              setIsMenuShow(true)
-            }}
-            onMouseLeave={() => {
-              setIsMenuShow(false)
-            }}
-          >
-            <StyledFirstFloorNavUl>
-              {
-              create1FloorNavList(menu)
-            }
-            </StyledFirstFloorNavUl>
-            <StyledVerticalLine />
-            <StyledTabTitle>
-              {firstFloorName}
-            </StyledTabTitle>
-            <StyledSecondFloorNavUl>
-              {
-                create2FloorNavList(menu)
-              }
-            </StyledSecondFloorNavUl>
-          </StyledNavContainer>
-          :
-          <StyledNavContainer $isActive={false}/>
-        }
+        <NestedTabs
+          isMenuShow={isMenuShow}
+          setIsMenuShow={setIsMenuShow}
+          menu={menu}
+          zeroFloorName={zeroFloorName}
+          firstFloorName={firstFloorName}
+          setFirstFloorName={setFirstFloorName}
+        />
       </StyledNavBar>
       :
       null
