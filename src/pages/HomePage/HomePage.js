@@ -5,8 +5,12 @@ import { Helmet } from 'react-helmet-async'
 
 import Header from '../../components/Header/Header'
 import NavBar from '../../components/NavBar/NavBar'
+import { Outlet, useLocation } from 'react-router'
+import HomePageContent from '../../components/HomePageContent/HomePageContent'
 
 export const HomePage = () => {
+  const location = useLocation()
+
   return (
     <StyledHomePage>
       <Helmet>
@@ -18,6 +22,14 @@ export const HomePage = () => {
       </Helmet>
       <Header />
       <NavBar />
+      {
+        location.pathname === '/' ?
+          <HomePageContent />
+          :
+          null
+      }
+      <Outlet />
+      {/* <Footer /> */}
     </StyledHomePage>
   )
 }

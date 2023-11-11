@@ -92,8 +92,8 @@ export const NestedTabs = (props) => {
 
 NestedTabs.propTypes = {
   isMenuShow: PropTypes.bool,
-  setIsMenuShow: PropTypes.node,
-  menu: PropTypes.array,
+  setIsMenuShow: PropTypes.func,
+  menu: PropTypes.object,
   zeroFloorName: PropTypes.string,
   firstFloorName: PropTypes.string,
   setFirstFloorName: PropTypes.func

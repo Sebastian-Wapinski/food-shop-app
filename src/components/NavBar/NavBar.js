@@ -14,7 +14,7 @@ import NestedTabs from '../NestedTabs/NestedTabs'
 export const NavBar = () => {
   const [navListData, setNavListData] = React.useState(null)
   const [isMenuShow, setIsMenuShow] = React.useState(false)
-  const [menu, setMenu] = React.useState([])
+  const [menu, setMenu] = React.useState({})
   const [zeroFloorName, setZeroFloorName] = React.useState('')
   const [firstFloorName, setFirstFloorName] = React.useState('')
 

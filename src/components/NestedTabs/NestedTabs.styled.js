@@ -2,12 +2,13 @@ import { NavLink } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 
 const DefaultStyledNavContainer = styled.div`
-transition: all 0.2s ease-in-out;
-height: 0;
+transition: all 0.08s ease-in-out;
 position: absolute;
+height: 0;
 top: 100%;
 left: 0;
 width: 100%;
+background-color: ${props => props.theme.firstBackground};
 
 ${
   props => props.$isActive && css`
@@ -43,10 +44,8 @@ align-self: start;
 padding: 1rem 2rem;
 width: 100%;
 cursor: pointer;
-transition: all 0.2s ease-in-out;
 position: relative;
 color: ${props => props.theme.secondTextColor};
-
 &:hover{
   color: ${props => props.theme.thirdTextColor};
   &::after {
@@ -76,7 +75,6 @@ display: grid;
 padding: 1rem 3rem 1rem 0;
 cursor: pointer;
 color: ${props => props.theme.secondTextColor};
-transition: all 0.2s ease-in-out;
 
 &:hover{
   color: ${props => props.theme.thirdTextColor};
