@@ -29,12 +29,6 @@ transition: all 0.2s ease-in-out;
   background-color: ${props => props.theme.firstBackground};
   cursor: pointer;
 }
-
-${
-  props => props.$isActiveTab && css`
-  background-color: ${props => props.theme.firstBackground};
-  `
-}
 `
 
 const StyledNavContainer = styled.div`
@@ -84,6 +78,11 @@ display: flex;
 flex-basis: 80%;
 `
 
+const StyledSecondFloorNavLi = styled.li`
+display: flex;
+flex-basis: 80%;
+`
+
 export {
   StyledNavBar,
   StyledZeroFloorNavUl,
@@ -91,5 +90,6 @@ export {
   StyledNavContainer,
   StyledFirstFloorNavUl,
   StyledFirstFloorNavLi,
-  StyledSecondFloorNavUl
+  StyledSecondFloorNavUl,
+  StyledSecondFloorNavLi
 }

@@ -7,7 +7,8 @@ import {
   StyledNavContainer,
   StyledFirstFloorNavUl,
   StyledFirstFloorNavLi,
-  StyledSecondFloorNavUl
+  StyledSecondFloorNavUl,
+  StyledSecondFloorNavLi
 } from './NavBar.styled'
 
 import { ref, onValue } from 'firebase/database'
@@ -17,8 +18,8 @@ import { createNavData } from '../../helper/helper'
 export const NavBar = () => {
   const [navListData, setNavListData] = React.useState(null)
   const [isMenuShow, setIsMenuShow] = React.useState(false)
-  const [activeTab, setActiveTab] = React.useState('')
   const [menu, setMenu] = React.useState([])
+  const [firstFloorName, setFirstFloorName] = React.useState('')
 
   React.useEffect(() => {
     const navListRef = ref(database, '/navList')
@@ -30,8 +31,6 @@ export const NavBar = () => {
     })
   }, [])
 
-  console.log(navListData, 'navListData')
-
   const searchMenuList = (e, data) => {
     const { id: onMouseElemId } = e.target
 
@@ -42,10 +41,9 @@ export const NavBar = () => {
 
   const create0FloorNavList = (data) => {
     return data.map(tag => {
-      const { name, id, hasSubcategory } = tag
+      const { name, id, hasSubcategory, menuList } = tag
       return (
         <StyledZeroFloorNavLi
-          $isActiveTab={name === activeTab}
           id={id}
           key={id}
           onMouseEnter={hasSubcategory
@@ -53,12 +51,13 @@ export const NavBar = () => {
                 const searchedMenuList = searchMenuList(e, navListData)
                 setMenu(searchedMenuList)
                 setIsMenuShow(true)
-                setActiveTab(name)
+
+                const firstTabName = menuList[0].name
+                setFirstFloorName(firstTabName)
               }
             : null}
           onMouseLeave={() => {
             setIsMenuShow(false)
-            setActiveTab('')
           }}
         >
           {name}
@@ -68,13 +67,13 @@ export const NavBar = () => {
   }
 
   const create1FloorNavList = React.useCallback((menu) => {
-    return menu.menuList.map(tag => {
-      const { name, id, hasSubcategory } = tag
-      console.log(hasSubcategory, tag, 'tag')
+    return menu.menuList.map(tab => {
+      const { name, id } = tab
       return (
         <StyledFirstFloorNavLi
           id={id}
           key={id}
+          onMouseEnter={() => setFirstFloorName(name)}
         >
           {name}
         </StyledFirstFloorNavLi>
@@ -82,7 +81,25 @@ export const NavBar = () => {
     })
   }, [])
 
-  console.log(menu, 'menu')
+  const create2FloorNavList = React.useCallback((menu) => {
+    const secondFloorData = menu.menuList.find(tab => {
+      return tab.name === firstFloorName
+    })
+
+    const secondFloorMenuList = secondFloorData.menuList
+
+    return secondFloorMenuList.map(tab => {
+      const { name, id } = tab
+      return (
+        <StyledSecondFloorNavLi
+          id={id}
+          key={id}
+        >
+          {name}
+        </StyledSecondFloorNavLi>
+      )
+    })
+  }, [firstFloorName])
 
   return (
     navListData !== null ?
@@ -101,7 +118,6 @@ export const NavBar = () => {
             }}
             onMouseLeave={() => {
               setIsMenuShow(false)
-              setActiveTab('')
             }}
           >
             <StyledFirstFloorNavUl>
@@ -110,7 +126,9 @@ export const NavBar = () => {
             }
             </StyledFirstFloorNavUl>
             <StyledSecondFloorNavUl>
-              jest
+              {
+                create2FloorNavList(menu)
+              }
             </StyledSecondFloorNavUl>
           </StyledNavContainer>
           :
