@@ -1,12 +1,9 @@
 export const theme = {
   mainColor: '#00A650',
   firstBackground: '#FFF',
-  secondaryBackground: '#DCFAEB',
-  thirdBackground: '#F0DCFA',
-  forthBackground: '#A89CAD',
-  primaryTextColor: '#ADA699',
-  secondaryTextColor: '#7A756C',
-  thirdTextColor: '#474540',
+  firstTextColor: '#FFF',
+  secondTextColor: '#12492C',
+  thirdTextColor: '#2FBE74',
   errorMessage: '#FD0D58'
 }
 

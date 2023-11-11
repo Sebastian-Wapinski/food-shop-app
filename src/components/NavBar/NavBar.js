@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 
 import {
@@ -15,12 +16,13 @@ import {
 
 import { ref, onValue } from 'firebase/database'
 import { database } from '../../firebaseConfig'
-import { createNavData } from '../../helper/helper'
+import { checkIsNameEqualHomeIfNotReturnName, createNavData, searchMenuList } from './NavBarHelper'
 
 export const NavBar = () => {
   const [navListData, setNavListData] = React.useState(null)
   const [isMenuShow, setIsMenuShow] = React.useState(false)
   const [menu, setMenu] = React.useState([])
+  const [zeroFloorName, setZeroFloorName] = React.useState('')
   const [firstFloorName, setFirstFloorName] = React.useState('')
 
   React.useEffect(() => {
@@ -33,26 +35,22 @@ export const NavBar = () => {
     })
   }, [])
 
-  const searchMenuList = (e, data) => {
-    const { id: onMouseElemId } = e.target
-
-    return data.find(item => {
-      return item.id === onMouseElemId
-    })
-  }
-
-  const create0FloorNavList = (data) => {
+  const create0FloorNavList = React.useCallback((data) => {
     return data.map(tag => {
       const { name, id, hasSubcategory, menuList } = tag
+
       return (
         <StyledZeroFloorNavLi
           id={id}
           key={id}
+          to={checkIsNameEqualHomeIfNotReturnName(name)}
           onMouseEnter={hasSubcategory
             ? (e) => {
                 const searchedMenuList = searchMenuList(e, navListData)
                 setMenu(searchedMenuList)
                 setIsMenuShow(true)
+
+                setZeroFloorName(name.toLowerCase())
 
                 const firstTabName = menuList[0].name
                 setFirstFloorName(firstTabName)
@@ -66,7 +64,7 @@ export const NavBar = () => {
         </StyledZeroFloorNavLi>
       )
     })
-  }
+  }, [navListData])
 
   const create1FloorNavList = React.useCallback((menu) => {
     return menu.menuList.map(tab => {
@@ -75,13 +73,14 @@ export const NavBar = () => {
         <StyledFirstFloorNavLi
           id={id}
           key={id}
+          to={`${zeroFloorName}/${firstFloorName.toLowerCase()}`}
           onMouseEnter={() => setFirstFloorName(name)}
         >
           {name}
         </StyledFirstFloorNavLi>
       )
     })
-  }, [])
+  }, [firstFloorName, zeroFloorName])
 
   const create2FloorNavList = React.useCallback((menu) => {
     const secondFloorData = menu.menuList.find(tab => {
@@ -96,12 +95,13 @@ export const NavBar = () => {
         <StyledSecondFloorNavLi
           id={id}
           key={id}
+          to={`${zeroFloorName}/${firstFloorName.toLowerCase()}/${name.toLowerCase()}`}
         >
           {name}
         </StyledSecondFloorNavLi>
       )
     })
-  }, [firstFloorName])
+  }, [firstFloorName, zeroFloorName])
 
   return (
     navListData !== null ?
@@ -115,7 +115,7 @@ export const NavBar = () => {
         isMenuShow ?
           <StyledNavContainer
             $isActive={true}
-            onMouseEnter={(e) => {
+            onMouseEnter={() => {
               setIsMenuShow(true)
             }}
             onMouseLeave={() => {

@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import { responsiveSizes } from '../style/responsiveSizes'
+import { NavLink } from 'react-router-dom'
 
 const DefaultStyledNavBar = styled.div`
 display: flex;
@@ -20,13 +21,15 @@ width: 100%;
 max-width: ${responsiveSizes.pageWidth};
 padding: 0 1rem;
 `
-const StyledZeroFloorNavLi = styled.li`
+const StyledZeroFloorNavLi = styled(NavLink)`
 padding: 0.8rem 1rem;
 font-size: 1rem;
 transition: all 0.2s ease-in-out;
+color: ${props => props.theme.firstTextColor};
 
 &:hover {
   background-color: ${props => props.theme.firstBackground};
+  color: ${props => props.theme.secondTextColor};
   cursor: pointer;
 }
 `
@@ -62,7 +65,7 @@ grid-template-rows: 3rem;
 padding: 1rem;
 `
 
-const StyledFirstFloorNavLi = styled.li`
+const StyledFirstFloorNavLi = styled(NavLink)`
 list-style-type: none;
 display: grid;
 align-self: start;
@@ -71,8 +74,10 @@ width: 100%;
 cursor: pointer;
 transition: all 0.2s ease-in-out;
 position: relative;
+color: ${props => props.theme.secondTextColor};
 
 &:hover{
+  color: ${props => props.theme.thirdTextColor};
   &::after {
     content: ">";
     position: absolute;
@@ -95,10 +100,16 @@ padding: 2rem 2rem;
 gap: 0.5rem;
 `
 
-const StyledSecondFloorNavLi = styled.li`
+const StyledSecondFloorNavLi = styled(NavLink)`
 display: grid;
 padding: 1rem 3rem 1rem 0;
 cursor: pointer;
+color: ${props => props.theme.secondTextColor};
+transition: all 0.2s ease-in-out;
+
+&:hover{
+  color: ${props => props.theme.thirdTextColor};
+}
 `
 
 const StyledTabTitle = styled.div`
@@ -110,6 +121,7 @@ margin: 1rem 0;
 width: 90%;
 font-size: 1.5rem;
 border-bottom: 1px solid ${props => props.theme.mainColor};
+color: ${props => props.theme.secondTextColor};
 `
 
 const StyledVerticalLine = styled.div`

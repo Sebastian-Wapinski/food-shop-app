@@ -7,6 +7,7 @@ const ResetStyle = createGlobalStyle`
   box-sizing: border-box;
   outline: none;
   border: none;
+  text-decoration: none;
 }
 `
 

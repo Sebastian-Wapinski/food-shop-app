@@ -3,11 +3,16 @@ import React from 'react'
 import { StyledHeader, StyledContainer } from './Header.styled'
 import Icons from '../Icons/Icons'
 import Logo from './Logo'
+import { Link } from 'react-router-dom'
 
 export const Header = () => {
   return (
     <StyledHeader>
-      <Logo />
+      <Link
+        to={'/'}
+      >
+        <Logo />
+      </Link>
       {/* FilterAllProducts */}
       <StyledContainer>
         <Icons />

@@ -22,7 +22,7 @@ const StyledImg = styled.img`
 `
 
 const StyledParagraph = styled.p`
-
+color: ${props => props.theme.secondTextColor};
 `
 
 export { StyledIcons, StyledIconContainer, StyledImg, StyledParagraph }
