@@ -8,7 +8,9 @@ import {
   StyledFirstFloorNavUl,
   StyledFirstFloorNavLi,
   StyledSecondFloorNavUl,
-  StyledSecondFloorNavLi
+  StyledSecondFloorNavLi,
+  StyledVerticalLine,
+  StyledTabTitle
 } from './NavBar.styled'
 
 import { ref, onValue } from 'firebase/database'
@@ -125,6 +127,10 @@ export const NavBar = () => {
               create1FloorNavList(menu)
             }
             </StyledFirstFloorNavUl>
+            <StyledVerticalLine />
+            <StyledTabTitle>
+              {firstFloorName}
+            </StyledTabTitle>
             <StyledSecondFloorNavUl>
               {
                 create2FloorNavList(menu)
