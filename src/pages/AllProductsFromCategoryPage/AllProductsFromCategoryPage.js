@@ -5,37 +5,13 @@ import { ref, onValue } from 'firebase/database'
 import { StyledAllProductsFromCategoryPage } from './AllProductsFromCategoryPage.styled'
 import { database } from '../../firebaseConfig'
 import { useParams } from 'react-router'
-import { returnRightPath } from './AllProductsFromCategoryPageHelper'
+import { createData, returnRightPath } from './AllProductsFromCategoryPageHelper'
+import ProductCard from '../../components/ProductCard/ProductCard'
 
 export const AllProductsFromCategoryPage = () => {
   const { allProductsFromCategory, particularCategoryProducts } = useParams()
 
   const [productsData, setProductsData] = React.useState({})
-
-  const createData = React.useCallback((rawData) => {
-    const { hasSubcategory } = rawData
-    const array = Object.entries(rawData)
-    return array
-      .filter((item) => {
-        const key = item[0]
-        return key !== 'hasSubcategory'
-      })
-      .map((item) => {
-        const key = item[0]
-        const value = item[1]
-
-        if (hasSubcategory) {
-          const subCategoryData = createData(value)
-          return subCategoryData
-        }
-
-        return {
-          ...value,
-          id: key
-        }
-      })
-      .flat(Infinity)
-  }, [])
 
   React.useEffect(() => {
     const products = ref(database, returnRightPath(allProductsFromCategory, particularCategoryProducts))
@@ -46,14 +22,32 @@ export const AllProductsFromCategoryPage = () => {
       setProductsData(rawData)
       console.log(data, 'data')
     })
-  }, [allProductsFromCategory, createData, particularCategoryProducts])
+  }, [allProductsFromCategory, particularCategoryProducts])
 
   console.log(productsData, 'productsData')
 
   return (
-    <StyledAllProductsFromCategoryPage>
-      Products
-    </StyledAllProductsFromCategoryPage>
+    productsData ?
+      <StyledAllProductsFromCategoryPage>
+        {
+          productsData.map(product => {
+            const { img, price, producer, id, accessibility, variety, unit } = product
+            return (
+              <ProductCard
+                img={img}
+                price={price}
+                producer={producer}
+                key={id}
+                accessibility={accessibility}
+                variety={variety}
+                unit={unit}
+              />
+            )
+          })
+      }
+      </StyledAllProductsFromCategoryPage>
+      :
+      null
   )
 }
 

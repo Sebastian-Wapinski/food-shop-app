@@ -12,9 +12,9 @@ export const iconsData = [
     id: 'idFavorites'
   },
   {
-    name: 'Basket',
+    name: 'Cart',
     img: 'https://dummyimage.com/50x50/00A650/fff.png',
-    alt: 'Basket',
-    id: 'idBasket'
+    alt: 'Cart',
+    id: 'idCart'
   }
 ]
