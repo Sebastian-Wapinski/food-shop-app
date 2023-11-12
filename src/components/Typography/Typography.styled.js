@@ -39,6 +39,18 @@ ${
 }
 
 ${
+  props => props.$variant === 'body2' && css`
+  font-family: Lato;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1rem;
+  letter-spacing: 0.15px;
+  text-align: center;
+  color: ${props => props.theme.firstTextColor};
+  `
+}
+
+${
   props => props.$variant === 'productImg' && css`
   font-family: Lato;
   font-size: 3.5rem;

@@ -7,6 +7,7 @@ import Header from '../../components/Header/Header'
 import NavBar from '../../components/NavBar/NavBar'
 import { Outlet, useLocation } from 'react-router'
 import HomePageContent from './HomePageContent/HomePageContent'
+import Footer from '../../components/Footer/Footer'
 
 export const HomePage = () => {
   const location = useLocation()
@@ -29,7 +30,7 @@ export const HomePage = () => {
           null
       }
       <Outlet />
-      {/* <Footer /> */}
+      <Footer />
     </StyledHomePage>
   )
 }
