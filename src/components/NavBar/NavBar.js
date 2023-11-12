@@ -46,6 +46,7 @@ export const NavBar = () => {
           id={id}
           key={id}
           to={checkIsNameEqualHomeIfNotReturnName(name)}
+          onClick={() => setIsMenuShow(false)}
           onMouseEnter={onMouseEnterCallback}
           onMouseLeave={() => setIsMenuShow(false)}
         >
@@ -73,7 +74,7 @@ export const NavBar = () => {
         />
       </StyledNavBar>
       :
-      null
+      <StyledNavBar />
   )
 }
 

@@ -9,6 +9,7 @@ width: 100%;
 background-color: ${props => props.theme.mainColor};
 position: sticky;
 top: 0;
+min-height: 2.787rem;
 `
 
 const StyledNavBar = styled(DefaultStyledNavBar)(

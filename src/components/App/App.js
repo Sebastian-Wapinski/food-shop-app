@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import PageNotFound from '../../pages/PageNotFound/PageNotFound'
 import HomePage from '../../pages/HomePage/HomePage'
+import AllProductsFromCategoryPage from '../../pages/AllProductsFromCategoryPage/AllProductsFromCategoryPage'
 
 export const App = () => {
   return (
@@ -25,13 +26,21 @@ export const App = () => {
           <Route
             path={'/LogInFavorites'}
             element={<LogInFavoritesPage />}
-          />
+          /> */}
           <Route
-            path={'/:allProductsFromCategory'}
+            path={'/products'}
             element={<AllProductsFromCategoryPage />}
           />
           <Route
-            path={'/:allProductsFromCategory/:particularCategoryProducts'}
+            path={'/products/:allProductsFromCategory'}
+            element={<AllProductsFromCategoryPage />}
+          />
+          <Route
+            path={'/products/:allProductsFromCategory/:particularCategoryProducts'}
+            element={<AllProductsFromCategoryPage />}
+          />
+          {/* <Route
+            path={'/products/:allProductsFromCategory/:particularCategoryProducts'}
             element={<ParticularCategoryProductsPage />}
           /> */}
         </Route>

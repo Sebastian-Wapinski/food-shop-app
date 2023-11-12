@@ -29,11 +29,12 @@ export const NestedTabs = (props) => {
         key={id}
         to={path}
         onMouseEnter={onMouseEnterCallback}
+        onClick={() => setIsMenuShow(false)}
       >
         {name}
       </ComponentsName>
     )
-  }, [])
+  }, [setIsMenuShow])
 
   const create1FloorNavList = React.useCallback((menu) => {
     const firstFloorMenuList = menu.menuList
