@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { responsiveSizes } from '../style/responsiveSizes'
 import { NavLink } from 'react-router-dom'
-import Typography from '../Typography/Typography'
 
 const DefaultStyledNavBar = styled.div`
 display: flex;
@@ -30,22 +29,13 @@ color: ${props => props.theme.firstTextColor};
 
 &:hover {
   background-color: ${props => props.theme.firstBackground};
-  cursor: pointer;
-}
-`
-
-const StyledName = styled(Typography)`
-font-size: 1rem;
-transition: all 0.2s ease-in-out;
-
-&:hover {
   color: ${props => props.theme.secondTextColor};
+  cursor: pointer;
 }
 `
 
 export {
   StyledNavBar,
   StyledZeroFloorNavUl,
-  StyledZeroFloorNavLi,
-  StyledName
+  StyledZeroFloorNavLi
 }

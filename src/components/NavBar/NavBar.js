@@ -3,8 +3,7 @@ import React from 'react'
 import {
   StyledNavBar,
   StyledZeroFloorNavUl,
-  StyledZeroFloorNavLi,
-  StyledName
+  StyledZeroFloorNavLi
 } from './NavBar.styled'
 
 import { ref, onValue } from 'firebase/database'
@@ -50,9 +49,7 @@ export const NavBar = () => {
           onMouseEnter={onMouseEnterCallback}
           onMouseLeave={() => setIsMenuShow(false)}
         >
-          <StyledName variant={'body2'}>
-            {name}
-          </StyledName>
+          {name}
         </StyledZeroFloorNavLi>
       )
     })
