@@ -7,7 +7,8 @@ display: flex;
 justify-content: center;
 width: 100%;
 background-color: ${props => props.theme.mainColor};
-position: relative;
+position: sticky;
+top: 0;
 `
 
 const StyledNavBar = styled(DefaultStyledNavBar)(
