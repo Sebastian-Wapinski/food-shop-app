@@ -2,13 +2,14 @@ import { NavLink } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 
 const DefaultStyledNavContainer = styled.div`
-transition: all 0.08s ease-in-out;
+transition: all 0.2s ease-in-out;
 position: absolute;
 height: 0;
 top: 100%;
 left: 0;
 width: 100%;
 background-color: ${props => props.theme.firstBackground};
+overflow: hidden;
 
 ${
   props => props.$isActive && css`
@@ -38,6 +39,7 @@ padding: 1rem;
 `
 
 const StyledFirstFloorNavLi = styled(NavLink)`
+transition: all 0.2s ease-in-out;
 list-style-type: none;
 display: grid;
 align-self: start;
@@ -71,6 +73,7 @@ gap: 0.5rem;
 `
 
 const StyledSecondFloorNavLi = styled(NavLink)`
+transition: all 0.2s ease-in-out;
 display: grid;
 padding: 1rem 3rem 1rem 0;
 cursor: pointer;
