@@ -1,7 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { StyledProductCard } from './ProductCard.styled'
+import {
+  StyledProductCard,
+  StyledProductContainer,
+  StyledImg,
+  StyledName,
+  StyledProducer,
+  StyledPriceAccessibilityContainer,
+  StyledPrice,
+  StyledAccessibility,
+  StyledUnit,
+  StyledAddToCartContainer
+} from './ProductCard.styled'
+
+import CartButton from '../CartButton/CartButton'
+import ChangeQuantityField from '../ChangeQuantityField/ChangeQuantityField'
 
 export const ProductCard = (props) => {
   const {
@@ -10,50 +24,75 @@ export const ProductCard = (props) => {
     producer,
     accessibility,
     variety,
-    unit
+    unit,
+    category
   } = props
 
+  const [isFullCardShow, setIsFullCardShow] = React.useState(false)
+
   return (
-    <StyledProductCard>
-      <StyledImg
-        src={img}
-        alt={`${variety}`}
-      />
-      <StyledName>
-        {variety}
-      </StyledName>
-      <StyledProducer>
-        {producer}
-      </StyledProducer>
-      <StyledPriceAccessibilityContainer>
-        <StyledPrice>
-          {price}
-        </StyledPrice>
-        <StyledAccessibility>
-          {accessibility}
-        </StyledAccessibility>
-      </StyledPriceAccessibilityContainer>
-      <StyledUnit>
-        Price for 1{unit}
-      </StyledUnit>
-      <StyledAddToCartContainer>
-        <CartButton
-          variety={'changeQuantity'}
+    <StyledProductCard
+      onMouseEnter={() => setIsFullCardShow(true)}
+      onMouseLeave={() => setIsFullCardShow(false)}
+    >
+      <StyledProductContainer>
+        <StyledImg
+          src={img}
+          alt={`${variety}`}
+        />
+        <StyledName
+          variant={'cardH1'}
         >
-          -
-        </CartButton>
-        <ChangeQuantityField />
-        <CartButton
-          variety={'changeQuantity'}
+          {category}-{variety}
+        </StyledName>
+        <StyledProducer
+          variant={'cardBody1'}
         >
-          +
-        </CartButton>
-        <CartButton
-          variety={'addToCart'}
+          {producer}
+        </StyledProducer>
+        <StyledPriceAccessibilityContainer>
+          <StyledPrice
+            variant={'cardBody1'}
+          >
+            {price}€
+          </StyledPrice>
+          <StyledAccessibility
+            variant={'cardBody1'}
+          >
+            IN STOCK: {accessibility}
+          </StyledAccessibility>
+        </StyledPriceAccessibilityContainer>
+        <StyledUnit
+          variant={'cardBody1'}
         >
-          Add To Cart
-        </CartButton>
-      </StyledAddToCartContainer>
+          Price for 1{unit}
+        </StyledUnit>
+        {
+      isFullCardShow ?
+        <StyledAddToCartContainer
+          $isActive={true}
+        >
+          <CartButton
+            variant={'changeQuantity'}
+          >
+            -
+          </CartButton>
+          <ChangeQuantityField />
+          <CartButton
+            variant={'changeQuantity'}
+          >
+            +
+          </CartButton>
+          <CartButton
+            variant={'addToCart'}
+          >
+            Add To Cart
+          </CartButton>
+        </StyledAddToCartContainer>
+        :
+        <StyledAddToCartContainer $isActive={false}/>
+      }
+      </StyledProductContainer>
     </StyledProductCard>
   )
 }
@@ -65,7 +104,8 @@ ProductCard.propTypes = {
   producer: PropTypes.string,
   accessibility: PropTypes.number,
   variety: PropTypes.string,
-  unit: PropTypes.string
+  unit: PropTypes.string,
+  category: PropTypes.string
 }
 
 export default ProductCard

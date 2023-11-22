@@ -62,6 +62,28 @@ ${
   `
 }
 
+${
+  props => props.$variant === 'cardH1' && css`
+  font-family: Lato;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  letter-spacing: 0.15px;
+  color: ${props => props.theme.secondTextColor};
+  `
+}
+
+${
+  props => props.$variant === 'cardBody1' && css`
+  font-family: Lato;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1rem;
+  letter-spacing: 0.15px;
+  color: ${props => props.theme.secondTextColor};
+  `
+}
+
 `
 
 const StyledTypography = styled(DefaultStyledTypography)(

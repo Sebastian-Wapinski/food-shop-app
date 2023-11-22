@@ -6,12 +6,14 @@ import { StyledCartButton } from './CartButton.styled'
 export const CartButton = (props) => {
   const {
     children,
-    ...otherProps
+    className,
+    variant
   } = props
 
   return (
     <StyledCartButton
-      {...otherProps}
+      className={className}
+      $variant={variant}
     >
       {children}
     </StyledCartButton>
@@ -19,7 +21,9 @@ export const CartButton = (props) => {
 }
 
 CartButton.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  className: PropTypes.string,
+  variant: PropTypes.oneOf(['changeQuantity', 'addToCart'])
 }
 
 export default CartButton

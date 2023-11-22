@@ -11,7 +11,7 @@ import ProductCard from '../../components/ProductCard/ProductCard'
 export const AllProductsFromCategoryPage = () => {
   const { allProductsFromCategory, particularCategoryProducts } = useParams()
 
-  const [productsData, setProductsData] = React.useState({})
+  const [productsData, setProductsData] = React.useState()
 
   React.useEffect(() => {
     const products = ref(database, returnRightPath(allProductsFromCategory, particularCategoryProducts))
@@ -19,8 +19,7 @@ export const AllProductsFromCategoryPage = () => {
       const rawData = snapshot.val()
 
       const data = createData(rawData)
-      setProductsData(rawData)
-      console.log(data, 'data')
+      setProductsData(data)
     })
   }, [allProductsFromCategory, particularCategoryProducts])
 
@@ -31,7 +30,7 @@ export const AllProductsFromCategoryPage = () => {
       <StyledAllProductsFromCategoryPage>
         {
           productsData.map(product => {
-            const { img, price, producer, id, accessibility, variety, unit } = product
+            const { img, price, producer, id, accessibility, variety, unit, category } = product
             return (
               <ProductCard
                 img={img}
@@ -41,6 +40,7 @@ export const AllProductsFromCategoryPage = () => {
                 accessibility={accessibility}
                 variety={variety}
                 unit={unit}
+                category={category}
               />
             )
           })

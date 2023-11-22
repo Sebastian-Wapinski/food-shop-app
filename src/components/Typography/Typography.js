@@ -22,7 +22,17 @@ export const Typography = (props) => {
 
 Typography.propTypes = {
   children: PropTypes.node,
-  variant: PropTypes.oneOf(['h1', 'h2', 'h3', 'button', 'body1', 'body2', 'productImg']),
+  variant: PropTypes.oneOf([
+    'h1',
+    'h2',
+    'h3',
+    'button',
+    'body1',
+    'body2',
+    'productImg',
+    'cardH1',
+    'cardBody1'
+  ]),
   className: PropTypes.string
 }
 
