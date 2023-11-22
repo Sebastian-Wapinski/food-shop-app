@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 
 import PageNotFound from '../../pages/PageNotFound/PageNotFound'
 import HomePage from '../../pages/HomePage/HomePage'
-import AllProductsFromCategoryPage from '../../pages/AllProductsFromCategoryPage/AllProductsFromCategoryPage'
+import ProductsPage from '../../pages/ProductsPage/ProductsPage'
 
 export const App = () => {
   return (
@@ -29,15 +29,15 @@ export const App = () => {
           /> */}
           <Route
             path={'/products'}
-            element={<AllProductsFromCategoryPage />}
+            element={<ProductsPage />}
           />
           <Route
             path={'/products/:allProductsFromCategory'}
-            element={<AllProductsFromCategoryPage />}
+            element={<ProductsPage />}
           />
           <Route
             path={'/products/:allProductsFromCategory/:particularCategoryProducts'}
-            element={<AllProductsFromCategoryPage />}
+            element={<ProductsPage />}
           />
           {/* <Route
             path={'/products/:allProductsFromCategory/:particularCategoryProducts'}

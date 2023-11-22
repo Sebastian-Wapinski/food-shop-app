@@ -7,6 +7,7 @@ export const CartButton = (props) => {
   const {
     children,
     className,
+    onClick,
     variant
   } = props
 
@@ -14,6 +15,7 @@ export const CartButton = (props) => {
     <StyledCartButton
       className={className}
       $variant={variant}
+      onClick={onClick}
     >
       {children}
     </StyledCartButton>
@@ -23,6 +25,7 @@ export const CartButton = (props) => {
 CartButton.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
+  onClick: PropTypes.func,
   variant: PropTypes.oneOf(['changeQuantity', 'addToCart'])
 }
 

@@ -11,7 +11,9 @@ import {
   StyledPrice,
   StyledAccessibility,
   StyledUnit,
-  StyledAddToCartContainer
+  StyledAddToCartContainer,
+  StyledOverlay,
+  StyledText
 } from './ProductCard.styled'
 
 import CartButton from '../CartButton/CartButton'
@@ -29,13 +31,52 @@ export const ProductCard = (props) => {
   } = props
 
   const [isFullCardShow, setIsFullCardShow] = React.useState(false)
+  const [productQuantity, setProductQuantity] = React.useState(1)
+
+  const decreaseProductQuantity = () => {
+    if (productQuantity === 0) {
+      setProductQuantity(0)
+      return
+    } else if (productQuantity <= 1) {
+      setProductQuantity(1)
+      return
+    } else if (productQuantity > 10) {
+      setProductQuantity(10)
+      return
+    }
+    setProductQuantity(prevState => prevState - 1)
+  }
+
+  const increaseProductQuantity = () => {
+    if (productQuantity >= 10 && accessibility >= 10) {
+      setProductQuantity(10)
+      return
+    } else if (productQuantity >= accessibility) {
+      setProductQuantity(accessibility)
+      return
+    } else if (productQuantity <= 0) {
+      setProductQuantity(1)
+      return
+    }
+    setProductQuantity(prevState => prevState + 1)
+  }
 
   return (
     <StyledProductCard
       onMouseEnter={() => setIsFullCardShow(true)}
       onMouseLeave={() => setIsFullCardShow(false)}
     >
-      <StyledProductContainer>
+      {
+        accessibility === 0 ?
+          <StyledOverlay>
+            <StyledText>
+              OUT OF STOCK
+            </StyledText>
+          </StyledOverlay>
+          :
+          null
+      }
+      <StyledProductContainer $isActive={accessibility > 0}>
         <StyledImg
           src={img}
           alt={`${variety}`}
@@ -62,33 +103,41 @@ export const ProductCard = (props) => {
             IN STOCK: {accessibility}
           </StyledAccessibility>
         </StyledPriceAccessibilityContainer>
-        <StyledUnit
-          variant={'cardBody1'}
-        >
-          Price for 1{unit}
-        </StyledUnit>
         {
-      isFullCardShow ?
-        <StyledAddToCartContainer
-          $isActive={true}
-        >
-          <CartButton
-            variant={'changeQuantity'}
+      isFullCardShow && accessibility !== 0 ?
+        <>
+          <StyledUnit
+            variant={'cardBody1'}
           >
-            -
-          </CartButton>
-          <ChangeQuantityField />
-          <CartButton
-            variant={'changeQuantity'}
+            Price for 1{unit}
+          </StyledUnit>
+          <StyledAddToCartContainer
+            $isActive={true}
           >
-            +
-          </CartButton>
-          <CartButton
-            variant={'addToCart'}
-          >
-            Add To Cart
-          </CartButton>
-        </StyledAddToCartContainer>
+            <CartButton
+              variant={'changeQuantity'}
+              onClick={decreaseProductQuantity}
+            >
+              -
+            </CartButton>
+            <ChangeQuantityField
+              productQuantity={productQuantity}
+              setProductQuantity={setProductQuantity}
+              type={'number'}
+            />
+            <CartButton
+              variant={'changeQuantity'}
+              onClick={increaseProductQuantity}
+            >
+              +
+            </CartButton>
+            <CartButton
+              variant={'addToCart'}
+            >
+              Add To Cart
+            </CartButton>
+          </StyledAddToCartContainer>
+        </>
         :
         <StyledAddToCartContainer $isActive={false}/>
       }

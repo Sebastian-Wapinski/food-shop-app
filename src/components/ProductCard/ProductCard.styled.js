@@ -25,12 +25,17 @@ left: 0;
 border: 1px solid transparent;
 padding: 2rem 2rem 4rem 2rem;
 z-index: 1;
-background-color: ${props => props.theme.firstBackground};
 
-&:hover {
-  border: 1px solid ${props => props.theme.mainColor};
-  z-index: 2;
+${
+  props => props.$isActive && css`
+  &:hover {
+    background-color: ${props => props.theme.firstBackground};
+    border: 1px solid ${props => props.theme.mainColor};
+    z-index: 2;
+  }
+  `
 }
+
 `
 
 const StyledImg = styled.img`
@@ -66,9 +71,9 @@ font-size: 0.7rem;
 `
 
 const StyledUnit = styled(Typography)`
-display: flex;
+display: block;
 font-size: 0.7rem;
-justify-content: flex-end;
+text-align: end;
 padding: 0.5rem 0; 
 `
 
@@ -87,6 +92,28 @@ ${
 }
 `
 
+const StyledOverlay = styled.div`
+position: absolute;
+left: 0;
+top: 0;
+background-color: rgba(0, 0, 0, 0.3);
+height: 100%;
+width: 100%;
+padding: 2rem 2rem 4rem 2rem;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+z-index: 4;
+`
+
+const StyledText = styled.div`
+color: ${props => props.theme.firstBackground};
+font-size: 2rem;
+font-weight: 600;
+z-index: 4;
+`
+
 export {
   StyledProductCard,
   StyledImg,
@@ -97,5 +124,7 @@ export {
   StyledAccessibility,
   StyledUnit,
   StyledAddToCartContainer,
-  StyledProductContainer
+  StyledProductContainer,
+  StyledOverlay,
+  StyledText
 }

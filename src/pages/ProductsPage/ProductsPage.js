@@ -2,13 +2,13 @@ import React from 'react'
 
 import { ref, onValue } from 'firebase/database'
 
-import { StyledAllProductsFromCategoryPage } from './AllProductsFromCategoryPage.styled'
+import { StyledProductsPage, StyledProductsContainer } from './ProductsPage.styled'
 import { database } from '../../firebaseConfig'
 import { useParams } from 'react-router'
-import { createData, returnRightPath } from './AllProductsFromCategoryPageHelper'
+import { createData, returnRightPath } from './ProductsPageHelper'
 import ProductCard from '../../components/ProductCard/ProductCard'
 
-export const AllProductsFromCategoryPage = () => {
+export const ProductsPage = () => {
   const { allProductsFromCategory, particularCategoryProducts } = useParams()
 
   const [productsData, setProductsData] = React.useState()
@@ -27,8 +27,9 @@ export const AllProductsFromCategoryPage = () => {
 
   return (
     productsData ?
-      <StyledAllProductsFromCategoryPage>
-        {
+      <StyledProductsPage>
+        <StyledProductsContainer>
+          {
           productsData.map(product => {
             const { img, price, producer, id, accessibility, variety, unit, category } = product
             return (
@@ -45,10 +46,11 @@ export const AllProductsFromCategoryPage = () => {
             )
           })
       }
-      </StyledAllProductsFromCategoryPage>
+        </StyledProductsContainer>
+      </StyledProductsPage>
       :
-      null
+      <StyledProductsPage />
   )
 }
 
-export default AllProductsFromCategoryPage
+export default ProductsPage
