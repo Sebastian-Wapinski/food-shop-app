@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom'
 import PageNotFound from '../../pages/PageNotFound/PageNotFound'
 import HomePage from '../../pages/HomePage/HomePage'
 import ProductsPage from '../../pages/ProductsPage/ProductsPage'
+import CartPage from '../../pages/CartPage/CartPage'
 
 export const App = () => {
   return (
@@ -15,11 +16,11 @@ export const App = () => {
           path={'/'}
           element={<HomePage />}
         >
-          {/* <Route
-            path={'/basket'}
-            element={<BasketPage />}
-          />
           <Route
+            path={'/cart'}
+            element={<CartPage />}
+          />
+          {/* <Route
             path={'/favorites'}
             element={<FavoritesPage />}
           />

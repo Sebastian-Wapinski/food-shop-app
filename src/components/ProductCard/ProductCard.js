@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { useDispatch } from 'react-redux'
+
 import {
   StyledProductCard,
   StyledProductContainer,
@@ -18,6 +20,7 @@ import {
 
 import CartButton from '../CartButton/CartButton'
 import ChangeQuantityField from '../ChangeQuantityField/ChangeQuantityField'
+import { actionAddToCart } from '../../modules/Cart/Cart.actions'
 
 export const ProductCard = (props) => {
   const {
@@ -27,11 +30,13 @@ export const ProductCard = (props) => {
     accessibility,
     variety,
     unit,
-    category
+    category,
+    id
   } = props
 
   const [isFullCardShow, setIsFullCardShow] = React.useState(false)
   const [productQuantity, setProductQuantity] = React.useState(1)
+  const dispatch = useDispatch()
 
   const decreaseProductQuantity = () => {
     if (productQuantity === 0) {
@@ -59,6 +64,19 @@ export const ProductCard = (props) => {
       return
     }
     setProductQuantity(prevState => prevState + 1)
+  }
+
+  const addToCart = () => {
+    dispatch(actionAddToCart({
+      img,
+      price,
+      producer,
+      variety,
+      category,
+      id,
+      unit,
+      quantity: productQuantity
+    }))
   }
 
   return (
@@ -133,6 +151,7 @@ export const ProductCard = (props) => {
             </CartButton>
             <CartButton
               variant={'addToCart'}
+              onClick={addToCart}
             >
               Add To Cart
             </CartButton>

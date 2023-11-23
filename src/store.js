@@ -2,8 +2,10 @@ import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
 import thunk from 'redux-thunk'
 import { STORE_NAME } from './consts'
 
-const reducers = combineReducers({
+import cartReducer from './modules/Cart/Cart.reducer'
 
+const reducers = combineReducers({
+  cart: cartReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

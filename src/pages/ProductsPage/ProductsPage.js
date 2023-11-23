@@ -82,6 +82,7 @@ export const ProductsPage = () => {
                 const { img, price, producer, id, accessibility, variety, unit, category } = product
                 return (
                   <ProductCard
+                    id={id}
                     img={img}
                     price={price}
                     producer={producer}
