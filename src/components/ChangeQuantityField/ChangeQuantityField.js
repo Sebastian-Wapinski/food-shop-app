@@ -7,13 +7,17 @@ export const ChangeQuantityField = (props) => {
   const {
     productQuantity,
     setProductQuantity,
+    setIsError,
     type
   } = props
 
   return (
     <StyledChangeQuantityField
       value={productQuantity}
-      onChange={(e) => setProductQuantity(Number(e.target.value))}
+      onChange={(e) => {
+        setIsError(false)
+        setProductQuantity(Number(e.target.value))
+      }}
       type={type}
     />
   )
@@ -21,6 +25,7 @@ export const ChangeQuantityField = (props) => {
 
 ChangeQuantityField.propTypes = {
   setProductQuantity: PropTypes.func,
+  setIsError: PropTypes.func,
   productQuantity: PropTypes.number,
   type: PropTypes.string
 }

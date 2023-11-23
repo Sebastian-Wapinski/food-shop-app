@@ -14,8 +14,6 @@ export const PaginationNav = (props) => {
     path
   } = props
 
-  console.log(path, currentPageNumber, 'path')
-
   const addStartDots = (item, index) => {
     return (
       <StyledPaginationContainer key={`${index}/dotsStart`}>

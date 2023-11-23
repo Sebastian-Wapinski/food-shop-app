@@ -23,10 +23,10 @@ ${
   color: ${props => props.theme.firstTextColor};
   background-color: ${props => props.theme.mainColor};
   font-size: 0.8rem;
-  width: 95%;
+  width: 100%;
   transition: all 0.1s ease-in-out;
   border: 1px solid transparent;
-  margin: 0 0.5rem;
+  margin: 0 0 0 0.5rem;
 
   &:hover {
     color: ${props => props.theme.mainColor};
