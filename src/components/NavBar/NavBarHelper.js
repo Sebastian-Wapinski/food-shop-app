@@ -31,5 +31,6 @@ export const searchMenuList = (e, data) => {
 
 export const checkIsNameEqualHomeIfNotReturnName = (name) => {
   if (name.toLowerCase() === 'home') return '/'
+  if (name.toLowerCase() === 'products') return '/products/page/1'
   return name.toLowerCase()
 }

@@ -38,7 +38,7 @@ export const NestedTabs = (props) => {
 
   const create1FloorNavList = React.useCallback((menu) => {
     const firstFloorMenuList = menu.menuList
-    const newPath = `${zeroFloorName}/${firstFloorName.toLowerCase()}`
+    const newPath = `${zeroFloorName}/${firstFloorName.toLowerCase()}/page/1`
     return firstFloorMenuList.map(tab => {
       const { name, id } = tab
       return (
@@ -53,7 +53,7 @@ export const NestedTabs = (props) => {
 
     return secondFloorMenuList.map(tab => {
       const { name, id } = tab
-      const newPath = `${zeroFloorName}/${firstFloorName.toLowerCase()}/${name.toLowerCase()}`
+      const newPath = `${zeroFloorName}/${firstFloorName.toLowerCase()}/${name.toLowerCase()}/page/1`
       return (
         returnNavLi(StyledSecondFloorNavLi, id, name, newPath)
       )

@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components'
+import { NavLink } from 'react-router-dom'
+import styled from 'styled-components'
 
 const DefaultStyledPaginationNav = styled.nav`
 
@@ -15,7 +16,7 @@ justify-content: center;
 align-items: center;
 `
 
-const StyledLi = styled.li`
+const StyledLi = styled(NavLink)`
 padding:  0.4rem 0.4rem;
 margin:  0.4rem 0.4rem;
 border: 1px solid ${props => props.theme.mainColor};
@@ -32,17 +33,15 @@ text-align: center;
   color: ${props => props.theme.firstBackground};
 }
 
-${
-  props => props.$isActive && css`
-    background: ${props => props.theme.mainColor};
-    color: ${props => props.theme.firstBackground};
+&.active {
+  background: ${props => props.theme.mainColor};
+  color: ${props => props.theme.firstBackground};
   
     &:hover {
     cursor: not-allowed;
     background: ${props => props.theme.mainColor};
     color: ${props => props.theme.firstBackground};
   }
-  `
 }
 `
 

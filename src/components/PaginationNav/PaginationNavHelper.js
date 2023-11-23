@@ -52,14 +52,6 @@ export const setRenderPagesNumbersDependsOnPageNumber = (pageNumber, currentPage
   )
 }
 
-export const setActiveValue = (currentPageNumber, index) => {
-  if (currentPageNumber === (index + 1)) {
-    return true
-  } else {
-    return false
-  }
-}
-
 export const calculatePagesAmount = (length, pageLimit) => {
   return Math.ceil((isNaN(length) ? 0 : length) / pageLimit)
 }

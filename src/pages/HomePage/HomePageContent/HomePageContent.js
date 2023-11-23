@@ -47,7 +47,7 @@ export const HomePageContent = () => {
       <StyledH2 variant={'h2'}>CHECK OUT MOST POPULAR PRODUCTS!!!</StyledH2>
       <StyledAllImgContainer>
         <StyledImgContainer
-          to={'products/vegetables'}
+          to={'products/vegetables/page/1'}
         >
           <StyledImg
             src={'./img/vegetables.png'}
@@ -56,7 +56,7 @@ export const HomePageContent = () => {
           <StyledImgTitle variant={'productImg'}>VEGETABLES</StyledImgTitle>
         </StyledImgContainer>
         <StyledImgContainer
-          to={'products/fruits'}
+          to={'products/fruits/page/1'}
         >
           <StyledImg
             src={'./img/fruits.png'}

@@ -28,15 +28,15 @@ export const App = () => {
             element={<LogInFavoritesPage />}
           /> */}
           <Route
-            path={'/products'}
+            path={'/products/page/:pageNumAllProducts'}
             element={<ProductsPage />}
           />
           <Route
-            path={'/products/:allProductsFromCategory'}
+            path={'/products/:allProductsFromCategory/page/:pageNumFromCategory'}
             element={<ProductsPage />}
           />
           <Route
-            path={'/products/:allProductsFromCategory/:particularCategoryProducts'}
+            path={'/products/:allProductsFromCategory/:particularCategoryProducts/page/:pageNumParticularCategory'}
             element={<ProductsPage />}
           />
           {/* <Route

@@ -1,24 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { useNavigate } from 'react-router-dom'
+
 import { StyledButtonsChangingPages, StyledButton, StyledPagesInfo } from './ButtonsChangingPages.styled'
 
 export const ButtonsChangingPages = (props) => {
   const {
     currentPageNumber,
-    setCurrentPageNumber,
-    allPages
+    allPages,
+    path
   } = props
+
+  const navigate = useNavigate()
 
   const setPrevPage = () => {
     if (currentPageNumber > 1) {
-      setCurrentPageNumber(prevState => prevState - 1)
+      const newPageNumber = currentPageNumber - 1
+      navigate(`${path}/${newPageNumber}`)
     }
   }
 
   const setNextPage = () => {
     if (currentPageNumber < allPages) {
-      setCurrentPageNumber(prevState => prevState + 1)
+      const newPageNumber = currentPageNumber + 1
+      navigate(`${path}/${newPageNumber}`)
     }
   }
 
@@ -45,8 +51,8 @@ export const ButtonsChangingPages = (props) => {
 
 ButtonsChangingPages.propTypes = {
   currentPageNumber: PropTypes.number,
-  setCurrentPageNumber: PropTypes.func,
-  allPages: PropTypes.number
+  allPages: PropTypes.number,
+  path: PropTypes.string
 }
 
 export default ButtonsChangingPages
