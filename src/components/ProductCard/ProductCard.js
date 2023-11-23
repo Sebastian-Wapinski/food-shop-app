@@ -15,7 +15,8 @@ import {
   StyledUnit,
   StyledAddToCartContainer,
   StyledOverlay,
-  StyledText
+  StyledText,
+  StyledProductErrorMessage
 } from './ProductCard.styled'
 
 import CartButton from '../CartButton/CartButton'
@@ -36,27 +37,24 @@ export const ProductCard = (props) => {
 
   const [isFullCardShow, setIsFullCardShow] = React.useState(false)
   const [productQuantity, setProductQuantity] = React.useState(1)
+  const [isError, setIsError] = React.useState(false)
   const dispatch = useDispatch()
 
   const decreaseProductQuantity = () => {
-    if (productQuantity === 0) {
-      setProductQuantity(0)
+    setIsError(false)
+    if (productQuantity > accessibility) {
+      setProductQuantity(accessibility)
       return
     } else if (productQuantity <= 1) {
       setProductQuantity(1)
-      return
-    } else if (productQuantity > 10) {
-      setProductQuantity(10)
       return
     }
     setProductQuantity(prevState => prevState - 1)
   }
 
   const increaseProductQuantity = () => {
-    if (productQuantity >= 10 && accessibility >= 10) {
-      setProductQuantity(10)
-      return
-    } else if (productQuantity >= accessibility) {
+    setIsError(false)
+    if (productQuantity >= accessibility) {
       setProductQuantity(accessibility)
       return
     } else if (productQuantity <= 0) {
@@ -67,6 +65,11 @@ export const ProductCard = (props) => {
   }
 
   const addToCart = () => {
+    if (productQuantity > accessibility || productQuantity <= 0) {
+      setIsError(true)
+      return
+    }
+
     dispatch(actionAddToCart({
       img,
       price,
@@ -94,7 +97,9 @@ export const ProductCard = (props) => {
           :
           null
       }
-      <StyledProductContainer $isActive={accessibility > 0}>
+      <StyledProductContainer
+        $isActive={accessibility > 0}
+      >
         <StyledImg
           src={img}
           alt={`${variety}`}
@@ -122,16 +127,14 @@ export const ProductCard = (props) => {
           </StyledAccessibility>
         </StyledPriceAccessibilityContainer>
         {
-      isFullCardShow && accessibility !== 0 ?
+      isFullCardShow && accessibility > 0 ?
         <>
           <StyledUnit
             variant={'cardBody1'}
           >
             Price for 1{unit}
           </StyledUnit>
-          <StyledAddToCartContainer
-            $isActive={true}
-          >
+          <StyledAddToCartContainer>
             <CartButton
               variant={'changeQuantity'}
               onClick={decreaseProductQuantity}
@@ -141,6 +144,7 @@ export const ProductCard = (props) => {
             <ChangeQuantityField
               productQuantity={productQuantity}
               setProductQuantity={setProductQuantity}
+              setIsError={setIsError}
               type={'number'}
             />
             <CartButton
@@ -156,9 +160,17 @@ export const ProductCard = (props) => {
               Add To Cart
             </CartButton>
           </StyledAddToCartContainer>
+          {
+            isError ?
+              <StyledProductErrorMessage>
+                Unacceptable quantity! Input in range!
+              </StyledProductErrorMessage>
+              :
+              null
+          }
         </>
         :
-        <StyledAddToCartContainer $isActive={false}/>
+        null
       }
       </StyledProductContainer>
     </StyledProductCard>
