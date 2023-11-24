@@ -25,8 +25,6 @@ Typography.propTypes = {
   variant: PropTypes.oneOf([
     'h1',
     'h2',
-    'h3',
-    'button',
     'body1',
     'body2',
     'productImg',

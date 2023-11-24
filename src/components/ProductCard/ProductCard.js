@@ -19,9 +19,9 @@ import {
   StyledProductErrorMessage
 } from './ProductCard.styled'
 
-import CartButton from '../CartButton/CartButton'
-import ChangeQuantityField from '../ChangeQuantityField/ChangeQuantityField'
+import CardButton from '../CardButton/CardButton'
 import { actionAddToCart } from '../../modules/Cart/Cart.actions'
+import ChangeProductQuantityComplex from '../ChangeProductQuantityComplex/ChangeProductQuantityComplex'
 
 export const ProductCard = (props) => {
   const {
@@ -135,30 +135,19 @@ export const ProductCard = (props) => {
             Price for 1{unit}
           </StyledUnit>
           <StyledAddToCartContainer>
-            <CartButton
-              variant={'changeQuantity'}
-              onClick={decreaseProductQuantity}
-            >
-              -
-            </CartButton>
-            <ChangeQuantityField
+            <ChangeProductQuantityComplex
+              decreaseProductQuantity={decreaseProductQuantity}
+              increaseProductQuantity={increaseProductQuantity}
               productQuantity={productQuantity}
               setProductQuantity={setProductQuantity}
               setIsError={setIsError}
-              type={'number'}
             />
-            <CartButton
-              variant={'changeQuantity'}
-              onClick={increaseProductQuantity}
-            >
-              +
-            </CartButton>
-            <CartButton
+            <CardButton
               variant={'addToCart'}
               onClick={addToCart}
             >
               Add To Cart
-            </CartButton>
+            </CardButton>
           </StyledAddToCartContainer>
           {
             isError ?

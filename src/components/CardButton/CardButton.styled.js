@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-const DefaultStyledCartButton = styled.button`
+const DefaultStyledCardButton = styled.button`
 
 ${
   props => props.$variant === 'changeQuantity' && css`
@@ -39,8 +39,8 @@ ${
 
 `
 
-const StyledCartButton = styled(DefaultStyledCartButton)(
+const StyledCardButton = styled(DefaultStyledCardButton)(
   props => props.style
 )
 
-export { StyledCartButton }
+export { StyledCardButton }

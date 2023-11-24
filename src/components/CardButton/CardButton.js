@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { StyledCartButton } from './CartButton.styled'
+import { StyledCardButton } from './CardButton.styled'
 
-export const CartButton = (props) => {
+export const CardButton = (props) => {
   const {
     children,
     className,
@@ -12,21 +12,21 @@ export const CartButton = (props) => {
   } = props
 
   return (
-    <StyledCartButton
+    <StyledCardButton
       className={className}
       $variant={variant}
       onClick={onClick}
     >
       {children}
-    </StyledCartButton>
+    </StyledCardButton>
   )
 }
 
-CartButton.propTypes = {
+CardButton.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   onClick: PropTypes.func,
   variant: PropTypes.oneOf(['changeQuantity', 'addToCart'])
 }
 
-export default CartButton
+export default CardButton
