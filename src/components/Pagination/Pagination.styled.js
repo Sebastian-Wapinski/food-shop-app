@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { responsiveSizes } from '../style/responsiveSizes'
 
 const DefaultStyledPagination = styled.div`
-padding: 2rem 0 4rem 0;
+padding-bottom: 4rem;
 max-width: ${responsiveSizes.pageWidth};
 display: grid;
 grid-template-columns: repeat(4, 1fr);

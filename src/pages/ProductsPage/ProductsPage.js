@@ -2,7 +2,7 @@ import React from 'react'
 
 import { ref, onValue } from 'firebase/database'
 
-import { StyledProductsPage } from './ProductsPage.styled'
+import { StyledProductsPage, StyledPageTitle } from './ProductsPage.styled'
 import { database } from '../../firebaseConfig'
 import { useLocation, useNavigate, useParams } from 'react-router'
 import { createData, returnRightPath, sliceLastBackslash } from './ProductsPageHelper'
@@ -69,9 +69,21 @@ export const ProductsPage = () => {
     return (Number(pageNumAllProducts) || Number((pageNumFromCategory)) || Number(pageNumParticularCategory))
   }
 
+  const setFirstLetterToUppercase = (word) => {
+    if (word !== undefined) {
+      return word[0].toUpperCase() + word.slice(1)
+    }
+    return null
+  }
+
   return (
     productsData ?
       <StyledProductsPage>
+        <StyledPageTitle
+          variant={'h2'}
+        >
+          {setFirstLetterToUppercase(particularCategoryProducts) || setFirstLetterToUppercase(allProductsFromCategory) || 'All Products'}
+        </StyledPageTitle>
         <Pagination
           pageNum={pageNum()}
           pageLimit={12}
