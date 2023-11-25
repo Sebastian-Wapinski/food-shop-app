@@ -22,7 +22,7 @@ grid-column-gap: 3rem;
 grid-row-gap: 2rem;
 display: grid;
 grid-template-columns: 3fr 1fr;
-grid-template-rows: 30rem 5rem;
+grid-template-rows: 25rem 10rem;
 grid-template-areas: 
 'StyledProductsContainer StyledShippingContainer'
 'StyledNote StyledPayWithStripe';
@@ -30,6 +30,33 @@ grid-template-areas:
 const StyledProductsContainer = styled.div`
 grid-area: StyledProductsContainer;
 border: 1px solid ${props => props.theme.secondTextColor};
+display: flex;
+justify-content: flex-start;
+align-items: center;
+flex-direction: column;
+max-height: 25rem;
+overflow-y: scroll;
+padding: 1rem 0;
+
+&::-webkit-scrollbar,
+&::-webkit-scrollbar-thumb,
+&::-webkit-scrollbar-track { 
+    width: 0.8rem;
+    border: none;
+    background: transparent;
+}
+
+&::-webkit-scrollbar-track {
+  background: ${props => props.theme.mainColorLighterShade};
+}
+
+&::-webkit-scrollbar-thumb {
+  background-color: ${props => props.theme.mainColor};
+}
+
+&::-webkit-scrollbar-thumb:hover {
+  background-color: ${props => props.theme.mainColorDarkerShade};
+}
 `
 const StyledShippingContainer = styled.div`
 grid-area: StyledShippingContainer;

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import {
   StyledProductCard,
@@ -20,8 +20,10 @@ import {
 } from './ProductCard.styled'
 
 import CardButton from '../CardButton/CardButton'
-import { actionAddToCart } from '../../modules/Cart/Cart.actions'
+import { actionAddToCart, actionIncreaseQuantity } from '../../modules/Cart/Cart.actions'
 import ChangeProductQuantityComplex from '../ChangeProductQuantityComplex/ChangeProductQuantityComplex'
+import { decreaseProductQuantityValidation, increaseProductQuantityValidation } from '../../validation/insertProductValue'
+import { ERROR_PRODUCT_QUANTITY } from '../../consts'
 
 export const ProductCard = (props) => {
   const {
@@ -39,47 +41,45 @@ export const ProductCard = (props) => {
   const [productQuantity, setProductQuantity] = React.useState(1)
   const [isError, setIsError] = React.useState(false)
   const dispatch = useDispatch()
+  const { products: cartProducts } = useSelector(state => state.cart)
 
   const decreaseProductQuantity = () => {
     setIsError(false)
-    if (productQuantity > accessibility) {
-      setProductQuantity(accessibility)
-      return
-    } else if (productQuantity <= 1) {
-      setProductQuantity(1)
-      return
-    }
+    const isNotValid = decreaseProductQuantityValidation(productQuantity, accessibility, setProductQuantity)
+    if (isNotValid) return
     setProductQuantity(prevState => prevState - 1)
   }
 
   const increaseProductQuantity = () => {
     setIsError(false)
-    if (productQuantity >= accessibility) {
-      setProductQuantity(accessibility)
-      return
-    } else if (productQuantity <= 0) {
-      setProductQuantity(1)
-      return
-    }
+    const isNotValid = increaseProductQuantityValidation(productQuantity, accessibility, setProductQuantity)
+    if (isNotValid) return
     setProductQuantity(prevState => prevState + 1)
   }
 
   const addToCart = () => {
-    if (productQuantity > accessibility || productQuantity <= 0) {
+    if (productQuantity > accessibility || productQuantity <= 0 || productQuantity === '') {
       setIsError(true)
       return
     }
 
-    dispatch(actionAddToCart({
-      img,
-      price,
-      producer,
-      variety,
-      category,
-      id,
-      unit,
-      quantity: productQuantity
-    }))
+    const isProductInCart = cartProducts.filter(product => product.id === id)
+
+    if (isProductInCart.length === 0) {
+      dispatch(actionAddToCart({
+        img,
+        price,
+        producer,
+        variety,
+        category,
+        id,
+        unit,
+        accessibility,
+        quantity: productQuantity
+      }))
+    } else {
+      dispatch(actionIncreaseQuantity(id, productQuantity))
+    }
   }
 
   return (
@@ -141,6 +141,7 @@ export const ProductCard = (props) => {
               productQuantity={productQuantity}
               setProductQuantity={setProductQuantity}
               setIsError={setIsError}
+              valueOnEmptyField={''}
             />
             <CardButton
               variant={'addToCart'}
@@ -151,8 +152,10 @@ export const ProductCard = (props) => {
           </StyledAddToCartContainer>
           {
             isError ?
-              <StyledProductErrorMessage>
-                Unacceptable quantity! Input in range!
+              <StyledProductErrorMessage
+                variant={'errorMessage'}
+              >
+                {ERROR_PRODUCT_QUANTITY}
               </StyledProductErrorMessage>
               :
               null

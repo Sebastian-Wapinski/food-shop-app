@@ -84,6 +84,18 @@ ${
   `
 }
 
+${
+  props => props.$variant === 'errorMessage' && css`
+  font-family: Lato;
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1rem;
+  text-align: center;
+  letter-spacing: 0.15px;
+  color: ${props => props.theme.errorMessage};
+  `
+}
+
 `
 
 const StyledTypography = styled(DefaultStyledTypography)(

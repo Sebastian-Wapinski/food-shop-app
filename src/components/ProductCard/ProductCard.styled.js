@@ -103,12 +103,9 @@ font-weight: 600;
 z-index: 4;
 `
 
-const StyledProductErrorMessage = styled.p`
-color: ${props => props.theme.errorMessage};
-text-align: center;
-margin-top: 0.5rem;
-font-size: 0.7rem;
-font-weight: 400;
+const StyledProductErrorMessage = styled(Typography)`
+display: block;
+margin-top: 1rem;
 z-index: 4;
 `
 

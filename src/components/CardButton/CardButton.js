@@ -26,7 +26,7 @@ CardButton.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   onClick: PropTypes.func,
-  variant: PropTypes.oneOf(['changeQuantity', 'addToCart'])
+  variant: PropTypes.oneOf(['changeQuantity', 'addToCart', 'delete'])
 }
 
 export default CardButton

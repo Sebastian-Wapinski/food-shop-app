@@ -10,6 +10,7 @@ ${
   width: 2rem;
   height: 2rem;
   transition: all 0.1s ease-in-out;
+  border: 1px solid ${props => props.theme.mainColor};
 
   &:hover {
     color: ${props => props.theme.thirdTextColor};
@@ -27,6 +28,25 @@ ${
   transition: all 0.1s ease-in-out;
   border: 1px solid transparent;
   margin: 0 0 0 0.5rem;
+
+  &:hover {
+    color: ${props => props.theme.mainColor};
+    background-color: ${props => props.theme.firstBackground};
+    border: 1px solid ${props => props.theme.mainColor};
+    cursor: pointer;
+  }
+  `
+}
+
+${
+  props => props.$variant === 'delete' && css`
+  color: ${props => props.theme.firstTextColor};
+  background-color: ${props => props.theme.mainColor};
+  font-size: 0.8rem;
+  width: 3rem;
+  height: 3rem;
+  transition: all 0.1s ease-in-out;
+  border: 1px solid transparent;
 
   &:hover {
     color: ${props => props.theme.mainColor};

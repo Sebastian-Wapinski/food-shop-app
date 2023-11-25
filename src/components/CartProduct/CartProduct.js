@@ -10,45 +10,120 @@ import {
   StyledUnitPrice,
   StyledContainerPriceQuantity,
   StyledPrice,
-  StyledAccessibility
+  StyledAccessibility,
+  StyledCardButtonContainer,
+  StyledErrorMessage
 } from './CartProduct.styled'
 
 import ChangeProductQuantityComplex from '../ChangeProductQuantityComplex/ChangeProductQuantityComplex'
+import CardButton from '../CardButton/CardButton'
+
+import { useDispatch } from 'react-redux'
+import { actionDecreaseQuantity, actionDeleteFromCart, actionIncreaseQuantity, actionSetNewQuantity } from '../../modules/Cart/Cart.actions'
+import { decreaseProductQuantityValidation, increaseProductQuantityValidation, setProductQuantityValidation } from '../../validation/insertProductValue'
+import { ERROR_PRODUCT_QUANTITY } from '../../consts'
 
 export const CartProduct = (props) => {
   const {
     product
   } = props
 
-  const { img, price, producer, accessibility, variety, unit, category } = product
+  const { img, price, producer, accessibility, variety, unit, category, id, quantity } = product
+
+  const [newProductQuantity, setNewProductQuantity] = React.useState(quantity)
+  const [isError, setIsError] = React.useState(false)
+
+  const dispatch = useDispatch()
+
+  const decreaseProductQuantity = (id) => {
+    setIsError(false)
+    const isNotValid = decreaseProductQuantityValidation(newProductQuantity, accessibility, setNewProductQuantity)
+    if (isNotValid) return
+    dispatch(actionDecreaseQuantity(id))
+    setNewProductQuantity(prevState => prevState - 1)
+  }
+
+  const increaseProductQuantity = (id) => {
+    setIsError(false)
+    const isNotValid = increaseProductQuantityValidation(newProductQuantity, accessibility, setNewProductQuantity)
+    if (isNotValid) return
+    dispatch(actionIncreaseQuantity(id))
+    setNewProductQuantity(prevState => prevState + 1)
+  }
+
+  const totalPriceOfOneProduct = newProductQuantity * price
+
+  React.useEffect(() => {
+    if (newProductQuantity !== '') {
+      setProductQuantityValidation(newProductQuantity, accessibility, setNewProductQuantity)
+      dispatch(actionSetNewQuantity(id, newProductQuantity))
+    }
+  }, [accessibility, dispatch, id, newProductQuantity, quantity])
 
   return (
-    <StyledCartProduct>
-      <StyledImg
-        src={img}
-        alt={`${variety}`}
-      />
-      <StyledContainerProductInfo>
-        <StyledName>
-          {category}-{variety}
-        </StyledName>
-        <StyledProducer>
-          {producer}
-        </StyledProducer>
-        <StyledUnitPrice>
-          Price for 1 {unit} - {price}
-        </StyledUnitPrice>
-      </StyledContainerProductInfo>
-      <StyledContainerPriceQuantity>
-        <StyledPrice>
-
+    <>
+      <StyledCartProduct>
+        <StyledImg
+          src={img}
+          alt={`${variety}`}
+        />
+        <StyledContainerProductInfo>
+          <StyledName
+            variant={'cardH1'}
+          >
+            {category}-{variety}
+          </StyledName>
+          <StyledProducer
+            variant={'cardBody1'}
+          >
+            {producer}
+          </StyledProducer>
+          <StyledUnitPrice
+            variant={'cardBody1'}
+          >
+            Price for 1 {unit} - {price}€
+          </StyledUnitPrice>
+        </StyledContainerProductInfo>
+        <StyledContainerPriceQuantity>
+          <ChangeProductQuantityComplex
+            decreaseProductQuantity={() => decreaseProductQuantity(id)}
+            increaseProductQuantity={() => increaseProductQuantity(id)}
+            productQuantity={newProductQuantity}
+            setProductQuantity={setNewProductQuantity}
+            setIsError={setIsError}
+            valueOnEmptyField={1}
+          />
+          <StyledAccessibility
+            variant={'cardBody1'}
+          >
+            In Stock: {accessibility}
+          </StyledAccessibility>
+        </StyledContainerPriceQuantity>
+        <StyledPrice
+          variant={'cardBody1'}
+        >
+          {totalPriceOfOneProduct}€
         </StyledPrice>
-        <StyledAccessibility>
-          In Stock: {accessibility}
-        </StyledAccessibility>
-        <ChangeProductQuantityComplex />
-      </StyledContainerPriceQuantity>
-    </StyledCartProduct>
+        <StyledCardButtonContainer>
+          <CardButton
+            variant={'delete'}
+            onClick={() => dispatch(actionDeleteFromCart(id))}
+          >
+            DEL
+          </CardButton>
+        </StyledCardButtonContainer>
+      </StyledCartProduct>
+      {
+      isError ?
+        <StyledErrorMessage
+          variant={'errorMessage'}
+        >
+          {ERROR_PRODUCT_QUANTITY}
+        </StyledErrorMessage>
+        :
+        null
+    }
+    </>
   )
 }
 

@@ -5,12 +5,11 @@ import { ref, onValue } from 'firebase/database'
 import { StyledProductsPage } from './ProductsPage.styled'
 import { database } from '../../firebaseConfig'
 import { useLocation, useNavigate, useParams } from 'react-router'
-import { createData, returnRightPath } from './ProductsPageHelper'
+import { createData, returnRightPath, sliceLastBackslash } from './ProductsPageHelper'
 import ProductCard from '../../components/ProductCard/ProductCard'
 import Pagination from '../../components/Pagination/Pagination'
 import PaginationNav from '../../components/PaginationNav'
 import ButtonsChangingPages from '../../components/ButtonsChangingPages/ButtonsChangingPages'
-import { sliceLastBackslash } from '../../helper/helper'
 
 export const ProductsPage = () => {
   const {

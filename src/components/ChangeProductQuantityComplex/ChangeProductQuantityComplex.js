@@ -4,17 +4,20 @@ import PropTypes from 'prop-types'
 import CardButton from '../CardButton/CardButton'
 import ChangeQuantityField from '../ChangeQuantityField/ChangeQuantityField'
 
+import { StyledChangeProductQuantityComplex } from './ChangeProductQuantityComplex.styled'
+
 export const ChangeProductQuantityComplex = (props) => {
   const {
     decreaseProductQuantity,
     increaseProductQuantity,
     productQuantity,
     setProductQuantity,
+    valueOnEmptyField,
     setIsError
   } = props
 
   return (
-    <>
+    <StyledChangeProductQuantityComplex>
       <CardButton
         variant={'changeQuantity'}
         onClick={decreaseProductQuantity}
@@ -25,7 +28,7 @@ export const ChangeProductQuantityComplex = (props) => {
         productQuantity={productQuantity}
         setProductQuantity={setProductQuantity}
         setIsError={setIsError}
-        type={'number'}
+        valueOnEmptyField={valueOnEmptyField}
       />
       <CardButton
         variant={'changeQuantity'}
@@ -33,16 +36,23 @@ export const ChangeProductQuantityComplex = (props) => {
       >
         +
       </CardButton>
-    </>
+    </StyledChangeProductQuantityComplex>
   )
 }
 
 ChangeProductQuantityComplex.propTypes = {
   decreaseProductQuantity: PropTypes.func,
   increaseProductQuantity: PropTypes.func,
-  productQuantity: PropTypes.number,
+  productQuantity: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf([''])
+  ]),
   setProductQuantity: PropTypes.func,
-  setIsError: PropTypes.func
+  setIsError: PropTypes.func,
+  valueOnEmptyField: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf([''])
+  ])
 }
 
 export default ChangeProductQuantityComplex

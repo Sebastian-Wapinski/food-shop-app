@@ -7,18 +7,27 @@ export const ChangeQuantityField = (props) => {
   const {
     productQuantity,
     setProductQuantity,
-    setIsError,
-    type
+    valueOnEmptyField,
+    setIsError
   } = props
 
   return (
     <StyledChangeQuantityField
       value={productQuantity}
       onChange={(e) => {
+        const value = e.target.value
         setIsError(false)
-        setProductQuantity(Number(e.target.value))
+        if (/^\d*$/.test(value) && value === '') {
+          setProductQuantity(e.target.value)
+        } else if (/^\d*$/.test(value)) {
+          setProductQuantity(Number(e.target.value))
+        }
       }}
-      type={type}
+      onBlur={() => {
+        if (productQuantity === '') {
+          setProductQuantity(valueOnEmptyField)
+        }
+      }}
     />
   )
 }
@@ -26,8 +35,14 @@ export const ChangeQuantityField = (props) => {
 ChangeQuantityField.propTypes = {
   setProductQuantity: PropTypes.func,
   setIsError: PropTypes.func,
-  productQuantity: PropTypes.number,
-  type: PropTypes.string
+  productQuantity: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf([''])
+  ]),
+  valueOnEmptyField: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf([''])
+  ])
 }
 
 export default ChangeQuantityField

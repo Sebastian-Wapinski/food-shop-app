@@ -29,7 +29,8 @@ Typography.propTypes = {
     'body2',
     'productImg',
     'cardH1',
-    'cardBody1'
+    'cardBody1',
+    'errorMessage'
   ]),
   className: PropTypes.string
 }

@@ -1,5 +1,7 @@
 export const theme = {
   mainColor: '#00A650',
+  mainColorLighterShade: '#99DBB9',
+  mainColorDarkerShade: '#008540',
   firstBackground: '#FFF',
   firstTextColor: '#FFF',
   secondTextColor: '#12492C',
