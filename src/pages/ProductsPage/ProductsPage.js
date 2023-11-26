@@ -85,10 +85,14 @@ export const ProductsPage = () => {
   return (
     productsData ?
       <StyledProductsPage>
-        <AddedToCartOverlay
-          isActiveAddedToCartLayer={isActiveAddedToCartLayer}
-          setIsActiveAddedToCartLayer={setIsActiveAddedToCartLayer}
-        />
+        {
+          isActiveAddedToCartLayer ?
+            <AddedToCartOverlay
+              setIsActiveAddedToCartLayer={setIsActiveAddedToCartLayer}
+            />
+            :
+            null
+        }
         <StyledPageTitle
           variant={'h2'}
         >

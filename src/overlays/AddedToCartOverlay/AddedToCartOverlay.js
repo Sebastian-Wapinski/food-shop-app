@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { useSelector } from 'react-redux'
+
 import {
   StyledDarkOverlay,
   StyledContainer,
@@ -15,48 +17,47 @@ import {
 
 export const AddedToCartOverlay = (props) => {
   const {
-    isActiveAddedToCartLayer,
     setIsActiveAddedToCartLayer
   } = props
 
+  const { addedToCartProduct } = useSelector(state => state.cart)
+
+  console.log(addedToCartProduct, addedToCartProduct)
+
   return (
-    isActiveAddedToCartLayer ?
-      <>
-        <StyledDarkOverlay
-          onClick={() => {
-            setIsActiveAddedToCartLayer(false)
-          }}
-        />
-        <StyledContainer>
-          <StyledAddedToCartContainer>
-            <StyledTitle>
-              Added To Cart
-            </StyledTitle>
-            <StyledProduct>
-              <StyledImg>
+    <>
+      <StyledDarkOverlay
+        onClick={() => {
+          setIsActiveAddedToCartLayer(false)
+        }}
+      />
+      <StyledContainer>
+        <StyledAddedToCartContainer>
+          <StyledTitle>
+            Added To Cart
+          </StyledTitle>
+          <StyledProduct>
+            <StyledImg>
 
-              </StyledImg>
-              <StyledName>
+            </StyledImg>
+            <StyledName>
 
-              </StyledName>
-              <StyledQuantity>
+            </StyledName>
+            <StyledQuantity>
 
-              </StyledQuantity>
-              <StyledPrice>
+            </StyledQuantity>
+            <StyledPrice>
 
-              </StyledPrice>
-            </StyledProduct>
+            </StyledPrice>
+          </StyledProduct>
 
-          </StyledAddedToCartContainer>
-        </StyledContainer>
-      </>
-      :
-      null
+        </StyledAddedToCartContainer>
+      </StyledContainer>
+    </>
   )
 }
 
 AddedToCartOverlay.propTypes = {
-  isActiveAddedToCartLayer: PropTypes.bool,
   setIsActiveAddedToCartLayer: PropTypes.func
 }
 

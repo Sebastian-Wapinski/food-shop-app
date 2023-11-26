@@ -11,6 +11,7 @@ const reducer = (state = initState, action) => {
     case ADD_TO_CART:
       return {
         ...state,
+        addedToCartProduct: { ...action.payload },
         products: [
           ...state.products,
           {
