@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const DefaultStyledIcons = styled.div`
+position: relative;
 display: flex;
 justify-content: space-around;
 width: 15rem;
