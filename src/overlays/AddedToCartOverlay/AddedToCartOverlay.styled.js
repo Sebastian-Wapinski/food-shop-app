@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Typography from '../../components/Typography/Typography'
 
 const StyledContainer = styled.div`
 position: absolute;
@@ -13,10 +14,11 @@ top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
 display: flex;
-justify-content: center;
+justify-content: space-around;
 align-items: center;
-width: 10rem;
-height: 10rem;
+flex-direction: column;
+width: 45rem;
+height: 15rem;
 background-color: white;
 z-index: 102;
 `
@@ -31,34 +33,40 @@ background-color: rgba(0, 0, 0, 0.5);
 z-index: 101;
 `
 
-const StyledTitle = styled.div`
-
-z-index: 101;
+const StyledTitle = styled(Typography)`
+align-self: center;
+font-size: 1.7rem;
+padding: 1rem 0 1rem 2rem;
 `
 
 const StyledProduct = styled.div`
-
-z-index: 101;
+display: flex;
+justify-content: space-around;
+align-items: center;
+width: 100%;
 `
 
-const StyledImg = styled.div`
-
-z-index: 101;
+const StyledImg = styled.img`
+width: 5rem;
 `
 
-const StyledName = styled.div`
-
-z-index: 101;
+const StyledName = styled(Typography)`
+font-size: 1.1rem;
 `
 
-const StyledQuantity = styled.div`
-
-z-index: 101;
+const StyledQuantity = styled(Typography)`
+font-size: 1.1rem;
 `
 
-const StyledPrice = styled.div`
+const StyledPrice = styled(Typography)`
+font-size: 1.5rem;
+`
 
-z-index: 101;
+const StyledButtonsContainer = styled.div`
+display: flex;
+justify-content: flex-end;
+padding: 1rem 0;
+width: 100%;
 `
 
 export {
@@ -70,5 +78,6 @@ export {
   StyledImg,
   StyledName,
   StyledQuantity,
-  StyledPrice
+  StyledPrice,
+  StyledButtonsContainer
 }

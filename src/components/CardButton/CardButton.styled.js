@@ -57,6 +57,26 @@ ${
   `
 }
 
+${
+  props => props.$variant === 'customText' && css`
+  color: ${props => props.theme.firstTextColor};
+  background-color: ${props => props.theme.mainColor};
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.7rem 2rem;
+  margin: 0 1rem;
+  transition: all 0.1s ease-in-out;
+  border: 1px solid transparent;
+
+  &:hover {
+    color: ${props => props.theme.mainColor};
+    background-color: ${props => props.theme.firstBackground};
+    border: 1px solid ${props => props.theme.mainColor};
+    cursor: pointer;
+  }
+  `
+}
+
 `
 
 const StyledCardButton = styled(DefaultStyledCardButton)(

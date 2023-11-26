@@ -12,8 +12,11 @@ import {
   StyledImg,
   StyledName,
   StyledQuantity,
-  StyledPrice
+  StyledPrice,
+  StyledButtonsContainer
 } from './AddedToCartOverlay.styled'
+import CardButton from '../../components/CardButton/CardButton'
+import { Link } from 'react-router-dom'
 
 export const AddedToCartOverlay = (props) => {
   const {
@@ -22,7 +25,9 @@ export const AddedToCartOverlay = (props) => {
 
   const { addedToCartProduct } = useSelector(state => state.cart)
 
-  console.log(addedToCartProduct, addedToCartProduct)
+  const { img, price, producer, variety, category, quantity } = addedToCartProduct
+
+  const totalPrice = price * quantity
 
   return (
     <>
@@ -33,24 +38,51 @@ export const AddedToCartOverlay = (props) => {
       />
       <StyledContainer>
         <StyledAddedToCartContainer>
-          <StyledTitle>
+          <StyledTitle
+            variant={'cardH1'}
+          >
             Added To Cart
           </StyledTitle>
           <StyledProduct>
-            <StyledImg>
-
-            </StyledImg>
-            <StyledName>
-
+            <StyledImg
+              src={img}
+              alt={variety}
+            />
+            <StyledName
+              variant={'cardBody1'}
+            >
+              {category} - {variety} - {producer}
             </StyledName>
-            <StyledQuantity>
-
+            <StyledQuantity
+              variant={'cardBody1'}
+            >
+              {quantity}
             </StyledQuantity>
-            <StyledPrice>
-
+            <StyledPrice
+              variant={'cardBody1'}
+            >
+              {totalPrice}€
             </StyledPrice>
           </StyledProduct>
-
+          <StyledButtonsContainer>
+            <CardButton
+              variant={'customText'}
+              onClick={() => {
+                setIsActiveAddedToCartLayer(false)
+              }}
+            >
+              Continue Shopping
+            </CardButton>
+            <Link
+              to={'/cart'}
+            >
+              <CardButton
+                variant={'customText'}
+              >
+                View Cart
+              </CardButton>
+            </Link>
+          </StyledButtonsContainer>
         </StyledAddedToCartContainer>
       </StyledContainer>
     </>
