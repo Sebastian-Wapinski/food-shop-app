@@ -10,7 +10,7 @@ left: 0;
 width: 100%;
 background-color: ${props => props.theme.firstBackground};
 overflow: hidden;
-z-index: 9999;
+z-index: 100;
 
 ${
   props => props.$isActive && css`

@@ -20,7 +20,7 @@ import {
 } from './ProductCard.styled'
 
 import CardButton from '../CardButton/CardButton'
-import { actionAddToCart, actionIncreaseQuantity } from '../../modules/Cart/Cart.actions'
+import { actionAddToCart, actionChangeProductQuantity, actionIncreaseQuantity } from '../../modules/Cart/Cart.actions'
 import ChangeProductQuantityComplex from '../ChangeProductQuantityComplex/ChangeProductQuantityComplex'
 import { decreaseProductQuantityValidation, increaseProductQuantityValidation } from '../../validation/insertProductValue'
 import { ERROR_PRODUCT_QUANTITY } from '../../consts'
@@ -34,7 +34,8 @@ export const ProductCard = (props) => {
     variety,
     unit,
     category,
-    id
+    id,
+    setIsActiveAddedToCartLayer
   } = props
 
   const [isFullCardShow, setIsFullCardShow] = React.useState(false)
@@ -77,9 +78,13 @@ export const ProductCard = (props) => {
         accessibility,
         quantity: productQuantity
       }))
+      dispatch(actionChangeProductQuantity())
     } else {
       dispatch(actionIncreaseQuantity(id, productQuantity))
+      dispatch(actionChangeProductQuantity())
     }
+
+    setIsActiveAddedToCartLayer(true)
   }
 
   return (
@@ -177,7 +182,8 @@ ProductCard.propTypes = {
   accessibility: PropTypes.number,
   variety: PropTypes.string,
   unit: PropTypes.string,
-  category: PropTypes.string
+  category: PropTypes.string,
+  setIsActiveAddedToCartLayer: PropTypes.func
 }
 
 export default ProductCard

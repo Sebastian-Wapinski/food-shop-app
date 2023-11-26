@@ -1,4 +1,4 @@
-import { ADD_TO_CART, DECREASE_QUANTITY, DELETE_FROM_CART, INCREASE_QUANTITY, SET_NEW_QUANTITY } from './Cart.types'
+import { ADD_TO_CART, CHANGE_PRODUCT_QUANTITY, DECREASE_QUANTITY, DELETE_FROM_CART, INCREASE_QUANTITY, SET_NEW_QUANTITY } from './Cart.types'
 
 export const actionAddToCart = (product) => {
   return {
@@ -38,5 +38,11 @@ export const actionSetNewQuantity = (id, value) => {
       id,
       value
     }
+  }
+}
+
+export const actionChangeProductQuantity = () => {
+  return {
+    type: CHANGE_PRODUCT_QUANTITY
   }
 }

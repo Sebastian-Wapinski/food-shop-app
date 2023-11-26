@@ -18,4 +18,7 @@ padding: 1.5rem 2rem;
 border-bottom: 1px solid ${props => props.theme.secondTextColor};
 `
 
-export { StyledProductsPage, StyledPageTitle }
+export {
+  StyledProductsPage,
+  StyledPageTitle
+}

@@ -14,9 +14,9 @@ import {
 import CartProduct from '../../components/CartProduct/CartProduct'
 
 export const Cart = () => {
-  const { products } = useSelector((state) => state.cart)
+  const { products, productsQuantity } = useSelector((state) => state.cart)
 
-  console.log(products)
+  console.log(products, productsQuantity)
 
   return (
     <StyledCart>

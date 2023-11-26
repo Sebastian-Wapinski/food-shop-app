@@ -2,7 +2,11 @@ import React from 'react'
 
 import { ref, onValue } from 'firebase/database'
 
-import { StyledProductsPage, StyledPageTitle } from './ProductsPage.styled'
+import {
+  StyledProductsPage,
+  StyledPageTitle
+} from './ProductsPage.styled'
+
 import { database } from '../../firebaseConfig'
 import { useLocation, useNavigate, useParams } from 'react-router'
 import { createData, returnRightPath, sliceLastBackslash } from './ProductsPageHelper'
@@ -10,6 +14,7 @@ import ProductCard from '../../components/ProductCard/ProductCard'
 import Pagination from '../../components/Pagination/Pagination'
 import PaginationNav from '../../components/PaginationNav'
 import ButtonsChangingPages from '../../components/ButtonsChangingPages/ButtonsChangingPages'
+import AddedToCartOverlay from '../../overlays/AddedToCartOverlay/AddedToCartOverlay'
 
 export const ProductsPage = () => {
   const {
@@ -22,6 +27,7 @@ export const ProductsPage = () => {
 
   const [productsData, setProductsData] = React.useState()
   const [allPages, setAllPages] = React.useState(1)
+  const [isActiveAddedToCartLayer, setIsActiveAddedToCartLayer] = React.useState(false)
 
   const location = useLocation()
   const navigate = useNavigate()
@@ -79,6 +85,10 @@ export const ProductsPage = () => {
   return (
     productsData ?
       <StyledProductsPage>
+        <AddedToCartOverlay
+          isActiveAddedToCartLayer={isActiveAddedToCartLayer}
+          setIsActiveAddedToCartLayer={setIsActiveAddedToCartLayer}
+        />
         <StyledPageTitle
           variant={'h2'}
         >
@@ -102,6 +112,7 @@ export const ProductsPage = () => {
                     variety={variety}
                     unit={unit}
                     category={category}
+                    setIsActiveAddedToCartLayer={setIsActiveAddedToCartLayer}
                   />
                 )
               })

@@ -19,7 +19,7 @@ import ChangeProductQuantityComplex from '../ChangeProductQuantityComplex/Change
 import CardButton from '../CardButton/CardButton'
 
 import { useDispatch } from 'react-redux'
-import { actionDecreaseQuantity, actionDeleteFromCart, actionIncreaseQuantity, actionSetNewQuantity } from '../../modules/Cart/Cart.actions'
+import { actionChangeProductQuantity, actionDecreaseQuantity, actionDeleteFromCart, actionIncreaseQuantity, actionSetNewQuantity } from '../../modules/Cart/Cart.actions'
 import { decreaseProductQuantityValidation, increaseProductQuantityValidation, setProductQuantityValidation } from '../../validation/insertProductValue'
 import { ERROR_PRODUCT_QUANTITY } from '../../consts'
 
@@ -57,6 +57,7 @@ export const CartProduct = (props) => {
     if (newProductQuantity !== '') {
       setProductQuantityValidation(newProductQuantity, accessibility, setNewProductQuantity)
       dispatch(actionSetNewQuantity(id, newProductQuantity))
+      dispatch(actionChangeProductQuantity())
     }
   }, [accessibility, dispatch, id, newProductQuantity, quantity])
 
@@ -107,7 +108,10 @@ export const CartProduct = (props) => {
         <StyledCardButtonContainer>
           <CardButton
             variant={'delete'}
-            onClick={() => dispatch(actionDeleteFromCart(id))}
+            onClick={() => {
+              dispatch(actionDeleteFromCart(id))
+              dispatch(actionChangeProductQuantity())
+            }}
           >
             DEL
           </CardButton>

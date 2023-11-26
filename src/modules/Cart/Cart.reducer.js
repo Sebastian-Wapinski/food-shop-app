@@ -1,7 +1,9 @@
-import { ADD_TO_CART, DECREASE_QUANTITY, DELETE_FROM_CART, INCREASE_QUANTITY, SET_NEW_QUANTITY } from './Cart.types'
+import { ADD_TO_CART, CHANGE_PRODUCT_QUANTITY, DECREASE_QUANTITY, DELETE_FROM_CART, INCREASE_QUANTITY, SET_NEW_QUANTITY } from './Cart.types'
 
 const initState = {
-  products: []
+  products: [],
+  productsQuantity: 0,
+  addedToCartProduct: {}
 }
 
 const reducer = (state = initState, action) => {
@@ -19,6 +21,7 @@ const reducer = (state = initState, action) => {
     case DECREASE_QUANTITY:
       return {
         ...state,
+        productsQuantity: state.productsQuantity - 1,
         products: state.products.map(product => {
           if (product.id === action.payload) {
             return {
@@ -32,6 +35,7 @@ const reducer = (state = initState, action) => {
     case INCREASE_QUANTITY:
       return {
         ...state,
+        productsQuantity: state.productsQuantity + 1,
         products: state.products.map(product => {
           if (product.id === action.payload.id) {
             return {
@@ -63,6 +67,14 @@ const reducer = (state = initState, action) => {
         products: state.products.filter(product => {
           return product.id !== action.payload
         })
+      }
+
+    case CHANGE_PRODUCT_QUANTITY:
+      return {
+        ...state,
+        productsQuantity: state.products.reduce((acc, product) => {
+          return acc + product.quantity
+        }, 0)
       }
 
     default:
