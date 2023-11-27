@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { StyledIcons, StyledIconContainer, StyledImg, StyledParagraph } from './Icons.styled'
-import { iconsData } from './iconsData'
+import { iconsData } from '../../data/iconsData'
 import { Link, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import PreviewCartOverlay from '../../overlays/PreviewCartOverlay/PreviewCartOverlay'
