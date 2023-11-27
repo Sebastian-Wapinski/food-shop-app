@@ -2,37 +2,16 @@ import React from 'react'
 
 import { useSelector } from 'react-redux'
 
-import {
-  StyledCart,
-  StyledTitle,
-  StyledInfoContainer,
-  StyledProductsAndTotalPriceLayout,
-  StyledProductsContainer,
-  StyledShippingContainer,
-  StyledNote,
-  StyledPayWithStripe
-} from './Cart.styled'
+import { StyledProductsContainer } from './Cart.styled'
 import CartProduct from '../../components/CartProduct/CartProduct'
-import TotalPrice from '../../components/TotalPrice/TotalPrice'
 
 export const Cart = () => {
-  const { products, productsQuantity } = useSelector((state) => state.cart)
-
-  console.log(products, productsQuantity)
+  const { products } = useSelector((state) => state.cart)
 
   return (
-    <StyledCart>
-      <StyledTitle
-        variant={'h2'}
-      >
-        Cart
-      </StyledTitle>
-      <StyledInfoContainer>
-        <StyledProductsAndTotalPriceLayout>
-          {
-            products.length !== 0 ?
-              <StyledProductsContainer>
-                {
+    products.length !== 0 ?
+      <StyledProductsContainer>
+        {
             products.map(product => {
               const { id } = product
               return (
@@ -43,25 +22,9 @@ export const Cart = () => {
               )
             })
           }
-              </StyledProductsContainer>
-              :
-              null
-          }
-          <TotalPrice />
-        </StyledProductsAndTotalPriceLayout>
-        <StyledShippingContainer>
-          Shipping
-        </StyledShippingContainer>
-        <StyledNote>
-          Note
-        </StyledNote>
-        <StyledPayWithStripe>
-          <button>
-            Pay With Stripe
-          </button>
-        </StyledPayWithStripe>
-      </StyledInfoContainer>
-    </StyledCart>
+      </StyledProductsContainer>
+      :
+      null
   )
 }
 export default Cart

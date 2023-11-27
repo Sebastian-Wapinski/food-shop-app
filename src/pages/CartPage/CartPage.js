@@ -1,12 +1,42 @@
 import React from 'react'
 
-import { StyledCartPage } from './CartPage.styled'
+import {
+  StyledTitle,
+  StyledInfoContainer,
+  StyledProductsAndTotalPriceLayout,
+  StyledCartPage,
+  StyledShippingContainer,
+  StyledNote,
+  StyledPayWithStripe
+} from './CartPage.styled'
 import Cart from '../../modules/Cart/Cart'
+import TotalPrice from '../../components/TotalPrice/TotalPrice'
 
 export const CartPage = () => {
   return (
     <StyledCartPage>
-      <Cart />
+      <StyledTitle
+        variant={'h2'}
+      >
+        Cart
+      </StyledTitle>
+      <StyledInfoContainer>
+        <StyledProductsAndTotalPriceLayout>
+          <Cart />
+          <TotalPrice />
+        </StyledProductsAndTotalPriceLayout>
+        <StyledShippingContainer>
+          Shipping
+        </StyledShippingContainer>
+        <StyledNote>
+          Note
+        </StyledNote>
+        <StyledPayWithStripe>
+          <button>
+            Pay With Stripe
+          </button>
+        </StyledPayWithStripe>
+      </StyledInfoContainer>
     </StyledCartPage>
   )
 }
