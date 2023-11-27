@@ -3,8 +3,16 @@ import PropTypes from 'prop-types'
 
 import { useSelector } from 'react-redux'
 
-import { StyledPreviewCartOverlay } from './PreviewCartOverlay.styled'
+import {
+  StyledPreviewCartOverlay,
+  StyledProductsAndTotalPriceLayout,
+  StyledProductsContainer,
+  StyledCardButton,
+  StyledTotalPrice
+} from './PreviewCartOverlay.styled'
+
 import CartProduct from '../../components/CartProduct/CartProduct'
+import { Link } from 'react-router-dom'
 
 export const PreviewCartOverlay = (props) => {
   const {
@@ -19,17 +27,36 @@ export const PreviewCartOverlay = (props) => {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      {
-          products.map(product => {
-            const { id } = product
-            return (
-              <CartProduct
-                key={id}
-                product={product}
-              />
-            )
-          })
-        }
+      <StyledProductsAndTotalPriceLayout>
+        {
+            products.length !== 0 ?
+              <StyledProductsContainer>
+                {
+            products.map(product => {
+              const { id } = product
+              return (
+                <CartProduct
+                  key={id}
+                  product={product}
+                />
+              )
+            })
+          }
+              </StyledProductsContainer>
+              :
+              null
+          }
+        <StyledTotalPrice />
+        <Link
+          to={'/cart'}
+        >
+          <StyledCardButton
+            variant={'customText'}
+          >
+            Go To Cart
+          </StyledCardButton>
+        </Link>
+      </StyledProductsAndTotalPriceLayout>
     </StyledPreviewCartOverlay>
   )
 }

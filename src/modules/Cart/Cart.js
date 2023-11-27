@@ -29,8 +29,10 @@ export const Cart = () => {
       </StyledTitle>
       <StyledInfoContainer>
         <StyledProductsAndTotalPriceLayout>
-          <StyledProductsContainer>
-            {
+          {
+            products.length !== 0 ?
+              <StyledProductsContainer>
+                {
             products.map(product => {
               const { id } = product
               return (
@@ -41,7 +43,10 @@ export const Cart = () => {
               )
             })
           }
-          </StyledProductsContainer>
+              </StyledProductsContainer>
+              :
+              null
+          }
           <TotalPrice />
         </StyledProductsAndTotalPriceLayout>
         <StyledShippingContainer>

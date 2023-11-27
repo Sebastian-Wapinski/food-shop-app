@@ -2,46 +2,19 @@ import React from 'react'
 
 import { StyledIcons, StyledIconContainer, StyledImg, StyledParagraph } from './Icons.styled'
 import { iconsData } from './iconsData'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import PreviewCartOverlay from '../../overlays/PreviewCartOverlay/PreviewCartOverlay'
 
 export const Icons = () => {
   const [showPreviewCartOverlay, setShowPreviewCartOverlay] = React.useState(false)
 
+  const { products } = useSelector(state => state.cart)
+  const location = useLocation()
+
   const { logIn, favorites, cart } = iconsData
   return (
     <StyledIcons>
-      {/* {
-        iconsData.map(icon => {
-          const { name, img, alt, id } = icon
-          return (
-            <Link
-              to={id === 'idLog' ? null : name.toLowerCase()}
-              key={id}
-              onMouseEnter={() => {
-                if (id === 'idCart') {
-                  console.log('mouse on')
-                }
-              }}
-              onMouseLeave={() => {
-                if (id === 'idCart') {
-                  console.log('mouse off')
-                }
-              }}
-            >
-              <StyledIconContainer>
-                <StyledImg
-                  src={img}
-                  alt={alt}
-                />
-                <StyledParagraph>
-                  {name}
-                </StyledParagraph>
-              </StyledIconContainer>
-            </Link>
-          )
-        })
-      } */}
       <StyledIconContainer>
         <StyledImg
           src={logIn.img}
@@ -84,7 +57,7 @@ export const Icons = () => {
         </StyledIconContainer>
       </Link>
       {
-        showPreviewCartOverlay ?
+        showPreviewCartOverlay && products.length !== 0 && location.pathname !== '/cart' ?
           <PreviewCartOverlay
             onMouseEnter={() => {
               setShowPreviewCartOverlay(true)

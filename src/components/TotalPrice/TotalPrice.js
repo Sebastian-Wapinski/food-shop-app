@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { useSelector } from 'react-redux'
 
@@ -8,11 +9,15 @@ import {
   StyledTotalPriceAmount
 } from './TotalPrice.styled'
 
-export const TotalPrice = () => {
+export const TotalPrice = (props) => {
+  const { className } = props
+
   const { totalPrice } = useSelector((state) => state.cart)
 
   return (
-    <StyledTotalPrice>
+    <StyledTotalPrice
+      className={className}
+    >
       <StyledTotalPriceTitle
         variant={'cardBody1'}
       >
@@ -25,6 +30,10 @@ export const TotalPrice = () => {
       </StyledTotalPriceAmount>
     </StyledTotalPrice>
   )
+}
+
+TotalPrice.propTypes = {
+  className: PropTypes.string
 }
 
 export default TotalPrice
