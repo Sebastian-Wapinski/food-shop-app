@@ -26,7 +26,7 @@ export const CartPage = () => {
           <TotalPrice />
         </StyledProductsAndTotalPriceLayout>
         <StyledShippingContainer>
-          Shipping
+          <ShippingForm />
         </StyledShippingContainer>
         <StyledNote>
           Note
