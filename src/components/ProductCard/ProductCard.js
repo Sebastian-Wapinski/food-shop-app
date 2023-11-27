@@ -147,6 +147,8 @@ export const ProductCard = (props) => {
               setProductQuantity={setProductQuantity}
               setIsError={setIsError}
               valueOnEmptyField={''}
+              isDisabledPrevButton={productQuantity === 1}
+              isDisabledNextButton={productQuantity === accessibility}
             />
             <CardButton
               variant={'addToCart'}

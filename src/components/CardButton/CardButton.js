@@ -8,7 +8,8 @@ export const CardButton = (props) => {
     children,
     className,
     onClick,
-    variant
+    variant,
+    isDisabled
   } = props
 
   return (
@@ -16,6 +17,7 @@ export const CardButton = (props) => {
       className={className}
       $variant={variant}
       onClick={onClick}
+      disabled={isDisabled}
     >
       {children}
     </StyledCardButton>
@@ -26,6 +28,7 @@ CardButton.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   onClick: PropTypes.func,
+  isDisabled: PropTypes.bool,
   variant: PropTypes.oneOf(['changeQuantity', 'addToCart', 'delete'])
 }
 

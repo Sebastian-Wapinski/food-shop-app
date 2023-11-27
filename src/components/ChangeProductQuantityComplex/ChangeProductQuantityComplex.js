@@ -13,7 +13,9 @@ export const ChangeProductQuantityComplex = (props) => {
     productQuantity,
     setProductQuantity,
     valueOnEmptyField,
-    setIsError
+    setIsError,
+    isDisabledPrevButton,
+    isDisabledNextButton
   } = props
 
   return (
@@ -21,6 +23,7 @@ export const ChangeProductQuantityComplex = (props) => {
       <CardButton
         variant={'changeQuantity'}
         onClick={decreaseProductQuantity}
+        isDisabled={isDisabledPrevButton}
       >
         -
       </CardButton>
@@ -33,6 +36,7 @@ export const ChangeProductQuantityComplex = (props) => {
       <CardButton
         variant={'changeQuantity'}
         onClick={increaseProductQuantity}
+        isDisabled={isDisabledNextButton}
       >
         +
       </CardButton>
@@ -42,6 +46,8 @@ export const ChangeProductQuantityComplex = (props) => {
 
 ChangeProductQuantityComplex.propTypes = {
   decreaseProductQuantity: PropTypes.func,
+  isDisabledPrevButton: PropTypes.bool,
+  isDisabledNextButton: PropTypes.bool,
   increaseProductQuantity: PropTypes.func,
   productQuantity: PropTypes.oneOfType([
     PropTypes.number,

@@ -16,6 +16,11 @@ ${
     color: ${props => props.theme.thirdTextColor};
     cursor: pointer;
   }
+
+  &:disabled {
+    color: ${props => props.theme.secondTextColor};
+    cursor: not-allowed;
+  }
   `
 }
 

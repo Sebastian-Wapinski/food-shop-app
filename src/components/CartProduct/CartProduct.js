@@ -93,6 +93,8 @@ export const CartProduct = (props) => {
             setProductQuantity={setNewProductQuantity}
             setIsError={setIsError}
             valueOnEmptyField={1}
+            isDisabledPrevButton={quantity === 1}
+            isDisabledNextButton={quantity === accessibility}
           />
           <StyledAccessibility
             variant={'cardBody1'}
