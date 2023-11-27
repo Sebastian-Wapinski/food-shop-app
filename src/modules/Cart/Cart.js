@@ -6,12 +6,14 @@ import {
   StyledCart,
   StyledTitle,
   StyledInfoContainer,
+  StyledProductsAndTotalPriceLayout,
   StyledProductsContainer,
   StyledShippingContainer,
   StyledNote,
   StyledPayWithStripe
 } from './Cart.styled'
 import CartProduct from '../../components/CartProduct/CartProduct'
+import TotalPrice from '../../components/TotalPrice/TotalPrice'
 
 export const Cart = () => {
   const { products, productsQuantity } = useSelector((state) => state.cart)
@@ -26,8 +28,9 @@ export const Cart = () => {
         Cart
       </StyledTitle>
       <StyledInfoContainer>
-        <StyledProductsContainer>
-          {
+        <StyledProductsAndTotalPriceLayout>
+          <StyledProductsContainer>
+            {
             products.map(product => {
               const { id } = product
               return (
@@ -38,7 +41,9 @@ export const Cart = () => {
               )
             })
           }
-        </StyledProductsContainer>
+          </StyledProductsContainer>
+          <TotalPrice />
+        </StyledProductsAndTotalPriceLayout>
         <StyledShippingContainer>
           Shipping
         </StyledShippingContainer>

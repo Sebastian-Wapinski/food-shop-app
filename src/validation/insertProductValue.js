@@ -25,7 +25,7 @@ export const increaseProductQuantityValidation = (productQuantity, accessibility
 export const setProductQuantityValidation = (productQuantity, accessibility, setProductQuantity) => {
   if (productQuantity > accessibility) {
     setProductQuantity(accessibility)
-  } else if (productQuantity < 0) {
+  } else if (productQuantity <= 0) {
     setProductQuantity(1)
   }
 }

@@ -3,6 +3,7 @@ import { ADD_TO_CART, CHANGE_PRODUCT_QUANTITY, DECREASE_QUANTITY, DELETE_FROM_CA
 const initState = {
   products: [],
   productsQuantity: 0,
+  totalPrice: 0,
   addedToCartProduct: {}
 }
 
@@ -23,6 +24,13 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         productsQuantity: state.productsQuantity - 1,
+        totalPrice: state.products.reduce((acc, product) => {
+          if (product.id === action.payload) {
+            return acc + ((product.quantity - 1) * product.price)
+          }
+
+          return acc + (product.quantity * product.price)
+        }, 0),
         products: state.products.map(product => {
           if (product.id === action.payload) {
             return {
@@ -37,6 +45,13 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         productsQuantity: state.productsQuantity + 1,
+        totalPrice: state.products.reduce((acc, product) => {
+          if (product.id === action.payload) {
+            return acc + ((product.quantity + 1) * product.price)
+          }
+
+          return acc + (product.quantity * product.price)
+        }, 0),
         products: state.products.map(product => {
           if (product.id === action.payload.id) {
             return {
@@ -73,6 +88,9 @@ const reducer = (state = initState, action) => {
     case CHANGE_PRODUCT_QUANTITY:
       return {
         ...state,
+        totalPrice: state.products.reduce((acc, product) => {
+          return acc + (product.quantity * product.price)
+        }, 0),
         productsQuantity: state.products.reduce((acc, product) => {
           return acc + product.quantity
         }, 0)

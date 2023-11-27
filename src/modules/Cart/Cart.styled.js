@@ -27,14 +27,19 @@ grid-template-areas:
 'StyledProductsContainer StyledShippingContainer'
 'StyledNote StyledPayWithStripe';
 `
-const StyledProductsContainer = styled.div`
+const StyledProductsAndTotalPriceLayout = styled.div`
+position: relative;
 grid-area: StyledProductsContainer;
 border: 1px solid ${props => props.theme.secondTextColor};
+height: 25rem;
+`
+
+const StyledProductsContainer = styled.div`
 display: flex;
 justify-content: flex-start;
 align-items: center;
 flex-direction: column;
-max-height: 25rem;
+max-height: 20rem;
 overflow-y: scroll;
 padding: 1rem 0;
 
@@ -58,6 +63,7 @@ padding: 1rem 0;
   background-color: ${props => props.theme.mainColorDarkerShade};
 }
 `
+
 const StyledShippingContainer = styled.div`
 grid-area: StyledShippingContainer;
 border: 1px solid ${props => props.theme.secondTextColor};
@@ -66,6 +72,7 @@ const StyledNote = styled.div`
 grid-area: StyledNote;
 border: 1px solid ${props => props.theme.secondTextColor};
 `
+
 const StyledPayWithStripe = styled.div`
 grid-area: StyledPayWithStripe;
 border: 1px solid ${props => props.theme.secondTextColor};
@@ -73,10 +80,12 @@ display: flex;
 justify-content: center;
 align-items: center;
 `
+
 export {
   StyledCart,
   StyledTitle,
   StyledInfoContainer,
+  StyledProductsAndTotalPriceLayout,
   StyledProductsContainer,
   StyledShippingContainer,
   StyledNote,
