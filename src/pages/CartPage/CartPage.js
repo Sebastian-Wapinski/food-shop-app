@@ -5,14 +5,18 @@ import {
   StyledInfoContainer,
   StyledProductsAndTotalPriceLayout,
   StyledCartPage,
-  StyledNote,
+  StyledAdditionalInformation,
   StyledPayWithStripe,
-  StyledShippingForm
+  StyledShippingForm,
+  StyledDeliveryMethodsContainer,
+  StyledPaymentMethodsContainer
 } from './CartPage.styled'
 import Cart from '../../modules/Cart/Cart'
 import TotalPrice from '../../components/TotalPrice/TotalPrice'
 import { FormProvider, useForm } from 'react-hook-form'
-import RenderInputs from '../../components/RenderInputs/RenderInputs'
+import RenderFormInputs from '../../components/RenderFormInputs/RenderFormInputs'
+import RenderMethods from '../../components/RenderMethods/RenderMethods'
+import { deliveryMethodsData } from '../../data/deliveryMethodsData'
 
 export const CartPage = () => {
   const methods = useForm({
@@ -31,6 +35,8 @@ export const CartPage = () => {
   })
 
   const { handleSubmit, reset } = methods
+  const [additionalInformation, setAdditionalInformation] = React.useState('')
+  const [checkedDelivery, setCheckedDelivery] = React.useState('inStorePickup')
 
   const onSubmit = handleSubmit((data, e) => {
     reset()
@@ -56,12 +62,29 @@ export const CartPage = () => {
           <FormProvider
             {...methods}
           >
-            <RenderInputs/>
+            <RenderFormInputs/>
           </FormProvider>
         </StyledShippingForm>
-        <StyledNote>
-          Note
-        </StyledNote>
+        <StyledDeliveryMethodsContainer>
+          <RenderMethods
+            data={deliveryMethodsData}
+            methodsName={'delivery'}
+            checkedId={checkedDelivery}
+            setChecked={setCheckedDelivery}
+          />
+        </StyledDeliveryMethodsContainer>
+        <StyledPaymentMethodsContainer>
+          Payment
+        </StyledPaymentMethodsContainer>
+        <StyledAdditionalInformation
+          value={additionalInformation}
+          onChange={(e) => {
+            setAdditionalInformation(() => e.target.value)
+          }}
+          placeholder={'Additional Information:'}
+        >
+
+        </StyledAdditionalInformation>
         <StyledPayWithStripe>
           <button>
             Pay With Stripe

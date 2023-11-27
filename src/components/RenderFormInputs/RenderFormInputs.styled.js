@@ -2,11 +2,11 @@ import styled from 'styled-components'
 import Label from '../Label/Label'
 import Input from '../Input/Input'
 
-const DefaultStyledRenderInputs = styled.div`
+const DefaultStyledRenderFormInputs = styled.div`
 
 `
 
-const StyledRenderInputs = styled(DefaultStyledRenderInputs)(
+const StyledRenderFormInputs = styled(DefaultStyledRenderFormInputs)(
   props => props.style
 )
 
@@ -22,4 +22,4 @@ const StyledInput = styled(Input)`
 
 `
 
-export { StyledRenderInputs, StyledLabel, StyledInput, StyledInputContainer }
+export { StyledRenderFormInputs, StyledLabel, StyledInput, StyledInputContainer }

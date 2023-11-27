@@ -13,7 +13,8 @@ export const Cart = () => {
       <StyledProductsContainer>
         {
             products.map(product => {
-              const { id } = product
+              const { id, isCart } = product
+              if (isCart) return null
               return (
                 <CartProduct
                   key={id}

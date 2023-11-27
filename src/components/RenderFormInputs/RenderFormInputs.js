@@ -1,16 +1,16 @@
 import React from 'react'
 
-import { StyledRenderInputs, StyledLabel, StyledInput, StyledInputContainer } from './RenderInputs.styled'
+import { StyledRenderFormInputs, StyledLabel, StyledInput, StyledInputContainer } from './RenderFormInputs.styled'
 
 import { useFormContext } from 'react-hook-form'
 import { formCreationData } from '../../data/formCreationData'
 
-export const RenderInputs = () => {
+export const RenderFormInputs = () => {
   const methods = useFormContext()
   const { register, formState: { errors } } = methods
 
   return (
-    <StyledRenderInputs>
+    <StyledRenderFormInputs>
       {
         formCreationData.map(input => {
           const { label, id, validationParams, isRequired, placeholder } = input
@@ -34,8 +34,8 @@ export const RenderInputs = () => {
           )
         })
       }
-    </StyledRenderInputs>
+    </StyledRenderFormInputs>
   )
 }
 
-export default RenderInputs
+export default RenderFormInputs

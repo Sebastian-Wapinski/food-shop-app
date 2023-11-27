@@ -21,13 +21,14 @@ border-bottom: 1px solid ${props => props.theme.secondTextColor};
 const StyledInfoContainer = styled.div`
 margin-top: 2rem;
 grid-column-gap: 3rem;
-grid-row-gap: 2rem;
+grid-row-gap: 1rem;
 display: grid;
-grid-template-columns: 3fr 1fr;
-grid-template-rows: 25rem 10rem;
+grid-template-columns: 1.5fr 1.5fr 1fr;
 grid-template-areas: 
-'StyledProductsContainer StyledShippingContainer'
-'StyledNote StyledPayWithStripe';
+'StyledProductsContainer StyledProductsContainer StyledShippingContainer'
+'StyledDeliveryMethods StyledPaymentMethods StyledShippingContainer'
+'StyledDeliveryMethods StyledPaymentMethods StyledAdditionalInformation'
+'StyledDeliveryMethods StyledPaymentMethods StyledPayWithStripe';
 `
 const StyledProductsAndTotalPriceLayout = styled.div`
 position: relative;
@@ -36,9 +37,12 @@ border: 1px solid ${props => props.theme.secondTextColor};
 height: 25rem;
 `
 
-const StyledNote = styled.div`
-grid-area: StyledNote;
+const StyledAdditionalInformation = styled.textarea`
+resize: none;
+padding: 0.5rem;
+grid-area: StyledAdditionalInformation;
 border: 1px solid ${props => props.theme.secondTextColor};
+min-height: 5rem;
 `
 
 const StyledPayWithStripe = styled.div`
@@ -47,10 +51,22 @@ border: 1px solid ${props => props.theme.secondTextColor};
 display: flex;
 justify-content: center;
 align-items: center;
+min-height: 3rem;
 `
 
 const StyledShippingForm = styled.form`
 grid-area: StyledShippingContainer;
+border: 1px solid ${props => props.theme.secondTextColor};
+min-height: 38rem;
+`
+
+const StyledDeliveryMethodsContainer = styled.div`
+grid-area: StyledDeliveryMethods;
+border: 1px solid ${props => props.theme.secondTextColor};
+`
+
+const StyledPaymentMethodsContainer = styled.div`
+grid-area: StyledPaymentMethods;
 border: 1px solid ${props => props.theme.secondTextColor};
 `
 
@@ -59,7 +75,9 @@ export {
   StyledTitle,
   StyledInfoContainer,
   StyledProductsAndTotalPriceLayout,
-  StyledNote,
+  StyledAdditionalInformation,
   StyledPayWithStripe,
-  StyledShippingForm
+  StyledShippingForm,
+  StyledDeliveryMethodsContainer,
+  StyledPaymentMethodsContainer
 }
