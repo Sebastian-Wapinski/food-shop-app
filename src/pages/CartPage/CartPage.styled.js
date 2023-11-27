@@ -36,10 +36,6 @@ border: 1px solid ${props => props.theme.secondTextColor};
 height: 25rem;
 `
 
-const StyledShippingContainer = styled.div`
-grid-area: StyledShippingContainer;
-border: 1px solid ${props => props.theme.secondTextColor};
-`
 const StyledNote = styled.div`
 grid-area: StyledNote;
 border: 1px solid ${props => props.theme.secondTextColor};
@@ -53,12 +49,17 @@ justify-content: center;
 align-items: center;
 `
 
+const StyledShippingForm = styled.form`
+grid-area: StyledShippingContainer;
+border: 1px solid ${props => props.theme.secondTextColor};
+`
+
 export {
   StyledCartPage,
   StyledTitle,
   StyledInfoContainer,
   StyledProductsAndTotalPriceLayout,
-  StyledShippingContainer,
   StyledNote,
-  StyledPayWithStripe
+  StyledPayWithStripe,
+  StyledShippingForm
 }
