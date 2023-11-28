@@ -17,6 +17,9 @@ import { FormProvider, useForm } from 'react-hook-form'
 import RenderFormInputs from '../../components/RenderFormInputs/RenderFormInputs'
 import RenderMethods from '../../components/RenderMethods/RenderMethods'
 import { deliveryMethodsData } from '../../data/deliveryMethodsData'
+import { useSelector } from 'react-redux'
+import { actionAddToCartDeliveryType, actionAddToCartPaymentType } from '../../modules/Cart/Cart.actions'
+import { paymentMethodsData } from '../../data/paymentMethodsData'
 
 export const CartPage = () => {
   const methods = useForm({
@@ -36,11 +39,13 @@ export const CartPage = () => {
 
   const { handleSubmit, reset } = methods
   const [additionalInformation, setAdditionalInformation] = React.useState('')
-  const [checkedDelivery, setCheckedDelivery] = React.useState('inStorePickup')
+
+  const { deliveryId, products, paymentId } = useSelector(state => state.cart)
 
   const onSubmit = handleSubmit((data, e) => {
     reset()
     console.log(data, 'data')
+    console.log(products, 'products')
   })
 
   return (
@@ -69,12 +74,17 @@ export const CartPage = () => {
           <RenderMethods
             data={deliveryMethodsData}
             methodsName={'delivery'}
-            checkedId={checkedDelivery}
-            setChecked={setCheckedDelivery}
+            checkedId={deliveryId}
+            action={actionAddToCartDeliveryType}
           />
         </StyledDeliveryMethodsContainer>
         <StyledPaymentMethodsContainer>
-          Payment
+          <RenderMethods
+            data={paymentMethodsData}
+            methodsName={'payment'}
+            checkedId={paymentId}
+            action={actionAddToCartPaymentType}
+          />
         </StyledPaymentMethodsContainer>
         <StyledAdditionalInformation
           value={additionalInformation}
@@ -86,7 +96,10 @@ export const CartPage = () => {
 
         </StyledAdditionalInformation>
         <StyledPayWithStripe>
-          <button>
+          <button
+            type={'submit'}
+            onClick={onSubmit}
+          >
             Pay With Stripe
           </button>
         </StyledPayWithStripe>

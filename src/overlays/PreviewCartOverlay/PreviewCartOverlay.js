@@ -6,12 +6,11 @@ import { useSelector } from 'react-redux'
 import {
   StyledPreviewCartOverlay,
   StyledProductsAndTotalPriceLayout,
-  StyledProductsContainer,
+  StyledCart,
   StyledCardButton,
   StyledTotalPrice
 } from './PreviewCartOverlay.styled'
 
-import CartProduct from '../../components/CartProduct/CartProduct'
 import { Link } from 'react-router-dom'
 
 export const PreviewCartOverlay = (props) => {
@@ -29,22 +28,10 @@ export const PreviewCartOverlay = (props) => {
     >
       <StyledProductsAndTotalPriceLayout>
         {
-            products.length !== 0 ?
-              <StyledProductsContainer>
-                {
-            products.map(product => {
-              const { id } = product
-              return (
-                <CartProduct
-                  key={id}
-                  product={product}
-                />
-              )
-            })
-          }
-              </StyledProductsContainer>
-              :
-              null
+          products.length !== 0 ?
+            <StyledCart />
+            :
+            null
           }
         <StyledTotalPrice />
         <Link

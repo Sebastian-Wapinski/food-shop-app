@@ -1,4 +1,4 @@
-import { ADD_TO_CART, CHANGE_PRODUCT_QUANTITY, DECREASE_QUANTITY, DELETE_FROM_CART, INCREASE_QUANTITY, SET_NEW_QUANTITY } from './Cart.types'
+import { ADD_TO_CART, ADD_TO_CART_DELIVERY_TYPE, ADD_TO_CART_PAYMENT_TYPE, CHANGE_PRODUCT_QUANTITY, DECREASE_QUANTITY, DELETE_FROM_CART, INCREASE_QUANTITY, SET_NEW_QUANTITY } from './Cart.types'
 
 export const actionAddToCart = (product) => {
   return {
@@ -44,5 +44,19 @@ export const actionSetNewQuantity = (id, value) => {
 export const actionChangeProductQuantity = () => {
   return {
     type: CHANGE_PRODUCT_QUANTITY
+  }
+}
+
+export const actionAddToCartDeliveryType = (deliveryType) => {
+  return {
+    type: ADD_TO_CART_DELIVERY_TYPE,
+    payload: deliveryType
+  }
+}
+
+export const actionAddToCartPaymentType = (paymentType) => {
+  return {
+    type: ADD_TO_CART_PAYMENT_TYPE,
+    payload: paymentType
   }
 }

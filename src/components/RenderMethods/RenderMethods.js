@@ -1,20 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { useDispatch } from 'react-redux'
+
 import {
   StyledRenderMethods,
   RadioContainer,
   StyledInput,
   StyledLabel
 } from './RenderMethods.styled'
+import { actionChangeProductQuantity } from '../../modules/Cart/Cart.actions'
 
 export const RenderMethods = (props) => {
   const {
     data,
     methodsName,
     checkedId,
-    setChecked
+    action
   } = props
+
+  const dispatch = useDispatch()
 
   return (
     <StyledRenderMethods>
@@ -31,11 +36,13 @@ export const RenderMethods = (props) => {
                 id={id}
                 value={value}
                 checked={id === checkedId}
-                onClick={() => setChecked(id)}
+                onChange={() => {
+                  dispatch(action(method))
+                  dispatch(actionChangeProductQuantity())
+                }}
               />
               <StyledLabel
                 htmlFor={id}
-                onClick={() => setChecked(id)}
               >
                 {labelName}
               </StyledLabel>
@@ -51,7 +58,7 @@ RenderMethods.propTypes = {
   data: PropTypes.array,
   methodsName: PropTypes.string,
   checkedId: PropTypes.string,
-  setChecked: PropTypes.func
+  action: PropTypes.func
 }
 
 export default RenderMethods
