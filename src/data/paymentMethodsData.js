@@ -4,6 +4,7 @@ export const paymentMethodsData = [
     labelName: 'Card Payment - 0€',
     value: 'Card Payment',
     price: 0,
-    isPayment: true
+    isPayment: true,
+    quantity: 1
   }
 ]

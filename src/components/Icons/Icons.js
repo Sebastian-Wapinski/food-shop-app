@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { StyledIcons, StyledIconContainer, StyledImg, StyledParagraph } from './Icons.styled'
+import { StyledIcons, StyledIconContainer, StyledImg, StyledParagraph, CartIconProductsQuantity } from './Icons.styled'
 import { iconsData } from '../../data/iconsData'
 import { Link, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
@@ -9,7 +9,7 @@ import PreviewCartOverlay from '../../overlays/PreviewCartOverlay/PreviewCartOve
 export const Icons = () => {
   const [showPreviewCartOverlay, setShowPreviewCartOverlay] = React.useState(false)
 
-  const { products } = useSelector(state => state.cart)
+  const { products, productsQuantity } = useSelector(state => state.cart)
   const location = useLocation()
 
   const { logIn, favorites, cart } = iconsData
@@ -54,6 +54,16 @@ export const Icons = () => {
           <StyledParagraph>
             {cart.name}
           </StyledParagraph>
+          {
+            products ?
+              <CartIconProductsQuantity
+                variant={'body2'}
+              >
+                {productsQuantity}
+              </CartIconProductsQuantity>
+              :
+              null
+          }
         </StyledIconContainer>
       </Link>
       {

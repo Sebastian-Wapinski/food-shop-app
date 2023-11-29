@@ -44,6 +44,10 @@ padding: 0.5rem;
 grid-area: StyledAdditionalInformation;
 border: 1px solid ${props => props.theme.mainColor};
 min-height: 5rem;
+
+&::placeholder {
+color: ${props => props.theme.mainColorLighterShade};
+}
 `
 
 const StyledPayWithStripe = styled(CardButton)`
@@ -77,10 +81,9 @@ padding: 1rem;
 
 const StyledInfo = styled(Typography)`
 display: block;
-border-bottom: 1px solid ${props => props.theme.mainColor};
-padding: 1rem;
+border-bottom: 1px solid ${props => props.theme.secondTextColor};
+padding: 1.5rem 2rem;
 width: 100%;
-text-align: center;
 `
 
 export {

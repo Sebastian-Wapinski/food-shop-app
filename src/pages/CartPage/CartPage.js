@@ -35,7 +35,7 @@ export const CartPage = () => {
       zipCode: '',
       city: '',
       eMail: '',
-      phoneNumber: ''
+      phone: ''
     }
   })
 
