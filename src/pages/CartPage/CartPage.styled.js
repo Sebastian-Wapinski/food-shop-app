@@ -75,6 +75,14 @@ font-size: 1.5rem;
 padding: 1rem;
 `
 
+const StyledInfo = styled(Typography)`
+display: block;
+border-bottom: 1px solid ${props => props.theme.mainColor};
+padding: 1rem;
+width: 100%;
+text-align: center;
+`
+
 export {
   StyledCartPage,
   StyledTitle,
@@ -85,5 +93,6 @@ export {
   StyledShippingForm,
   StyledDeliveryMethodsContainer,
   StyledPaymentMethodsContainer,
-  StyledMinorTitle
+  StyledMinorTitle,
+  StyledInfo
 }

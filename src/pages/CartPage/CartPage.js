@@ -10,7 +10,8 @@ import {
   StyledShippingForm,
   StyledDeliveryMethodsContainer,
   StyledPaymentMethodsContainer,
-  StyledMinorTitle
+  StyledMinorTitle,
+  StyledInfo
 } from './CartPage.styled'
 import Cart from '../../modules/Cart/Cart'
 import TotalPrice from '../../components/TotalPrice/TotalPrice'
@@ -55,77 +56,86 @@ export const CartPage = () => {
 
   return (
     <StyledCartPage>
-      <FormProvider
-        {...methods}
-      >
-        <StyledTitle
-          variant={'h2'}
-        >
-          Cart
-        </StyledTitle>
-        <StyledInfoContainer>
-          <StyledProductsAndTotalPriceLayout>
-            <Cart />
-            <TotalPrice />
-          </StyledProductsAndTotalPriceLayout>
-          <StyledShippingForm
-            onSubmit={onSubmit}
-            autoComplete={'off'}
+      {
+        products.length !== 0 ?
+          <FormProvider
+            {...methods}
           >
-            <RenderFormInputs/>
-
-          </StyledShippingForm>
-          <StyledDeliveryMethodsContainer>
-            <StyledMinorTitle
+            <StyledTitle
               variant={'h2'}
             >
-              Delivery
-            </StyledMinorTitle>
-            <RenderMethods
-              data={deliveryMethodsData}
-              methodsName={'delivery'}
-              checkedId={deliveryId}
-              action={actionAddToCartDeliveryType}
-              errorMessage={onSubmitClicked && deliveryId.length === 0 ? 'This field is required' : null}
-            />
-          </StyledDeliveryMethodsContainer>
-          <StyledPaymentMethodsContainer>
-            <StyledMinorTitle
-              variant={'h2'}
-            >
-              Payment
-            </StyledMinorTitle>
-            <RenderMethods
-              data={paymentMethodsData}
-              methodsName={'payment'}
-              checkedId={paymentId}
-              action={actionAddToCartPaymentType}
-              errorMessage={onSubmitClicked && paymentId.length === 0 ? 'This field is required' : null}
-            />
-          </StyledPaymentMethodsContainer>
-          <StyledAdditionalInformation
-            value={additionalInformation}
-            onChange={(e) => {
-              setAdditionalInformation(() => e.target.value)
-            }}
-            placeholder={'Additional Information:'}
-          >
+              Cart
+            </StyledTitle>
+            <StyledInfoContainer>
+              <StyledProductsAndTotalPriceLayout>
+                <Cart />
+                <TotalPrice />
+              </StyledProductsAndTotalPriceLayout>
+              <StyledShippingForm
+                onSubmit={onSubmit}
+                autoComplete={'off'}
+              >
+                <RenderFormInputs/>
 
-          </StyledAdditionalInformation>
-          <StyledPayWithStripe
-            variant={'customText'}
-            type={'submit'}
-            onClick={() => {
-              if (deliveryId.length === 0 || paymentId.length === 0) {
-                setOnSubmitClicked(true)
-              }
-              onSubmit()
-            }}
+              </StyledShippingForm>
+              <StyledDeliveryMethodsContainer>
+                <StyledMinorTitle
+                  variant={'h2'}
+                >
+                  Delivery
+                </StyledMinorTitle>
+                <RenderMethods
+                  data={deliveryMethodsData}
+                  methodsName={'delivery'}
+                  checkedId={deliveryId}
+                  action={actionAddToCartDeliveryType}
+                  errorMessage={onSubmitClicked && deliveryId.length === 0 ? 'This field is required' : null}
+                />
+              </StyledDeliveryMethodsContainer>
+              <StyledPaymentMethodsContainer>
+                <StyledMinorTitle
+                  variant={'h2'}
+                >
+                  Payment
+                </StyledMinorTitle>
+                <RenderMethods
+                  data={paymentMethodsData}
+                  methodsName={'payment'}
+                  checkedId={paymentId}
+                  action={actionAddToCartPaymentType}
+                  errorMessage={onSubmitClicked && paymentId.length === 0 ? 'This field is required' : null}
+                />
+              </StyledPaymentMethodsContainer>
+              <StyledAdditionalInformation
+                value={additionalInformation}
+                onChange={(e) => {
+                  setAdditionalInformation(() => e.target.value)
+                }}
+                placeholder={'Additional Information:'}
+              >
+
+              </StyledAdditionalInformation>
+              <StyledPayWithStripe
+                variant={'customText'}
+                type={'submit'}
+                onClick={() => {
+                  if (deliveryId.length === 0 || paymentId.length === 0) {
+                    setOnSubmitClicked(true)
+                  }
+                  onSubmit()
+                }}
+              >
+                Pay With Stripe
+              </StyledPayWithStripe>
+            </StyledInfoContainer>
+          </FormProvider>
+          :
+          <StyledInfo
+            variant={'h2'}
           >
-            Pay With Stripe
-          </StyledPayWithStripe>
-        </StyledInfoContainer>
-      </FormProvider>
+            Your cart seems to be empty
+          </StyledInfo>
+      }
     </StyledCartPage>
   )
 }
