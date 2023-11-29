@@ -98,8 +98,8 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         totalPrice: state.products.reduce((acc, product) => {
-          const { price, isDelivery, quantity } = product
-          if (isDelivery) {
+          const { price, isDelivery, isPayment, quantity } = product
+          if (isDelivery || isPayment) {
             return acc + price
           }
           return acc + (quantity * price)

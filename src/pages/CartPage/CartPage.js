@@ -9,7 +9,8 @@ import {
   StyledPayWithStripe,
   StyledShippingForm,
   StyledDeliveryMethodsContainer,
-  StyledPaymentMethodsContainer
+  StyledPaymentMethodsContainer,
+  StyledMinorTitle
 } from './CartPage.styled'
 import Cart from '../../modules/Cart/Cart'
 import TotalPrice from '../../components/TotalPrice/TotalPrice'
@@ -39,10 +40,12 @@ export const CartPage = () => {
 
   const { handleSubmit, reset } = methods
   const [additionalInformation, setAdditionalInformation] = React.useState('')
+  const [onSubmitClicked, setOnSubmitClicked] = React.useState(false)
 
   const { deliveryId, products, paymentId } = useSelector(state => state.cart)
 
   const onSubmit = handleSubmit((data, e) => {
+    if (deliveryId.length === 0 || paymentId.length === 0) return
     reset()
     console.log(data, 'data')
     console.log(products, 'products')
@@ -50,60 +53,77 @@ export const CartPage = () => {
 
   return (
     <StyledCartPage>
-      <StyledTitle
-        variant={'h2'}
+      <FormProvider
+        {...methods}
       >
-        Cart
-      </StyledTitle>
-      <StyledInfoContainer>
-        <StyledProductsAndTotalPriceLayout>
-          <Cart />
-          <TotalPrice />
-        </StyledProductsAndTotalPriceLayout>
-        <StyledShippingForm
-          onSubmit={onSubmit}
-          autoComplete={'off'}
+        <StyledTitle
+          variant={'h2'}
         >
-          <FormProvider
-            {...methods}
+          Cart
+        </StyledTitle>
+        <StyledInfoContainer>
+          <StyledProductsAndTotalPriceLayout>
+            <Cart />
+            <TotalPrice />
+          </StyledProductsAndTotalPriceLayout>
+          <StyledShippingForm
+            onSubmit={onSubmit}
+            autoComplete={'off'}
           >
             <RenderFormInputs/>
-          </FormProvider>
-        </StyledShippingForm>
-        <StyledDeliveryMethodsContainer>
-          <RenderMethods
-            data={deliveryMethodsData}
-            methodsName={'delivery'}
-            checkedId={deliveryId}
-            action={actionAddToCartDeliveryType}
-          />
-        </StyledDeliveryMethodsContainer>
-        <StyledPaymentMethodsContainer>
-          <RenderMethods
-            data={paymentMethodsData}
-            methodsName={'payment'}
-            checkedId={paymentId}
-            action={actionAddToCartPaymentType}
-          />
-        </StyledPaymentMethodsContainer>
-        <StyledAdditionalInformation
-          value={additionalInformation}
-          onChange={(e) => {
-            setAdditionalInformation(() => e.target.value)
-          }}
-          placeholder={'Additional Information:'}
-        >
 
-        </StyledAdditionalInformation>
-        <StyledPayWithStripe>
-          <button
+          </StyledShippingForm>
+          <StyledDeliveryMethodsContainer>
+            <StyledMinorTitle
+              variant={'h2'}
+            >
+              Delivery
+            </StyledMinorTitle>
+            <RenderMethods
+              data={deliveryMethodsData}
+              methodsName={'delivery'}
+              checkedId={deliveryId}
+              action={actionAddToCartDeliveryType}
+              errorMessage={onSubmitClicked && deliveryId.length === 0 ? 'This field is required' : null}
+            />
+          </StyledDeliveryMethodsContainer>
+          <StyledPaymentMethodsContainer>
+            <StyledMinorTitle
+              variant={'h2'}
+            >
+              Payment
+            </StyledMinorTitle>
+            <RenderMethods
+              data={paymentMethodsData}
+              methodsName={'payment'}
+              checkedId={paymentId}
+              action={actionAddToCartPaymentType}
+              errorMessage={onSubmitClicked && paymentId.length === 0 ? 'This field is required' : null}
+            />
+          </StyledPaymentMethodsContainer>
+          <StyledAdditionalInformation
+            value={additionalInformation}
+            onChange={(e) => {
+              setAdditionalInformation(() => e.target.value)
+            }}
+            placeholder={'Additional Information:'}
+          >
+
+          </StyledAdditionalInformation>
+          <StyledPayWithStripe
+            variant={'customText'}
             type={'submit'}
-            onClick={onSubmit}
+            onClick={() => {
+              if (deliveryId.length === 0 || paymentId.length === 0) {
+                setOnSubmitClicked(true)
+              }
+              onSubmit()
+            }}
           >
             Pay With Stripe
-          </button>
-        </StyledPayWithStripe>
-      </StyledInfoContainer>
+          </StyledPayWithStripe>
+        </StyledInfoContainer>
+      </FormProvider>
     </StyledCartPage>
   )
 }

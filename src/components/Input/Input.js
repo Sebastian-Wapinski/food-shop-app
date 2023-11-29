@@ -13,7 +13,9 @@ export const Input = React.forwardRef((props, ref) => {
     className,
     onBlur,
     onChange,
-    name
+    name,
+    value,
+    checked
   } = props
 
   return (
@@ -28,9 +30,11 @@ export const Input = React.forwardRef((props, ref) => {
         onBlur={onBlur}
         onChange={onChange}
         name={name}
+        value={value}
+        checked={checked}
       />
       {
-          errors[id] && <StyledErrorsMessage>{errors[id].message}</StyledErrorsMessage>
+          errors && errors[id] && <StyledErrorsMessage variant={'errorMessageForm'}>{errors[id].message}</StyledErrorsMessage>
       }
     </>
   )
@@ -47,7 +51,9 @@ Input.propTypes = {
   className: PropTypes.string,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
-  name: PropTypes.string
+  name: PropTypes.string,
+  value: PropTypes.string,
+  checked: PropTypes.bool
 }
 
 export default Input

@@ -7,7 +7,8 @@ import {
   StyledRenderMethods,
   RadioContainer,
   StyledInput,
-  StyledLabel
+  StyledLabel,
+  StyledErrorsMessage
 } from './RenderMethods.styled'
 import { actionChangeProductQuantity } from '../../modules/Cart/Cart.actions'
 
@@ -16,7 +17,8 @@ export const RenderMethods = (props) => {
     data,
     methodsName,
     checkedId,
-    action
+    action,
+    errorMessage
   } = props
 
   const dispatch = useDispatch()
@@ -43,12 +45,16 @@ export const RenderMethods = (props) => {
               />
               <StyledLabel
                 htmlFor={id}
+                variant={'radio'}
               >
                 {labelName}
               </StyledLabel>
             </RadioContainer>
           )
         })
+      }
+      {
+          errorMessage && <StyledErrorsMessage variant={'errorMessageForm'}>{errorMessage}</StyledErrorsMessage>
       }
     </StyledRenderMethods>
   )
@@ -58,7 +64,8 @@ RenderMethods.propTypes = {
   data: PropTypes.array,
   methodsName: PropTypes.string,
   checkedId: PropTypes.string,
-  action: PropTypes.func
+  action: PropTypes.func,
+  errorMessage: PropTypes.string
 }
 
 export default RenderMethods

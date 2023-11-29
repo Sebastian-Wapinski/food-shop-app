@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { responsiveSizes } from '../../components/style/responsiveSizes'
 import Typography from '../../components/Typography/Typography'
+import CardButton from '../../components/CardButton/CardButton'
 
 const DefaultStyledCartPage = styled.div`
 min-height: calc(100vh - 234.59px);
@@ -33,7 +34,7 @@ grid-template-areas:
 const StyledProductsAndTotalPriceLayout = styled.div`
 position: relative;
 grid-area: StyledProductsContainer;
-border: 1px solid ${props => props.theme.secondTextColor};
+border: 1px solid ${props => props.theme.mainColor};
 height: 25rem;
 `
 
@@ -41,33 +42,37 @@ const StyledAdditionalInformation = styled.textarea`
 resize: none;
 padding: 0.5rem;
 grid-area: StyledAdditionalInformation;
-border: 1px solid ${props => props.theme.secondTextColor};
+border: 1px solid ${props => props.theme.mainColor};
 min-height: 5rem;
 `
 
-const StyledPayWithStripe = styled.div`
+const StyledPayWithStripe = styled(CardButton)`
 grid-area: StyledPayWithStripe;
-border: 1px solid ${props => props.theme.secondTextColor};
 display: flex;
 justify-content: center;
 align-items: center;
 min-height: 3rem;
+margin: 0;
 `
 
 const StyledShippingForm = styled.form`
 grid-area: StyledShippingContainer;
-border: 1px solid ${props => props.theme.secondTextColor};
 min-height: 38rem;
 `
 
 const StyledDeliveryMethodsContainer = styled.div`
 grid-area: StyledDeliveryMethods;
-border: 1px solid ${props => props.theme.secondTextColor};
 `
 
 const StyledPaymentMethodsContainer = styled.div`
 grid-area: StyledPaymentMethods;
-border: 1px solid ${props => props.theme.secondTextColor};
+`
+
+const StyledMinorTitle = styled(Typography)`
+display: block;
+border-bottom: 1px solid ${props => props.theme.mainColor};
+font-size: 1.5rem;
+padding: 1rem;
 `
 
 export {
@@ -79,5 +84,6 @@ export {
   StyledPayWithStripe,
   StyledShippingForm,
   StyledDeliveryMethodsContainer,
-  StyledPaymentMethodsContainer
+  StyledPaymentMethodsContainer,
+  StyledMinorTitle
 }

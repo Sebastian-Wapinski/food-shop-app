@@ -8,7 +8,8 @@ export const Label = (props) => {
     children,
     isRequired,
     htmlFor,
-    className
+    className,
+    variant = 'text'
   } = props
 
   return (
@@ -16,6 +17,7 @@ export const Label = (props) => {
       required={isRequired}
       htmlFor={htmlFor}
       className={className}
+      $variant={variant}
     >
       {children}
     </StyledLabel>
@@ -26,7 +28,8 @@ Label.propTypes = {
   children: PropTypes.node,
   isRequired: PropTypes.bool,
   htmlFor: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
+  variant: PropTypes.oneOf(['text', 'radio'])
 }
 
 export default Label

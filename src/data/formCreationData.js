@@ -98,7 +98,7 @@ export const formCreationData = [
     placeholder: 'Warsaw'
   },
   {
-    label: 'E-Mail:',
+    label: 'E-mail:',
     id: 'eMail',
     validationParams: {
       required: {
