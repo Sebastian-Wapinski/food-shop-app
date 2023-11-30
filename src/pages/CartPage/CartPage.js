@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react'
 
 import {
@@ -46,9 +45,7 @@ export const CartPage = () => {
   const { deliveryId, products, paymentId } = useSelector(state => state.cart)
 
   const onSubmit = handleSubmit((data, e) => {
-    // if (deliveryId.length === 0 || paymentId.length === 0) return
-    // console.log(data, 'data')
-    // console.log(products, 'products')
+    if (deliveryId.length === 0 || paymentId.length === 0) return
 
     const items = products.map((product) => {
       const { category, variety, producer, id, img, quantity, isDelivery, isPayment, labelName } = product
@@ -93,8 +90,8 @@ export const CartPage = () => {
         console.error(e.error)
       })
 
-    // reset()
-    // dispatch(actionClearState())
+    reset()
+    dispatch(actionClearState())
   })
 
   return (

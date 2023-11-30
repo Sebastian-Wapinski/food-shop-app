@@ -7,7 +7,6 @@ justify-content: space-between;
 padding: 0.5rem 0.5rem;
 margin: 0.5rem 0.5rem;
 width: 80%;
-height: 4.688rem;
 `
 
 const StyledCartProductDeliveryPayment = styled(DefaultStyledCartProductDeliveryPayment)(
@@ -18,6 +17,7 @@ const StyledName = styled(Typography)`
 display: flex;
 justify-content: center;
 align-items: center;
+height: 4.688rem;
 `
 
 const StyledPrice = styled(Typography)`
