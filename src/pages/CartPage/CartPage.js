@@ -47,13 +47,6 @@ export const CartPage = () => {
 
   const { deliveryId, products, paymentId } = useSelector(state => state.cart)
 
-  // const cart = {
-  //   items: [{
-  //     id: '-NipSrV_JA17_ORsMS25',
-  //     quantity: 3
-  //   }]
-  // }
-
   const onSubmit = handleSubmit((data, e) => {
     // if (deliveryId.length === 0 || paymentId.length === 0) return
     // console.log(data, 'data')
@@ -72,7 +65,8 @@ export const CartPage = () => {
 
     const cart = {
       items,
-      data
+      data,
+      additionalInformation
     }
 
     fetch('https://50e4-87-205-84-238.ngrok-free.app/create-checkout-session', {

@@ -6,12 +6,9 @@ async function setRealtimeDatabase(paymentData) {
   const {
     id = null,
     amountTotal = null,
-    customerDetails = null,
     metadata = null,
     paymentIntent = null,
     paymentStatus = null,
-    shippingDetails = null,
-    customFields = null,
     created = null,
   } = paymentData
 
@@ -22,12 +19,9 @@ async function setRealtimeDatabase(paymentData) {
       ...existingData,
       id,
       amountTotal,
-      customerDetails,
       metadata,
       paymentIntent,
       paymentStatus,
-      shippingDetails,
-      customFields,
       created,
     })
   } catch (error) {

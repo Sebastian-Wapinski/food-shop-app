@@ -4,24 +4,22 @@ const createUnpaidOrder = require("./createUnpaidOrder")
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 
 async function createCheckoutSession(req, res) {
-  const { items, data } = req.body
+  const { items, data, additionalInformation } = req.body
 
   const { eMail, firstName, lastName, streetName, streetNumber, city, zipCode, phone } = data
 
   const customer = await stripe.customers.create({
     email: eMail,
-    shipping: {
-      name: `${firstName} ${lastName}`,
-      address: {
-        line1: `${streetName} ${streetNumber}`,
-        city,
-        postal_code: zipCode,
-        country: "PL",
-      },
-    },
-    phone,
   })
 
+  const shipping = {
+    name: `${firstName} ${lastName}`,
+    line1: `${streetName} ${streetNumber}`,
+    city,
+    postal_code: zipCode,
+    country: "PL",
+    phone,
+  }
 
   const firebaseData = await getRealtimeDatabase("productPrices")
 
@@ -56,6 +54,8 @@ async function createCheckoutSession(req, res) {
     cancel_url: `${process.env.DOMAIN}?canceled=true`,
     metadata: {
       userId: uniqueId,
+      additionalInformation,
+      ...shipping,
     },
   })
 

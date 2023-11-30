@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 const setRealtimeDatabase = require("./setRealtimeDatabase")
 const sendEmail = require("./sendEmail")
@@ -6,24 +7,18 @@ const createOrder = (session) => {
   const {
     id,
     amountTotal,
-    customerDetails,
     metadata,
-    paymentIntent,
-    paymentStatus,
-    shippingDetails,
-    customFields,
+    payment_intent,
+    payment_status,
     created,
   } = session
 
   const orderData = {
     id,
     amountTotal,
-    customerDetails,
     metadata,
-    paymentIntent,
-    paymentStatus,
-    shippingDetails,
-    customFields,
+    paymentIntent: payment_intent,
+    paymentStatus: payment_status,
     created,
   }
 
@@ -48,13 +43,9 @@ async function webhook(req, res) {
       createOrder(session)
       const email = session.customer_details.email
 
-      if (session.payment_method_options.customer_balance && session.payment_method_options.customer_balance.funding_type === "bank_transfer") {
-        sendEmail(email, "Payment Bank Transfer Method", `Please transfer the money to the following bank details: ${session.url}`)
-      }
-
-      if (session.payment_status === "paid") {
-        sendEmail(email, "Payment Succeed", `Your order has been received and is now being processed. Payment status: ${session.payment_status}`)
-      }
+      // if (session.payment_status === "paid") {
+      //   sendEmail(email, "Payment Succeed", `Your order has been received and is now being processed. Payment status: ${session.payment_status}`)
+      // }
       break
     }
 
