@@ -4,10 +4,26 @@ const createUnpaidOrder = require("./createUnpaidOrder")
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 
 async function createCheckoutSession(req, res) {
-  const { items } = req.body
-  const customer = await stripe.customers.create()
+  const { items, data } = req.body
 
-  const firebaseData = await getRealtimeDatabase("productsPrices")
+  const { eMail, firstName, lastName, streetName, streetNumber, city, zipCode, phone } = data
+
+  const customer = await stripe.customers.create({
+    email: eMail,
+    shipping: {
+      name: `${firstName} ${lastName}`,
+      address: {
+        line1: `${streetName} ${streetNumber}`,
+        city,
+        postal_code: zipCode,
+        country: "PL",
+      },
+    },
+    phone,
+  })
+
+
+  const firebaseData = await getRealtimeDatabase("productPrices")
 
   const storeItems = new Map(Object.entries(firebaseData))
 
@@ -15,49 +31,29 @@ async function createCheckoutSession(req, res) {
   const uniqueId = db.ref().push().key
 
   const lineItems = items.map((item) => {
-    const storeItem = storeItems.get(item.id)
+    const { name, id, img, quantity } = item
+
+    const storeItem = storeItems.get(id)
     return {
       price_data: {
         currency: "eur",
         product_data: {
-          name: storeItem.name,
+          name,
+          images: [img],
         },
-        unit_amount: storeItem.price,
+        unit_amount: (storeItem.price * 100),
       },
-      quantity: item.quantity,
+      quantity,
     }
   })
 
   const session = await stripe.checkout.sessions.create({
     customer: customer.id,
-    payment_method_types: ["card", "customer_balance"],
-    payment_method_options: {
-      customer_balance: {
-        funding_type: "bank_transfer",
-        bank_transfer: {
-          type: "eu_bank_transfer",
-          eu_bank_transfer: {
-            country: "DE",
-          },
-        },
-      },
-    },
+    payment_method_types: ["card"],
     mode: "payment",
     line_items: lineItems,
     success_url: `${process.env.DOMAIN}?success=true`,
     cancel_url: `${process.env.DOMAIN}?canceled=true`,
-    shipping_address_collection: { allowed_countries: ["PL"] },
-    custom_fields: [
-      {
-        key: "additionalInfo",
-        optional: true,
-        label: {
-          type: "custom",
-          custom: "Additional Information",
-        },
-        type: "text",
-      },
-    ],
     metadata: {
       userId: uniqueId,
     },

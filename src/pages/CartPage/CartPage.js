@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 
 import {
@@ -46,12 +47,54 @@ export const CartPage = () => {
 
   const { deliveryId, products, paymentId } = useSelector(state => state.cart)
 
+  // const cart = {
+  //   items: [{
+  //     id: '-NipSrV_JA17_ORsMS25',
+  //     quantity: 3
+  //   }]
+  // }
+
   const onSubmit = handleSubmit((data, e) => {
-    if (deliveryId.length === 0 || paymentId.length === 0) return
-    console.log(data, 'data')
-    console.log(products, 'products')
-    reset()
-    dispatch(actionClearState())
+    // if (deliveryId.length === 0 || paymentId.length === 0) return
+    // console.log(data, 'data')
+    // console.log(products, 'products')
+
+    const items = products.map((product) => {
+      const { category, variety, producer, id, img, quantity } = product
+
+      return {
+        name: `${category}-${variety}-${producer}`,
+        id,
+        img,
+        quantity
+      }
+    })
+
+    const cart = {
+      items,
+      data
+    }
+
+    fetch('https://50e4-87-205-84-238.ngrok-free.app/create-checkout-session', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(cart)
+    })
+      .then(res => {
+        if (res.ok) return res.json()
+        return res.json().then(json => Promise.reject(json))
+      })
+      .then(({ url }) => {
+        window.location = url
+      })
+      .catch(e => {
+        console.error(e.error)
+      })
+
+    // reset()
+    // dispatch(actionClearState())
   })
 
   return (
