@@ -72,7 +72,7 @@ export const CartPage = () => {
       additionalInformation
     }
 
-    fetch('https://50e4-87-205-84-238.ngrok-free.app/create-checkout-session', {
+    fetch('https://us-central1-sw-food-shop-app.cloudfunctions.net/stripeConnection', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
