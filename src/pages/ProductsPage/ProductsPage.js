@@ -1,13 +1,10 @@
 import React from 'react'
 
-import { ref, onValue } from 'firebase/database'
-
 import {
   StyledProductsPage,
   StyledPageTitle
 } from './ProductsPage.styled'
 
-import { database } from '../../firebaseConfig'
 import { useLocation, useNavigate, useParams } from 'react-router'
 import { createData, returnRightPath, sliceLastBackslash } from './ProductsPageHelper'
 import ProductCard from '../../components/ProductCard/ProductCard'
@@ -15,6 +12,7 @@ import Pagination from '../../components/Pagination/Pagination'
 import PaginationNav from '../../components/PaginationNav'
 import ButtonsChangingPages from '../../components/ButtonsChangingPages/ButtonsChangingPages'
 import AddedToCartOverlay from '../../overlays/AddedToCartOverlay/AddedToCartOverlay'
+import { setFirebaseDatabaseData } from '../../helper/helper'
 
 export const ProductsPage = () => {
   const {
@@ -34,13 +32,7 @@ export const ProductsPage = () => {
   const newPath = sliceLastBackslash(location)
 
   React.useEffect(() => {
-    const products = ref(database, returnRightPath(allProductsFromCategory, particularCategoryProducts))
-    onValue(products, (snapshot) => {
-      const rawData = snapshot.val()
-
-      const data = createData(rawData)
-      setProductsData(data)
-    })
+    setFirebaseDatabaseData(returnRightPath(allProductsFromCategory, particularCategoryProducts), createData, setProductsData)
   }, [allProductsFromCategory, particularCategoryProducts])
 
   React.useEffect(() => {

@@ -6,10 +6,9 @@ import {
   StyledZeroFloorNavLi
 } from './NavBar.styled'
 
-import { ref, onValue } from 'firebase/database'
-import { database } from '../../firebaseConfig'
 import { checkIsNameEqualHomeIfNotReturnName, createNavData, searchMenuList } from './NavBarHelper'
 import NestedTabs from '../NestedTabs/NestedTabs'
+import { setFirebaseDatabaseData } from '../../helper/helper'
 
 export const NavBar = () => {
   const [navListData, setNavListData] = React.useState(null)
@@ -19,13 +18,7 @@ export const NavBar = () => {
   const [firstFloorName, setFirstFloorName] = React.useState('')
 
   React.useEffect(() => {
-    const navListRef = ref(database, '/navList')
-
-    onValue(navListRef, (snapshot) => {
-      const rawData = snapshot.val()
-      const data = createNavData(rawData)
-      setNavListData(data)
-    })
+    setFirebaseDatabaseData('/navList', createNavData, setNavListData)
   }, [])
 
   const onMouseEnterZeroFloorHandler = React.useCallback((e, name, menuList) => {

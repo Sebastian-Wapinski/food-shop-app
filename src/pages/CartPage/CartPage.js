@@ -19,10 +19,8 @@ import TotalPrice from '../../components/TotalPrice/TotalPrice'
 import { FormProvider, useForm } from 'react-hook-form'
 import RenderFormInputs from '../../components/RenderFormInputs/RenderFormInputs'
 import RenderMethods from '../../components/RenderMethods/RenderMethods'
-import { deliveryMethodsData } from '../../data/deliveryMethodsData'
 import { useDispatch, useSelector } from 'react-redux'
 import { actionAddToCartDeliveryType, actionAddToCartPaymentType, actionClearState } from '../../modules/Cart/Cart.actions'
-import { paymentMethodsData } from '../../data/paymentMethodsData'
 
 export const CartPage = () => {
   const methods = useForm({
@@ -53,7 +51,15 @@ export const CartPage = () => {
     // console.log(products, 'products')
 
     const items = products.map((product) => {
-      const { category, variety, producer, id, img, quantity } = product
+      const { category, variety, producer, id, img, quantity, isDelivery, isPayment, labelName } = product
+
+      if (isDelivery || isPayment) {
+        return {
+          name: labelName,
+          id,
+          quantity
+        }
+      }
 
       return {
         name: `${category}-${variety}-${producer}`,
@@ -122,7 +128,7 @@ export const CartPage = () => {
                   Delivery
                 </StyledMinorTitle>
                 <RenderMethods
-                  data={deliveryMethodsData}
+                  data={'/deliveryMethods'}
                   methodsName={'delivery'}
                   checkedId={deliveryId}
                   action={actionAddToCartDeliveryType}
@@ -136,7 +142,7 @@ export const CartPage = () => {
                   Payment
                 </StyledMinorTitle>
                 <RenderMethods
-                  data={paymentMethodsData}
+                  data={'/paymentMethods'}
                   methodsName={'payment'}
                   checkedId={paymentId}
                   action={actionAddToCartPaymentType}

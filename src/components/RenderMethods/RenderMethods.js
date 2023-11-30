@@ -11,6 +11,8 @@ import {
   StyledErrorsMessage
 } from './RenderMethods.styled'
 import { actionChangeProductQuantity } from '../../modules/Cart/Cart.actions'
+import { setFirebaseDatabaseData } from '../../helper/helper'
+import { createData } from '../../pages/ProductsPage/ProductsPageHelper'
 
 export const RenderMethods = (props) => {
   const {
@@ -23,10 +25,17 @@ export const RenderMethods = (props) => {
 
   const dispatch = useDispatch()
 
+  const [methods, setMethods] = React.useState(null)
+
+  React.useEffect(() => {
+    setFirebaseDatabaseData(data, createData, setMethods)
+  }, [data])
+
   return (
     <StyledRenderMethods>
       {
-        data.map(method => {
+      methods ?
+        methods.map(method => {
           const { id, labelName, value } = method
           return (
             <RadioContainer
@@ -52,6 +61,8 @@ export const RenderMethods = (props) => {
             </RadioContainer>
           )
         })
+        :
+        null
       }
       {
           errorMessage && <StyledErrorsMessage variant={'errorMessageForm'}>{errorMessage}</StyledErrorsMessage>
@@ -61,7 +72,7 @@ export const RenderMethods = (props) => {
 }
 
 RenderMethods.propTypes = {
-  data: PropTypes.array,
+  data: PropTypes.string,
   methodsName: PropTypes.string,
   checkedId: PropTypes.string,
   action: PropTypes.func,
