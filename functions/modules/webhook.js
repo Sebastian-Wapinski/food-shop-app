@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 const setRealtimeDatabase = require("./setRealtimeDatabase")
 const sendEmail = require("./sendEmail")
@@ -43,9 +42,9 @@ async function webhook(req, res) {
       createOrder(session)
       const email = session.customer_details.email
 
-      // if (session.payment_status === "paid") {
-      //   sendEmail(email, "Payment Succeed", `Your order has been received and is now being processed. Payment status: ${session.payment_status}`)
-      // }
+      if (session.payment_status === "paid") {
+        sendEmail(email, "Payment Succeed", `Your order has been received and is now being processed. Payment status: ${session.payment_status}`)
+      }
       break
     }
 

@@ -25,4 +25,4 @@ yarn-error.log*
 #ENV
 .env
 
-secrets
+secretAdminKeyShop.json
