@@ -5,7 +5,7 @@ async function setRealtimeDatabase(paymentData) {
   const db = dbFn()
   const {
     id = null,
-    dividedAmountTotal = null,
+    amountTotal = null,
     metadata = null,
     paymentIntent = null,
     paymentStatus = null,
@@ -19,7 +19,7 @@ async function setRealtimeDatabase(paymentData) {
     await db.ref(`orders/${metadata.userId}`).set({
       ...existingData,
       id,
-      dividedAmountTotal,
+      amountTotal,
       metadata,
       paymentIntent,
       paymentStatus,

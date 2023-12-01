@@ -5,7 +5,7 @@ const sendEmail = require("./sendEmail")
 const createOrder = (session) => {
   const {
     id,
-    amountTotal,
+    amount_total,
     metadata,
     payment_intent,
     payment_status,
@@ -13,12 +13,12 @@ const createOrder = (session) => {
     customer_details,
   } = session
 
-  const dividedAmountTotal = amountTotal / 100
   const email = customer_details.email
+  const amountTotal = amount_total / 100
 
   const orderData = {
     id,
-    dividedAmountTotal,
+    amountTotal,
     metadata,
     paymentIntent: payment_intent,
     paymentStatus: payment_status,
