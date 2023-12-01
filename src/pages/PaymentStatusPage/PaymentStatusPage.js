@@ -4,6 +4,7 @@ import { StyledPaymentStatusPage, StyledTitle } from './PaymentStatusPage.styled
 import { useParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { actionClearState } from '../../modules/Cart/Cart.actions'
+import { Helmet } from 'react-helmet-async'
 
 export const PaymentStatusPage = () => {
   const { paymentStatus } = useParams()
@@ -16,6 +17,13 @@ export const PaymentStatusPage = () => {
 
   return (
     <StyledPaymentStatusPage>
+      <Helmet>
+        <title>Payment Status</title>
+        <meta
+          name={'Payment Status'}
+          content={'Payment Status'}
+        />
+      </Helmet>
       {
         paymentStatus === 'payment-status-canceled' ?
           <StyledTitle

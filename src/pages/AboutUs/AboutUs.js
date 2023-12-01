@@ -1,10 +1,18 @@
 import React from 'react'
 
 import { StyledAboutUs, StyledH1, StyledBody1 } from './AboutUs.styled'
+import { Helmet } from 'react-helmet-async'
 
 export const AboutUs = () => {
   return (
     <StyledAboutUs>
+      <Helmet>
+        <title>About Us</title>
+        <meta
+          name={'About Us'}
+          content={'Describes FOOD SHOP journey in local market'}
+        />
+      </Helmet>
       <StyledH1 variant={'h1'}>About FOOD SHOP</StyledH1>
       <StyledBody1 variant={'body1'}>
         Since its humble beginnings in 2010, Food Shop has been a local entrepreneurial venture that has evolved with the changing times. What started as a brick-and-mortar establishment quickly adapted to the digital age, venturing into the online marketplace to reach a wider audience. The journey began with a simple mission: to provide the community with access to the freshest, high-quality, and eco-friendly food products.

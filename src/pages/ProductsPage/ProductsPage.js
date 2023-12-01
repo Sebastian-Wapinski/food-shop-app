@@ -13,6 +13,7 @@ import PaginationNav from '../../components/PaginationNav'
 import ButtonsChangingPages from '../../components/ButtonsChangingPages/ButtonsChangingPages'
 import AddedToCartOverlay from '../../overlays/AddedToCartOverlay/AddedToCartOverlay'
 import { setFirebaseDatabaseData } from '../../helper/helper'
+import { Helmet } from 'react-helmet-async'
 
 export const ProductsPage = () => {
   const {
@@ -77,6 +78,13 @@ export const ProductsPage = () => {
   return (
     productsData ?
       <StyledProductsPage>
+        <Helmet>
+          <title>{setFirstLetterToUppercase(particularCategoryProducts) || setFirstLetterToUppercase(allProductsFromCategory) || 'All Products'}</title>
+          <meta
+            name={'Products-page'}
+            content={'Products to buy'}
+          />
+        </Helmet>
         {
           isActiveAddedToCartLayer ?
             <AddedToCartOverlay

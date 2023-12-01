@@ -20,6 +20,7 @@ import RenderFormInputs from '../../components/RenderFormInputs/RenderFormInputs
 import RenderMethods from '../../components/RenderMethods/RenderMethods'
 import { useSelector } from 'react-redux'
 import { actionAddToCartDeliveryType, actionAddToCartPaymentType } from '../../modules/Cart/Cart.actions'
+import { Helmet } from 'react-helmet-async'
 
 export const CartPage = () => {
   const methods = useForm({
@@ -89,6 +90,13 @@ export const CartPage = () => {
           <FormProvider
             {...methods}
           >
+            <Helmet>
+              <title>Cart</title>
+              <meta
+                name={'Cart'}
+                content={'Cart: Shop hassle-free with secure payments, diverse delivery options, and a personalized form for swift product delivery'}
+              />
+            </Helmet>
             <StyledTitle
               variant={'h2'}
             >
