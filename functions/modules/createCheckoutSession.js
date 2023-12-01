@@ -53,8 +53,8 @@ async function createCheckoutSession(req, res) {
     payment_method_types: ["card"],
     mode: "payment",
     line_items: lineItems,
-    success_url: `${process.env.DOMAIN}?success=true`,
-    cancel_url: `${process.env.DOMAIN}?canceled=true`,
+    success_url: `${process.env.DOMAIN}/payment-status-success`,
+    cancel_url: `${process.env.DOMAIN}/payment-status-canceled`,
     metadata: {
       userId: uniqueId,
       additionalInformation,

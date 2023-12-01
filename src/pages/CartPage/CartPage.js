@@ -18,8 +18,8 @@ import TotalPrice from '../../components/TotalPrice/TotalPrice'
 import { FormProvider, useForm } from 'react-hook-form'
 import RenderFormInputs from '../../components/RenderFormInputs/RenderFormInputs'
 import RenderMethods from '../../components/RenderMethods/RenderMethods'
-import { useDispatch, useSelector } from 'react-redux'
-import { actionAddToCartDeliveryType, actionAddToCartPaymentType, actionClearState } from '../../modules/Cart/Cart.actions'
+import { useSelector } from 'react-redux'
+import { actionAddToCartDeliveryType, actionAddToCartPaymentType } from '../../modules/Cart/Cart.actions'
 
 export const CartPage = () => {
   const methods = useForm({
@@ -37,10 +37,9 @@ export const CartPage = () => {
     }
   })
 
-  const { handleSubmit, reset } = methods
+  const { handleSubmit } = methods
   const [additionalInformation, setAdditionalInformation] = React.useState('')
   const [onSubmitClicked, setOnSubmitClicked] = React.useState(false)
-  const dispatch = useDispatch()
 
   const { deliveryId, products, paymentId } = useSelector(state => state.cart)
 
@@ -81,9 +80,6 @@ export const CartPage = () => {
       .catch(e => {
         console.error(e.error)
       })
-
-    reset()
-    dispatch(actionClearState())
   })
 
   return (

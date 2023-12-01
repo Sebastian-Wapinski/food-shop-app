@@ -7,6 +7,7 @@ import PageNotFound from '../../pages/PageNotFound/PageNotFound'
 import HomePage from '../../pages/HomePage/HomePage'
 import ProductsPage from '../../pages/ProductsPage/ProductsPage'
 import CartPage from '../../pages/CartPage/CartPage'
+import PaymentStatusPage from '../../pages/PaymentStatusPage/PaymentStatusPage'
 
 export const App = () => {
   return (
@@ -21,12 +22,8 @@ export const App = () => {
             element={<CartPage />}
           />
           <Route
-            path={'/cart?canceled=true'}
-            element={<CartPage />}
-          />
-          <Route
-            path={'/cart?success=true'}
-            element={<CartPage />}
+            path={'/cart/:paymentStatus'}
+            element={<PaymentStatusPage />}
           />
           {/* <Route
             path={'/favorites'}
