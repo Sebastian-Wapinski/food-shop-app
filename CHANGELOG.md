@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2023-12-01
+
+### Added
+
+- Server (as cloud functions) connects with Stripe
+- Establish a 'pending' status on server upon activation of Stripe
+- Sending emails to clients after decline payment and succeeded payment
+- Establish a 'paid' status on server upon succeeded payment
+- Server Delivery and Payment methods
+
+### Removed
+
+- Hardcoded Delivery and Payment methods
+
 ## [0.5.0] - 2023-11-29
 
 ### Added
