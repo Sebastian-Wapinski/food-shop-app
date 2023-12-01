@@ -1,6 +1,6 @@
 require("dotenv").config()
 
-const functions = require("firebase-functions")
+const { onRequest } = require("firebase-functions/v2/https")
 const express = require("express")
 const cors = require("cors")
 const app = express()
@@ -22,5 +22,5 @@ app.post("/create-checkout-session", createCheckoutSession)
 
 app.post("/webhook", webhook)
 
-exports.stripeConnection = functions.https.onRequest(app)
+exports.stripeConnection = onRequest(app)
 

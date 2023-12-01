@@ -20,6 +20,14 @@ export const App = () => {
             path={'/cart'}
             element={<CartPage />}
           />
+          <Route
+            path={'/cart?canceled=true'}
+            element={<CartPage />}
+          />
+          <Route
+            path={'/cart?success=true'}
+            element={<CartPage />}
+          />
           {/* <Route
             path={'/favorites'}
             element={<FavoritesPage />}

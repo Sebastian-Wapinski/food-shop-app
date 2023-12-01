@@ -10,15 +10,20 @@ const createOrder = (session) => {
     payment_intent,
     payment_status,
     created,
+    customer_details,
   } = session
+
+  const dividedAmountTotal = amountTotal / 100
+  const email = customer_details.email
 
   const orderData = {
     id,
-    amountTotal,
+    dividedAmountTotal,
     metadata,
     paymentIntent: payment_intent,
     paymentStatus: payment_status,
     created,
+    email,
   }
 
   setRealtimeDatabase(orderData)

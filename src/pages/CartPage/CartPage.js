@@ -48,18 +48,10 @@ export const CartPage = () => {
     if (deliveryId.length === 0 || paymentId.length === 0) return
 
     const items = products.map((product) => {
-      const { category, variety, producer, id, img, quantity, isDelivery, isPayment, labelName } = product
-
-      if (isDelivery || isPayment) {
-        return {
-          name: labelName,
-          id,
-          quantity
-        }
-      }
+      const { category, variety, producer, id, img, quantity, labelName } = product
 
       return {
-        name: `${category}-${variety}-${producer}`,
+        name: labelName || `${category}-${variety}-${producer}`,
         id,
         img,
         quantity
@@ -72,7 +64,7 @@ export const CartPage = () => {
       additionalInformation
     }
 
-    fetch('https://us-central1-sw-food-shop-app.cloudfunctions.net/stripeConnection', {
+    fetch('https://us-central1-sw-food-shop-app.cloudfunctions.net/stripeConnection/create-checkout-session', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

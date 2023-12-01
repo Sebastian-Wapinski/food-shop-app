@@ -45,6 +45,9 @@ async function createCheckoutSession(req, res) {
     }
   })
 
+
+  await createUnpaidOrder(lineItems, uniqueId)
+
   const session = await stripe.checkout.sessions.create({
     customer: customer.id,
     payment_method_types: ["card"],
@@ -58,8 +61,6 @@ async function createCheckoutSession(req, res) {
       ...shipping,
     },
   })
-
-  await createUnpaidOrder(lineItems, uniqueId)
 
   res.json({ url: session.url })
 }
