@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import Typography from '../Typography/Typography'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 const DefaultStyledIcons = styled.div`
 position: relative;
 display: flex;
@@ -17,10 +19,6 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-`
-
-const StyledImg = styled.img`
-
 `
 
 const StyledParagraph = styled.p`
@@ -41,4 +39,24 @@ align-items: center;
 font-size: 0.7rem;
 `
 
-export { StyledIcons, StyledIconContainer, StyledImg, StyledParagraph, CartIconProductsQuantity }
+const StyledImgContainer = styled.div`
+width: 3.125rem;
+height: 3.125rem;
+display: flex;
+justify-content: center;
+align-items: center;
+`
+
+const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+color: ${props => props.theme.mainColor};
+font-size: 2.5rem;
+`
+
+export {
+  StyledIcons,
+  StyledIconContainer,
+  StyledParagraph,
+  CartIconProductsQuantity,
+  StyledImgContainer,
+  StyledFontAwesomeIcon
+}

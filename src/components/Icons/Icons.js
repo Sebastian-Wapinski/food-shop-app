@@ -1,10 +1,20 @@
 import React from 'react'
 
-import { StyledIcons, StyledIconContainer, StyledImg, StyledParagraph, CartIconProductsQuantity } from './Icons.styled'
+import {
+  StyledIcons,
+  StyledIconContainer,
+  StyledParagraph,
+  CartIconProductsQuantity,
+  StyledImgContainer,
+  StyledFontAwesomeIcon
+} from './Icons.styled'
 import { iconsData } from '../../data/iconsData'
 import { Link, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import PreviewCartOverlay from '../../overlays/PreviewCartOverlay/PreviewCartOverlay'
+
+import { faHeart, faUser } from '@fortawesome/free-regular-svg-icons'
+import { faBasketShopping } from '@fortawesome/free-solid-svg-icons'
 
 export const Icons = () => {
   const [showPreviewCartOverlay, setShowPreviewCartOverlay] = React.useState(false)
@@ -16,10 +26,11 @@ export const Icons = () => {
   return (
     <StyledIcons>
       <StyledIconContainer>
-        <StyledImg
-          src={logIn.img}
-          alt={logIn.alt}
-        />
+        <StyledImgContainer>
+          <StyledFontAwesomeIcon
+            icon={faUser}
+          />
+        </StyledImgContainer>
         <StyledParagraph>
           {logIn.name}
         </StyledParagraph>
@@ -28,10 +39,11 @@ export const Icons = () => {
         to={favorites.path}
       >
         <StyledIconContainer>
-          <StyledImg
-            src={favorites.img}
-            alt={favorites.alt}
-          />
+          <StyledImgContainer>
+            <StyledFontAwesomeIcon
+              icon={faHeart}
+            />
+          </StyledImgContainer>
           <StyledParagraph>
             {favorites.name}
           </StyledParagraph>
@@ -47,10 +59,11 @@ export const Icons = () => {
         }}
       >
         <StyledIconContainer>
-          <StyledImg
-            src={cart.img}
-            alt={cart.alt}
-          />
+          <StyledImgContainer>
+            <StyledFontAwesomeIcon
+              icon={faBasketShopping}
+            />
+          </StyledImgContainer>
           <StyledParagraph>
             {cart.name}
           </StyledParagraph>

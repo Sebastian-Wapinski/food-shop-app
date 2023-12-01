@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Typography from '../Typography/Typography'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const DefaultStyledCartProduct = styled.div`
 display: flex;
@@ -72,6 +73,10 @@ display: block;
 font-size: 0.8rem;
 `
 
+const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+font-size: 1.5rem;
+`
+
 export {
   StyledCartProduct,
   StyledImg,
@@ -83,5 +88,6 @@ export {
   StyledPrice,
   StyledAccessibility,
   StyledButtonContainer,
-  StyledErrorMessage
+  StyledErrorMessage,
+  StyledFontAwesomeIcon
 }

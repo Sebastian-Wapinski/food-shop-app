@@ -12,7 +12,8 @@ import {
   StyledPrice,
   StyledAccessibility,
   StyledButtonContainer,
-  StyledErrorMessage
+  StyledErrorMessage,
+  StyledFontAwesomeIcon
 } from './CartProduct.styled'
 
 import ChangeProductQuantityComplex from '../ChangeProductQuantityComplex/ChangeProductQuantityComplex'
@@ -22,6 +23,7 @@ import { useDispatch } from 'react-redux'
 import { actionChangeProductQuantity, actionDecreaseQuantity, actionDeleteFromCart, actionIncreaseQuantity, actionSetNewQuantity } from '../../modules/Cart/Cart.actions'
 import { decreaseProductQuantityValidation, increaseProductQuantityValidation, setProductQuantityValidation } from '../../validation/insertProductValue'
 import { ERROR_PRODUCT_QUANTITY } from '../../consts'
+import { faTrashCan } from '@fortawesome/free-regular-svg-icons'
 
 export const CartProduct = (props) => {
   const {
@@ -115,7 +117,9 @@ export const CartProduct = (props) => {
               dispatch(actionChangeProductQuantity())
             }}
           >
-            DEL
+            <StyledFontAwesomeIcon
+              icon={faTrashCan}
+            />
           </Button>
         </StyledButtonContainer>
       </StyledCartProduct>
