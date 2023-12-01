@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import CardButton from '../../components/CardButton/CardButton'
+import Button from '../../components/Button/Button'
 import TotalPrice from '../../components/TotalPrice/TotalPrice'
 import Cart from '../../modules/Cart/Cart'
 
@@ -26,7 +26,7 @@ const StyledCart = styled(Cart)`
 width: 60rem;
 `
 
-const StyledCardButton = styled(CardButton)`
+const StyledButton = styled(Button)`
 display: flex;
 justify-content: center;
 width: 100%;
@@ -49,6 +49,6 @@ export {
   StyledPreviewCartOverlay,
   StyledProductsAndTotalPriceLayout,
   StyledCart,
-  StyledCardButton,
+  StyledButton,
   StyledTotalPrice
 }

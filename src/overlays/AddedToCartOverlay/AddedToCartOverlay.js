@@ -15,7 +15,7 @@ import {
   StyledPrice,
   StyledButtonsContainer
 } from './AddedToCartOverlay.styled'
-import CardButton from '../../components/CardButton/CardButton'
+import Button from '../../components/Button/Button'
 import { Link } from 'react-router-dom'
 
 export const AddedToCartOverlay = (props) => {
@@ -65,22 +65,22 @@ export const AddedToCartOverlay = (props) => {
             </StyledPrice>
           </StyledProduct>
           <StyledButtonsContainer>
-            <CardButton
+            <Button
               variant={'customText'}
               onClick={() => {
                 setIsActiveAddedToCartLayer(false)
               }}
             >
               Continue Shopping
-            </CardButton>
+            </Button>
             <Link
               to={'/cart'}
             >
-              <CardButton
+              <Button
                 variant={'customText'}
               >
                 View Cart
-              </CardButton>
+              </Button>
             </Link>
           </StyledButtonsContainer>
         </StyledAddedToCartContainer>

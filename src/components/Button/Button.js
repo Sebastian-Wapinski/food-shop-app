@@ -6,16 +6,18 @@ import { StyledButton } from './Button.styled'
 export const Button = (props) => {
   const {
     children,
-    onClick,
     className,
-    type
+    onClick,
+    variant,
+    isDisabled
   } = props
 
   return (
     <StyledButton
-      onClick={onClick}
       className={className}
-      type={type}
+      $variant={variant}
+      onClick={onClick}
+      disabled={isDisabled}
     >
       {children}
     </StyledButton>
@@ -24,9 +26,10 @@ export const Button = (props) => {
 
 Button.propTypes = {
   children: PropTypes.node,
-  onClick: PropTypes.func,
   className: PropTypes.string,
-  type: PropTypes.string
+  onClick: PropTypes.func,
+  isDisabled: PropTypes.bool,
+  variant: PropTypes.oneOf(['changeQuantity', 'addToCart', 'delete', 'customText'])
 }
 
 export default Button

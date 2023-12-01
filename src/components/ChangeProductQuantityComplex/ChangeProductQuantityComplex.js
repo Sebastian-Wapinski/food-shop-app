@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import CardButton from '../CardButton/CardButton'
+import Button from '../Button/Button'
 import ChangeQuantityField from '../ChangeQuantityField/ChangeQuantityField'
 
 import { StyledChangeProductQuantityComplex } from './ChangeProductQuantityComplex.styled'
@@ -20,26 +20,26 @@ export const ChangeProductQuantityComplex = (props) => {
 
   return (
     <StyledChangeProductQuantityComplex>
-      <CardButton
+      <Button
         variant={'changeQuantity'}
         onClick={decreaseProductQuantity}
         isDisabled={isDisabledPrevButton}
       >
         -
-      </CardButton>
+      </Button>
       <ChangeQuantityField
         productQuantity={productQuantity}
         setProductQuantity={setProductQuantity}
         setIsError={setIsError}
         valueOnEmptyField={valueOnEmptyField}
       />
-      <CardButton
+      <Button
         variant={'changeQuantity'}
         onClick={increaseProductQuantity}
         isDisabled={isDisabledNextButton}
       >
         +
-      </CardButton>
+      </Button>
     </StyledChangeProductQuantityComplex>
   )
 }

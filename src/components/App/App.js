@@ -52,15 +52,15 @@ export const App = () => {
             path={'/products/:allProductsFromCategory/:particularCategoryProducts'}
             element={<ParticularCategoryProductsPage />}
           /> */}
+          <Route
+            path={'*'}
+            element={<PageNotFound />}
+          />
         </Route>
         {/* <Route
             path={'/:product'}
             element={<ProductPage />}
           /> */}
-        <Route
-          path={'*'}
-          element={<PageNotFound />}
-        />
       </Routes>
     </StyledApp>
   )

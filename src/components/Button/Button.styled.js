@@ -1,24 +1,87 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const DefaultStyledButton = styled.button`
-display: flex;
-align-self: flex-start;
 
-padding: 1rem 1.5rem;
-margin: 2rem 0;
-border-radius: 12px;
-font-weight: 600;
-background-color: ${props => props.theme.forthBackground};
-color: ${props => props.theme.primaryBackground};
-transition: all 0.3s ease-in-out;
-border: 1px solid transparent;
+${
+  props => props.$variant === 'changeQuantity' && css`
+  color: ${props => props.theme.secondTextColor};
+  background-color: ${props => props.theme.firstBackground};
+  font-size: 1.2rem;
+  width: 2rem;
+  height: 2rem;
+  transition: all 0.1s ease-in-out;
+  border: 1px solid ${props => props.theme.mainColor};
 
-&:hover {
-  background-color: ${props => props.theme.primaryBackground};
-  color: ${props => props.theme.forthBackground};
-  border: 1px solid ${props => props.theme.forthBackground};
-  cursor: pointer;
+  &:hover {
+    color: ${props => props.theme.thirdTextColor};
+    cursor: pointer;
+  }
+
+  &:disabled {
+    color: ${props => props.theme.secondTextColor};
+    cursor: not-allowed;
+  }
+  `
 }
+
+${
+  props => props.$variant === 'addToCart' && css`
+  color: ${props => props.theme.firstTextColor};
+  background-color: ${props => props.theme.mainColor};
+  font-size: 0.8rem;
+  width: 100%;
+  transition: all 0.1s ease-in-out;
+  border: 1px solid transparent;
+  margin: 0 0 0 0.5rem;
+
+  &:hover {
+    color: ${props => props.theme.mainColor};
+    background-color: ${props => props.theme.firstBackground};
+    border: 1px solid ${props => props.theme.mainColor};
+    cursor: pointer;
+  }
+  `
+}
+
+${
+  props => props.$variant === 'delete' && css`
+  color: ${props => props.theme.firstTextColor};
+  background-color: ${props => props.theme.mainColor};
+  font-size: 0.8rem;
+  width: 3rem;
+  height: 3rem;
+  transition: all 0.1s ease-in-out;
+  border: 1px solid transparent;
+
+  &:hover {
+    color: ${props => props.theme.mainColor};
+    background-color: ${props => props.theme.firstBackground};
+    border: 1px solid ${props => props.theme.mainColor};
+    cursor: pointer;
+  }
+  `
+}
+
+${
+  props => props.$variant === 'customText' && css`
+  color: ${props => props.theme.firstTextColor};
+  background-color: ${props => props.theme.mainColor};
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.7rem 2rem;
+  margin: 0 1rem;
+  transition: all 0.1s ease-in-out;
+  border: 1px solid transparent;
+
+  &:hover {
+    color: ${props => props.theme.mainColor};
+    background-color: ${props => props.theme.firstBackground};
+    border: 1px solid ${props => props.theme.mainColor};
+    cursor: pointer;
+  }
+  `
+}
+
 `
 
 const StyledButton = styled(DefaultStyledButton)(

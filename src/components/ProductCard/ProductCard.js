@@ -19,7 +19,7 @@ import {
   StyledProductErrorMessage
 } from './ProductCard.styled'
 
-import CardButton from '../CardButton/CardButton'
+import Button from '../Button/Button'
 import { actionAddToCart, actionChangeProductQuantity, actionIncreaseQuantity } from '../../modules/Cart/Cart.actions'
 import ChangeProductQuantityComplex from '../ChangeProductQuantityComplex/ChangeProductQuantityComplex'
 import { decreaseProductQuantityValidation, increaseProductQuantityValidation } from '../../validation/insertProductValue'
@@ -150,12 +150,12 @@ export const ProductCard = (props) => {
               isDisabledPrevButton={productQuantity === 1}
               isDisabledNextButton={productQuantity === accessibility}
             />
-            <CardButton
+            <Button
               variant={'addToCart'}
               onClick={addToCart}
             >
               Add To Cart
-            </CardButton>
+            </Button>
           </StyledAddToCartContainer>
           {
             isError ?

@@ -62,7 +62,7 @@ text-align: center;
 font-size: 0.7rem;
 `
 
-const StyledCardButtonContainer = styled.div`
+const StyledButtonContainer = styled.div`
 display: flex;
 align-items: center;
 `
@@ -82,6 +82,6 @@ export {
   StyledContainerPriceQuantity,
   StyledPrice,
   StyledAccessibility,
-  StyledCardButtonContainer,
+  StyledButtonContainer,
   StyledErrorMessage
 }

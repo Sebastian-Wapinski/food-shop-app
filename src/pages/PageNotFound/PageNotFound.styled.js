@@ -1,37 +1,27 @@
 import styled from 'styled-components'
 import Button from '../../components/Button/Button'
+import Typography from '../../components/Typography/Typography'
 
 const DefaultStyledPageNotFound = styled.div`
 display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
-height: 100vh;
+min-height: calc(100vh - 234.59px);
 `
 
 const StyledPageNotFound = styled(DefaultStyledPageNotFound)(
   props => props.style
 )
 
-const StyledParagraph = styled.p`
-font-size: 2rem;
-color: ${props => props.theme.primaryTextColor};
+const StyledParagraph = styled(Typography)`
+display: block;
+margin: 3rem 0;
+font-size: 3rem;
 `
 
 const StyledButton = styled(Button)`
-margin: 0.5rem 0;
-padding: 0.8rem 4rem;
-align-self: center;
 
-@media (max-width: 10rem) {
-  position: relative;
-  top: 0;
-  left: 0;
-  padding: 0.8rem 4rem;
-  margin: 1rem 0;
-  font-weight: 600;
-  font-size: 0.8rem;
-}
 `
 
 export { StyledPageNotFound, StyledParagraph, StyledButton }

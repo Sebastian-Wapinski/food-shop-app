@@ -7,7 +7,7 @@ import {
   StyledPreviewCartOverlay,
   StyledProductsAndTotalPriceLayout,
   StyledCart,
-  StyledCardButton,
+  StyledButton,
   StyledTotalPrice
 } from './PreviewCartOverlay.styled'
 
@@ -37,11 +37,11 @@ export const PreviewCartOverlay = (props) => {
         <Link
           to={'/cart'}
         >
-          <StyledCardButton
+          <StyledButton
             variant={'customText'}
           >
             Go To Cart
-          </StyledCardButton>
+          </StyledButton>
         </Link>
       </StyledProductsAndTotalPriceLayout>
     </StyledPreviewCartOverlay>

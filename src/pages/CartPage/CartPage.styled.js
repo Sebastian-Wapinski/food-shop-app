@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { responsiveSizes } from '../../components/style/responsiveSizes'
 import Typography from '../../components/Typography/Typography'
-import CardButton from '../../components/CardButton/CardButton'
+import Button from '../../components/Button/Button'
 
 const DefaultStyledCartPage = styled.div`
 min-height: calc(100vh - 234.59px);
@@ -50,7 +50,7 @@ color: ${props => props.theme.mainColorLighterShade};
 }
 `
 
-const StyledPayWithStripe = styled(CardButton)`
+const StyledPayWithStripe = styled(Button)`
 grid-area: StyledPayWithStripe;
 display: flex;
 justify-content: center;

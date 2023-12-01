@@ -16,10 +16,13 @@ export const PageNotFound = () => {
           content={'Page Not Found'}
         />
       </Helmet>
-      <StyledParagraph>
+      <StyledParagraph
+        variant={'h1'}
+      >
         PAGE NOT FOUND
       </StyledParagraph>
       <StyledButton
+        variant={'customText'}
         onClick={() => {
           navigate('/')
         }}

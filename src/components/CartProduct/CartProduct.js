@@ -11,12 +11,12 @@ import {
   StyledContainerPriceQuantity,
   StyledPrice,
   StyledAccessibility,
-  StyledCardButtonContainer,
+  StyledButtonContainer,
   StyledErrorMessage
 } from './CartProduct.styled'
 
 import ChangeProductQuantityComplex from '../ChangeProductQuantityComplex/ChangeProductQuantityComplex'
-import CardButton from '../CardButton/CardButton'
+import Button from '../Button/Button'
 
 import { useDispatch } from 'react-redux'
 import { actionChangeProductQuantity, actionDecreaseQuantity, actionDeleteFromCart, actionIncreaseQuantity, actionSetNewQuantity } from '../../modules/Cart/Cart.actions'
@@ -107,8 +107,8 @@ export const CartProduct = (props) => {
         >
           {totalPriceOfOneProduct}€
         </StyledPrice>
-        <StyledCardButtonContainer>
-          <CardButton
+        <StyledButtonContainer>
+          <Button
             variant={'delete'}
             onClick={() => {
               dispatch(actionDeleteFromCart(id))
@@ -116,8 +116,8 @@ export const CartProduct = (props) => {
             }}
           >
             DEL
-          </CardButton>
-        </StyledCardButtonContainer>
+          </Button>
+        </StyledButtonContainer>
       </StyledCartProduct>
       {
       isError ?
