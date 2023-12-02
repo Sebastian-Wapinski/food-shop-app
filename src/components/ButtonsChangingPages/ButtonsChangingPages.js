@@ -14,19 +14,19 @@ export const ButtonsChangingPages = (props) => {
 
   const navigate = useNavigate()
 
-  const setPrevPage = () => {
+  const setPrevPage = React.useCallback(() => {
     if (currentPageNumber > 1) {
       const newPageNumber = currentPageNumber - 1
       navigate(`${path}/${newPageNumber}`)
     }
-  }
+  }, [currentPageNumber, navigate, path])
 
-  const setNextPage = () => {
+  const setNextPage = React.useCallback(() => {
     if (currentPageNumber < allPages) {
       const newPageNumber = currentPageNumber + 1
       navigate(`${path}/${newPageNumber}`)
     }
-  }
+  }, [allPages, currentPageNumber, navigate, path])
 
   return (
     <StyledButtonsChangingPages>

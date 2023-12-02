@@ -12,7 +12,7 @@ import Pagination from '../../components/Pagination/Pagination'
 import PaginationNav from '../../components/PaginationNav'
 import ButtonsChangingPages from '../../components/ButtonsChangingPages/ButtonsChangingPages'
 import AddedToCartOverlay from '../../overlays/AddedToCartOverlay/AddedToCartOverlay'
-import { setFirebaseDatabaseData } from '../../helper/helper'
+import { setDataFromFirebaseDatabase } from '../../helper/helper'
 import { Helmet } from 'react-helmet-async'
 
 export const ProductsPage = () => {
@@ -51,7 +51,7 @@ export const ProductsPage = () => {
   }, [allProductsFromCategory, particularCategoryProducts])
 
   React.useEffect(() => {
-    setFirebaseDatabaseData(returnRightPath(allProductsFromCategory, particularCategoryProducts), createData, setProductsData)
+    setDataFromFirebaseDatabase(returnRightPath(allProductsFromCategory, particularCategoryProducts), createData, setProductsData)
   }, [allProductsFromCategory, particularCategoryProducts])
 
   React.useEffect(() => {

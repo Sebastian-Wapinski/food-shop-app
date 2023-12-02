@@ -8,7 +8,7 @@ import {
 
 import { checkIsNameEqualHomeIfNotReturnName, createNavData, searchMenuList } from './NavBarHelper'
 import NestedTabs from '../NestedTabs/NestedTabs'
-import { setFirebaseDatabaseData } from '../../helper/helper'
+import { setDataFromFirebaseDatabase } from '../../helper/helper'
 
 export const NavBar = () => {
   const [navListData, setNavListData] = React.useState(null)
@@ -18,7 +18,7 @@ export const NavBar = () => {
   const [firstFloorName, setFirstFloorName] = React.useState('')
 
   React.useEffect(() => {
-    setFirebaseDatabaseData('/navList', createNavData, setNavListData)
+    setDataFromFirebaseDatabase('/navList', createNavData, setNavListData)
   }, [])
 
   const onMouseEnterZeroFloorHandler = React.useCallback((e, name, menuList) => {

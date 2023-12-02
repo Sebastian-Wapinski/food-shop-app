@@ -11,7 +11,7 @@ import {
   StyledErrorsMessage
 } from './RenderMethods.styled'
 import { actionChangeProductQuantity } from '../../modules/Cart/Cart.actions'
-import { setFirebaseDatabaseData } from '../../helper/helper'
+import { setDataFromFirebaseDatabase } from '../../helper/helper'
 import { createData } from '../../pages/ProductsPage/ProductsPageHelper'
 
 export const RenderMethods = (props) => {
@@ -28,7 +28,7 @@ export const RenderMethods = (props) => {
   const [methods, setMethods] = React.useState(null)
 
   React.useEffect(() => {
-    setFirebaseDatabaseData(data, createData, setMethods)
+    setDataFromFirebaseDatabase(data, createData, setMethods)
   }, [data])
 
   return (

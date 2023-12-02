@@ -1,7 +1,7 @@
 import { ref, onValue } from 'firebase/database'
 import { database } from '../firebaseConfig'
 
-export const setFirebaseDatabaseData = (path, dataCreator, dataSetter) => {
+export const setDataFromFirebaseDatabase = (path, dataCreator, dataSetter) => {
   const databaseRef = ref(database, path)
 
   onValue(databaseRef, (snapshot) => {
