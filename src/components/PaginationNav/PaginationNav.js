@@ -14,23 +14,23 @@ export const PaginationNav = (props) => {
     path
   } = props
 
-  const addStartDots = (item, index) => {
+  const addStartDots = React.useCallback((item, index) => {
     return (
       <StyledPaginationContainer key={`${index}/dotsStart`}>
         <StyledDots data-testid={'startDots'}>...</StyledDots>
         {item}
       </StyledPaginationContainer>
     )
-  }
+  }, [])
 
-  const addEndDots = (item, index) => {
+  const addEndDots = React.useCallback((item, index) => {
     return (
       <StyledPaginationContainer key={`${index}/dotsEnd`}>
         {item}
         <StyledDots data-testid={'endDots'}>...</StyledDots>
       </StyledPaginationContainer>
     )
-  }
+  }, [])
 
   const length = data && data.length
   const pages = calculatePagesAmount(length, pageLimit)
