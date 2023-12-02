@@ -11,6 +11,10 @@ position: sticky;
 top: 0;
 min-height: 2.787rem;
 z-index: 100;
+
+@media (max-width: ${responsiveSizes.mediumSize}) {
+  display: none;
+}
 `
 
 const StyledNavBar = styled(DefaultStyledNavBar)(
