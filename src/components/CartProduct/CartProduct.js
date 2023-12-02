@@ -37,21 +37,21 @@ export const CartProduct = (props) => {
 
   const dispatch = useDispatch()
 
-  const decreaseProductQuantity = (id) => {
+  const decreaseProductQuantity = React.useCallback((id) => {
     setIsError(false)
     const isNotValid = decreaseProductQuantityValidation(newProductQuantity, accessibility, setNewProductQuantity)
     if (isNotValid) return
     dispatch(actionDecreaseQuantity(id))
     setNewProductQuantity(prevState => prevState - 1)
-  }
+  }, [accessibility, dispatch, newProductQuantity])
 
-  const increaseProductQuantity = (id) => {
+  const increaseProductQuantity = React.useCallback((id) => {
     setIsError(false)
     const isNotValid = increaseProductQuantityValidation(newProductQuantity, accessibility, setNewProductQuantity)
     if (isNotValid) return
     dispatch(actionIncreaseQuantity(id))
     setNewProductQuantity(prevState => prevState + 1)
-  }
+  }, [accessibility, dispatch, newProductQuantity])
 
   const totalPriceOfOneProduct = newProductQuantity * price
 
