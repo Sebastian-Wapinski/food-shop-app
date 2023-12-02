@@ -22,6 +22,8 @@ import { useSelector } from 'react-redux'
 import { actionAddToCartDeliveryType, actionAddToCartPaymentType } from '../../modules/Cart/Cart.actions'
 import { Helmet } from 'react-helmet-async'
 import Loader from '../../overlays/Loader/Loader'
+import { stripeConnectionProvider } from '../../providers/stripeConnectionProvider'
+import { createItemsArrayToBuy } from './CartPageHelper'
 
 export const CartPage = () => {
   const methods = useForm({
@@ -46,45 +48,23 @@ export const CartPage = () => {
 
   const { deliveryId, products, paymentId } = useSelector(state => state.cart)
 
-  const onSubmit = handleSubmit((data, e) => {
+  const onSubmit = handleSubmit(async (data, e) => {
     if (deliveryId.length === 0 || paymentId.length === 0 || products.length === 0) return
 
     setIsLoading(true)
-
-    const items = products.map((product) => {
-      const { category, variety, producer, id, img, quantity, labelName } = product
-
-      return {
-        name: labelName || `${category}-${variety}-${producer}`,
-        id,
-        img,
-        quantity
-      }
-    })
-
+    const items = createItemsArrayToBuy(products)
     const cart = {
       items,
       data,
       additionalInformation
     }
 
-    fetch('https://us-central1-sw-food-shop-app.cloudfunctions.net/stripeConnection/create-checkout-session', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(cart)
-    })
-      .then(res => {
-        if (res.ok) return res.json()
-        return res.json().then(json => Promise.reject(json))
-      })
-      .then(({ url }) => {
-        window.location = url
-      })
-      .catch(e => {
-        console.error(e.error)
-      })
+    try {
+      const { url } = await stripeConnectionProvider(cart)
+      window.location = url
+    } catch (err) {
+      console.error(err.error)
+    }
   })
 
   return (
