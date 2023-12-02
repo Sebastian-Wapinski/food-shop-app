@@ -11,23 +11,27 @@ export const ChangeQuantityField = (props) => {
     setIsError
   } = props
 
+  const handleQuantityChange = (e) => {
+    const value = e.target.value
+    setIsError(false)
+    if (/^\d*$/.test(value) && value === '') {
+      setProductQuantity(e.target.value)
+    } else if (/^\d*$/.test(value)) {
+      setProductQuantity(Number(e.target.value))
+    }
+  }
+
+  const handleQuantityBlur = () => {
+    if (productQuantity === '') {
+      setProductQuantity(valueOnEmptyField)
+    }
+  }
+
   return (
     <StyledChangeQuantityField
       value={productQuantity}
-      onChange={(e) => {
-        const value = e.target.value
-        setIsError(false)
-        if (/^\d*$/.test(value) && value === '') {
-          setProductQuantity(e.target.value)
-        } else if (/^\d*$/.test(value)) {
-          setProductQuantity(Number(e.target.value))
-        }
-      }}
-      onBlur={() => {
-        if (productQuantity === '') {
-          setProductQuantity(valueOnEmptyField)
-        }
-      }}
+      onChange={handleQuantityChange}
+      onBlur={handleQuantityBlur}
     />
   )
 }
