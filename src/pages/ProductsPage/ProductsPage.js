@@ -6,7 +6,7 @@ import {
 } from './ProductsPage.styled'
 
 import { useLocation, useNavigate, useParams } from 'react-router'
-import { checkIsURLCorrectClosure, createData, returnRightPath, sliceLastBackslash } from './ProductsPageHelper'
+import { checkIsURLCorrectClosure, createData, returnRightPath, setFirstLetterToUppercase, sliceLastBackslash } from './ProductsPageHelper'
 import ProductCard from '../../components/ProductCard/ProductCard'
 import Pagination from '../../components/Pagination/Pagination'
 import PaginationNav from '../../components/PaginationNav'
@@ -32,40 +32,37 @@ export const ProductsPage = () => {
   const navigate = useNavigate()
   const newPath = sliceLastBackslash(location)
 
+  const checkPageNumInURLIsCorrect = React.useCallback(() => {
+    const checkIsURLCorrect = checkIsURLCorrectClosure(allPages, navigate)
+
+    return (
+      checkIsURLCorrect(pageNumAllProducts) ||
+      checkIsURLCorrect(pageNumFromCategory) ||
+      checkIsURLCorrect(pageNumParticularCategory)
+    )
+  }, [allPages, navigate, pageNumAllProducts, pageNumFromCategory, pageNumParticularCategory])
+
+  const pageNum = React.useCallback(() => {
+    return (Number(pageNumAllProducts) || Number((pageNumFromCategory)) || Number(pageNumParticularCategory))
+  }, [pageNumAllProducts, pageNumFromCategory, pageNumParticularCategory])
+
+  const setTitle = React.useCallback(() => {
+    return setFirstLetterToUppercase(particularCategoryProducts) || setFirstLetterToUppercase(allProductsFromCategory) || 'All Products'
+  }, [allProductsFromCategory, particularCategoryProducts])
+
   React.useEffect(() => {
     setFirebaseDatabaseData(returnRightPath(allProductsFromCategory, particularCategoryProducts), createData, setProductsData)
   }, [allProductsFromCategory, particularCategoryProducts])
 
   React.useEffect(() => {
-    const checkPageNumInURLIsCorrect = () => {
-      const checkIsURLCorrect = checkIsURLCorrectClosure(allPages, navigate)
-
-      return (
-        checkIsURLCorrect(pageNumAllProducts) ||
-        checkIsURLCorrect(pageNumFromCategory) ||
-        checkIsURLCorrect(pageNumParticularCategory)
-      )
-    }
-
     checkPageNumInURLIsCorrect()
-  }, [allPages, navigate, pageNumAllProducts, pageNumFromCategory, pageNumParticularCategory])
-
-  const pageNum = () => {
-    return (Number(pageNumAllProducts) || Number((pageNumFromCategory)) || Number(pageNumParticularCategory))
-  }
-
-  const setFirstLetterToUppercase = (word) => {
-    if (word !== undefined) {
-      return word[0].toUpperCase() + word.slice(1)
-    }
-    return null
-  }
+  }, [checkPageNumInURLIsCorrect])
 
   return (
     productsData ?
       <StyledProductsPage>
         <Helmet>
-          <title>{setFirstLetterToUppercase(particularCategoryProducts) || setFirstLetterToUppercase(allProductsFromCategory) || 'All Products'}</title>
+          <title>{setTitle()}</title>
           <meta
             name={'Products-page'}
             content={'Products to buy'}
@@ -82,7 +79,7 @@ export const ProductsPage = () => {
         <StyledPageTitle
           variant={'h2'}
         >
-          {setFirstLetterToUppercase(particularCategoryProducts) || setFirstLetterToUppercase(allProductsFromCategory) || 'All Products'}
+          {setTitle()}
         </StyledPageTitle>
         <Pagination
           pageNum={pageNum()}

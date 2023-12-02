@@ -54,3 +54,10 @@ export const checkIsURLCorrectClosure = (allPages, navigate) => {
     }
   }
 }
+
+export const setFirstLetterToUppercase = (word) => {
+  if (word !== undefined) {
+    return word[0].toUpperCase() + word.slice(1)
+  }
+  return null
+}
