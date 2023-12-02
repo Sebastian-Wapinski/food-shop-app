@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Button from '../../components/Button/Button'
 import Typography from '../../components/Typography/Typography'
+import { responsiveSizes } from '../../components/style/responsiveSizes'
 
 const DefaultStyledPageNotFound = styled.div`
 display: flex;
@@ -18,6 +19,10 @@ const StyledParagraph = styled(Typography)`
 display: block;
 margin: 3rem 0;
 font-size: 3rem;
+
+@media (max-width: ${responsiveSizes.mediumSize}) {
+  font-size: 2rem;
+}
 `
 
 const StyledButton = styled(Button)`
