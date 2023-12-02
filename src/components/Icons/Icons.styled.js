@@ -40,6 +40,10 @@ ${
   }
   `
 }
+
+&:hover {
+  cursor: pointer;
+}
 `
 
 const StyledParagraph = styled.p`
@@ -78,11 +82,50 @@ font-size: 2.5rem;
 }
 `
 
+const StyledDarkOverlay = styled.div`
+@media (max-width: ${responsiveSizes.mediumSize}) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    ${
+      props => props.$showMenu && css`
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    z-index: 400;
+    `
+  }
+}
+`
+
+const StyledMenuBackground = styled.div`
+@media (max-width: ${responsiveSizes.mediumSize}) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  transition: all 0.3s ease-in-out;
+  height: 100%;
+  background-color: white;
+  overflow: hidden;
+
+${
+  props => props.$showMenu && css`
+  width: ${responsiveSizes.mobileMenu};
+  z-index: 401;
+  `
+}
+}
+`
+
 export {
   StyledIcons,
   StyledIconContainer,
   StyledParagraph,
   CartIconProductsQuantity,
   StyledImgContainer,
-  StyledFontAwesomeIcon
+  StyledFontAwesomeIcon,
+  StyledDarkOverlay,
+  StyledMenuBackground
 }

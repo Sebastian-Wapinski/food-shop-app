@@ -6,9 +6,9 @@ import {
   StyledZeroFloorNavLi
 } from './NavBar.styled'
 
-import { checkIsNameEqualHomeIfNotReturnName, createNavData, searchMenuList } from './NavBarHelper'
+import { searchMenuList } from './NavBarHelper'
 import NestedTabs from '../NestedTabs/NestedTabs'
-import { setDataFromFirebaseDatabase } from '../../helper/helper'
+import { checkIsNameEqualHomeIfNotReturnName, createNavData, setDataFromFirebaseDatabase } from '../../helper/helper'
 
 export const NavBar = () => {
   const [navListData, setNavListData] = React.useState(null)
