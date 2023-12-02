@@ -21,6 +21,7 @@ import RenderMethods from '../../components/RenderMethods/RenderMethods'
 import { useSelector } from 'react-redux'
 import { actionAddToCartDeliveryType, actionAddToCartPaymentType } from '../../modules/Cart/Cart.actions'
 import { Helmet } from 'react-helmet-async'
+import Loader from '../../overlays/Loader/Loader'
 
 export const CartPage = () => {
   const methods = useForm({
@@ -41,11 +42,14 @@ export const CartPage = () => {
   const { handleSubmit } = methods
   const [additionalInformation, setAdditionalInformation] = React.useState('')
   const [onSubmitClicked, setOnSubmitClicked] = React.useState(false)
+  const [isLoading, setIsLoading] = React.useState(false)
 
   const { deliveryId, products, paymentId } = useSelector(state => state.cart)
 
   const onSubmit = handleSubmit((data, e) => {
-    if (deliveryId.length === 0 || paymentId.length === 0) return
+    if (deliveryId.length === 0 || paymentId.length === 0 || products.length === 0) return
+
+    setIsLoading(true)
 
     const items = products.map((product) => {
       const { category, variety, producer, id, img, quantity, labelName } = product
@@ -97,6 +101,12 @@ export const CartPage = () => {
                 content={'Cart: Shop hassle-free with secure payments, diverse delivery options, and a personalized form for swift product delivery'}
               />
             </Helmet>
+            {
+              isLoading ?
+                <Loader />
+                :
+                null
+            }
             <StyledTitle
               variant={'h2'}
             >
