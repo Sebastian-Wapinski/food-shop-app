@@ -44,22 +44,26 @@ export const ProductCard = (props) => {
   const dispatch = useDispatch()
   const { products: cartProducts } = useSelector(state => state.cart)
 
-  const decreaseProductQuantity = () => {
+  const decreaseProductQuantity = React.useCallback(() => {
     setIsError(false)
     const isNotValid = decreaseProductQuantityValidation(productQuantity, accessibility, setProductQuantity)
     if (isNotValid) return
     setProductQuantity(prevState => prevState - 1)
-  }
+  }, [accessibility, productQuantity])
 
-  const increaseProductQuantity = () => {
+  const increaseProductQuantity = React.useCallback(() => {
     setIsError(false)
     const isNotValid = increaseProductQuantityValidation(productQuantity, accessibility, setProductQuantity)
     if (isNotValid) return
     setProductQuantity(prevState => prevState + 1)
-  }
+  }, [accessibility, productQuantity])
 
-  const addToCart = () => {
-    if (productQuantity > accessibility || productQuantity <= 0 || productQuantity === '') {
+  const checkIsProductQuantityIncorrect = React.useCallback(() => {
+    return (productQuantity > accessibility || productQuantity <= 0 || productQuantity === '')
+  }, [accessibility, productQuantity])
+
+  const addToCart = React.useCallback(() => {
+    if (checkIsProductQuantityIncorrect()) {
       setIsError(true)
       return
     }
@@ -85,7 +89,7 @@ export const ProductCard = (props) => {
     }
 
     setIsActiveAddedToCartLayer(true)
-  }
+  }, [accessibility, cartProducts, category, checkIsProductQuantityIncorrect, dispatch, id, img, price, producer, productQuantity, setIsActiveAddedToCartLayer, unit, variety])
 
   return (
     <StyledProductCard
