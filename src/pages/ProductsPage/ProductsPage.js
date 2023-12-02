@@ -6,7 +6,7 @@ import {
 } from './ProductsPage.styled'
 
 import { useLocation, useNavigate, useParams } from 'react-router'
-import { createData, returnRightPath, sliceLastBackslash } from './ProductsPageHelper'
+import { checkIsURLCorrectClosure, createData, returnRightPath, sliceLastBackslash } from './ProductsPageHelper'
 import ProductCard from '../../components/ProductCard/ProductCard'
 import Pagination from '../../components/Pagination/Pagination'
 import PaginationNav from '../../components/PaginationNav'
@@ -37,23 +37,9 @@ export const ProductsPage = () => {
   }, [allProductsFromCategory, particularCategoryProducts])
 
   React.useEffect(() => {
-    const checkIsURLCorrect = (dataToCheck) => {
-      const pageNum = Number(dataToCheck)
-
-      if (typeof dataToCheck === 'undefined') {
-        return dataToCheck
-      }
-
-      if (allPages !== 1) {
-        if (isNaN(pageNum) || pageNum > allPages || pageNum < 1) {
-          navigate('*')
-          return
-        }
-        return Number(dataToCheck)
-      }
-    }
-
     const checkPageNumInURLIsCorrect = () => {
+      const checkIsURLCorrect = checkIsURLCorrectClosure(allPages, navigate)
+
       return (
         checkIsURLCorrect(pageNumAllProducts) ||
         checkIsURLCorrect(pageNumFromCategory) ||
@@ -103,23 +89,23 @@ export const ProductsPage = () => {
           pageLimit={12}
         >
           {
-              productsData.map(product => {
-                const { img, price, producer, id, accessibility, variety, unit, category } = product
-                return (
-                  <ProductCard
-                    id={id}
-                    img={img}
-                    price={price}
-                    producer={producer}
-                    key={id}
-                    accessibility={accessibility}
-                    variety={variety}
-                    unit={unit}
-                    category={category}
-                    setIsActiveAddedToCartLayer={setIsActiveAddedToCartLayer}
-                  />
-                )
-              })
+            productsData.map(product => {
+              const { img, price, producer, id, accessibility, variety, unit, category } = product
+              return (
+                <ProductCard
+                  id={id}
+                  img={img}
+                  price={price}
+                  producer={producer}
+                  key={id}
+                  accessibility={accessibility}
+                  variety={variety}
+                  unit={unit}
+                  category={category}
+                  setIsActiveAddedToCartLayer={setIsActiveAddedToCartLayer}
+                />
+              )
+            })
           }
         </Pagination>
         <PaginationNav

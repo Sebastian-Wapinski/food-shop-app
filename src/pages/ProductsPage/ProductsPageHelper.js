@@ -36,3 +36,21 @@ export const createData = (rawData) => {
 }
 
 export const sliceLastBackslash = (location) => location.pathname.slice(0, location.pathname.lastIndexOf('/'))
+
+export const checkIsURLCorrectClosure = (allPages, navigate) => {
+  return (dataToCheck) => {
+    const pageNum = Number(dataToCheck)
+
+    if (typeof dataToCheck === 'undefined') {
+      return dataToCheck
+    }
+
+    if (allPages !== 1) {
+      if (isNaN(pageNum) || pageNum > allPages || pageNum < 1) {
+        navigate('*')
+        return
+      }
+      return Number(dataToCheck)
+    }
+  }
+}
