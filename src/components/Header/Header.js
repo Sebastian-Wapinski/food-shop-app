@@ -13,7 +13,6 @@ export const Header = () => {
       >
         <Logo />
       </Link>
-      {/* FilterAllProducts */}
       <StyledContainer>
         <Icons />
       </StyledContainer>

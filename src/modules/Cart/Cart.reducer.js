@@ -9,6 +9,59 @@ const initState = {
   paymentId: ''
 }
 
+const returnMethodNewState = (state, action, isMethod, methodId) => {
+  const isMethodAddedToCart = state.products.find(product => product[isMethod])
+
+  if (isMethodAddedToCart) {
+    return {
+      ...state,
+      [methodId]: action.payload.id,
+      products: state.products.map(product => {
+        const isProductMethod = product[isMethod]
+        if (isProductMethod) {
+          return action.payload
+        }
+
+        return product
+      })
+    }
+  }
+
+  return {
+    ...state,
+    [methodId]: action.payload.id,
+    products: [
+      ...state.products,
+      {
+        ...action.payload
+      }
+    ]
+  }
+}
+
+const changeQuantityUsingDelta = (state, action, delta) => {
+  return {
+    ...state,
+    productsQuantity: state.productsQuantity + delta,
+    totalPrice: state.products.reduce((acc, product) => {
+      if (product.id === action.payload) {
+        return acc + ((product.quantity + delta) * product.price)
+      }
+
+      return acc + (product.quantity * product.price)
+    }, 0),
+    products: state.products.map(product => {
+      if (product.id === action.payload) {
+        return {
+          ...product,
+          quantity: product.quantity + delta
+        }
+      }
+      return product
+    })
+  }
+}
+
 const reducer = (state = initState, action) => {
   switch (action.type) {
     case ADD_TO_CART:{
@@ -25,49 +78,13 @@ const reducer = (state = initState, action) => {
     }
 
     case DECREASE_QUANTITY:{
-      return {
-        ...state,
-        productsQuantity: state.productsQuantity - 1,
-        totalPrice: state.products.reduce((acc, product) => {
-          if (product.id === action.payload) {
-            return acc + ((product.quantity - 1) * product.price)
-          }
-
-          return acc + (product.quantity * product.price)
-        }, 0),
-        products: state.products.map(product => {
-          if (product.id === action.payload) {
-            return {
-              ...product,
-              quantity: product.quantity - 1
-            }
-          }
-          return product
-        })
-      }
+      const newState = changeQuantityUsingDelta(state, action, -1)
+      return newState
     }
 
     case INCREASE_QUANTITY:{
-      return {
-        ...state,
-        productsQuantity: state.productsQuantity + 1,
-        totalPrice: state.products.reduce((acc, product) => {
-          if (product.id === action.payload) {
-            return acc + ((product.quantity + 1) * product.price)
-          }
-
-          return acc + (product.quantity * product.price)
-        }, 0),
-        products: state.products.map(product => {
-          if (product.id === action.payload.id) {
-            return {
-              ...product,
-              quantity: product.quantity + action.payload.value
-            }
-          }
-          return product
-        })
-      }
+      const newState = changeQuantityUsingDelta(state, action, 1)
+      return newState
     }
 
     case SET_NEW_QUANTITY:{
@@ -112,73 +129,18 @@ const reducer = (state = initState, action) => {
     }
 
     case ADD_TO_CART_DELIVERY_TYPE: {
-      const isDeliveryAddedToCart = state.products.find(product => product.isDelivery)
-
-      if (isDeliveryAddedToCart) {
-        return {
-          ...state,
-          deliveryId: action.payload.id,
-          products: state.products.map(product => {
-            const { isDelivery } = product
-            if (isDelivery) {
-              return action.payload
-            }
-
-            return product
-          })
-        }
-      }
-
-      return {
-        ...state,
-        deliveryId: action.payload.id,
-        products: [
-          ...state.products,
-          {
-            ...action.payload
-          }
-        ]
-      }
+      const newMethodState = returnMethodNewState(state, action, 'isDelivery', 'deliveryId')
+      return newMethodState
     }
 
     case ADD_TO_CART_PAYMENT_TYPE: {
-      const isPaymentAddedToCart = state.products.find(product => product.isPayment)
-
-      if (isPaymentAddedToCart) {
-        return {
-          ...state,
-          paymentId: action.payload.id,
-          products: state.products.map(product => {
-            const { isPayment } = product
-            if (isPayment) {
-              return action.payload
-            }
-
-            return product
-          })
-        }
-      }
-
-      return {
-        ...state,
-        paymentId: action.payload.id,
-        products: [
-          ...state.products,
-          {
-            ...action.payload
-          }
-        ]
-      }
+      const newMethodState = returnMethodNewState(state, action, 'isPayment', 'paymentId')
+      return newMethodState
     }
 
     case CLEAR_STATE: {
       return {
-        products: [],
-        productsQuantity: 0,
-        totalPrice: 0,
-        addedToCartProduct: {},
-        deliveryId: '',
-        paymentId: ''
+        ...initState
       }
     }
 
