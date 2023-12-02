@@ -14,7 +14,7 @@ import { useSelector } from 'react-redux'
 import PreviewCartOverlay from '../../overlays/PreviewCartOverlay/PreviewCartOverlay'
 
 import { faHeart, faUser } from '@fortawesome/free-regular-svg-icons'
-import { faBasketShopping } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faBasketShopping } from '@fortawesome/free-solid-svg-icons'
 
 export const Icons = () => {
   const [showPreviewCartOverlay, setShowPreviewCartOverlay] = React.useState(false)
@@ -22,9 +22,21 @@ export const Icons = () => {
   const { products, productsQuantity } = useSelector(state => state.cart)
   const location = useLocation()
 
-  const { logIn, favorites, cart } = iconsData
+  const { logIn, favorites, cart, menu } = iconsData
   return (
     <StyledIcons>
+      <StyledIconContainer
+        $menu={true}
+      >
+        <StyledImgContainer>
+          <StyledFontAwesomeIcon
+            icon={faBars}
+          />
+        </StyledImgContainer>
+        <StyledParagraph>
+          {menu.name}
+        </StyledParagraph>
+      </StyledIconContainer>
       <StyledIconContainer>
         <StyledImgContainer>
           <StyledFontAwesomeIcon
@@ -63,20 +75,20 @@ export const Icons = () => {
             <StyledFontAwesomeIcon
               icon={faBasketShopping}
             />
+            {
+              products ?
+                <CartIconProductsQuantity
+                  variant={'body2'}
+                >
+                  {productsQuantity}
+                </CartIconProductsQuantity>
+                :
+                null
+              }
           </StyledImgContainer>
           <StyledParagraph>
             {cart.name}
           </StyledParagraph>
-          {
-            products ?
-              <CartIconProductsQuantity
-                variant={'body2'}
-              >
-                {productsQuantity}
-              </CartIconProductsQuantity>
-              :
-              null
-          }
         </StyledIconContainer>
       </Link>
       {

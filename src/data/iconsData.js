@@ -12,5 +12,9 @@ export const iconsData = {
     name: 'Cart',
     id: 'idCart',
     path: 'cart'
+  },
+  menu: {
+    name: 'Menu',
+    id: 'idMenu'
   }
 }

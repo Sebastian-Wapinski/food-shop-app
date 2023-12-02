@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import Button from '../../components/Button/Button'
 import TotalPrice from '../../components/TotalPrice/TotalPrice'
 import Cart from '../../modules/Cart/Cart'
+import { responsiveSizes } from '../../components/style/responsiveSizes'
 
 const DefaultStyledPreviewCartOverlay = styled.div`
 position: absolute;
@@ -9,6 +10,10 @@ top: 100%;
 right: 0;
 background-color: white;
 z-index: 201;
+
+@media (max-width: ${responsiveSizes.mediumSize}) {
+  display: none;
+}
 `
 
 const StyledPreviewCartOverlay = styled(DefaultStyledPreviewCartOverlay)(
