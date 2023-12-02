@@ -11,7 +11,7 @@ export const ChangeQuantityField = (props) => {
     setIsError
   } = props
 
-  const handleQuantityChange = (e) => {
+  const handleQuantityChange = React.useCallback((e) => {
     const value = e.target.value
     setIsError(false)
     if (/^\d*$/.test(value) && value === '') {
@@ -19,13 +19,13 @@ export const ChangeQuantityField = (props) => {
     } else if (/^\d*$/.test(value)) {
       setProductQuantity(Number(e.target.value))
     }
-  }
+  }, [setIsError, setProductQuantity])
 
-  const handleQuantityBlur = () => {
+  const handleQuantityBlur = React.useCallback(() => {
     if (productQuantity === '') {
       setProductQuantity(valueOnEmptyField)
     }
-  }
+  }, [productQuantity, setProductQuantity, valueOnEmptyField])
 
   return (
     <StyledChangeQuantityField
