@@ -21,6 +21,11 @@ const StyledH1 = styled(Typography)`
 padding: 1rem 0;
 text-indent: 2rem;
 text-align: justify;
+
+@media (max-width: ${responsiveSizes.mediumSize}) {
+  text-align: center;
+  text-indent: 0;
+}
 `
 
 const StyledBody1 = styled(Typography)`

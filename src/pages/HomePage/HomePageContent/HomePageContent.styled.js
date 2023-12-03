@@ -25,7 +25,6 @@ text-align: justify;
 @media (max-width: ${responsiveSizes.mediumSize}) {
   text-align: center;
   text-indent: 0;
-  font-size: 1.5rem;
 }
 `
 
@@ -33,10 +32,6 @@ const StyledBody1 = styled(Typography)`
 padding: 1rem 0;
 text-indent: 2rem;
 text-align: justify;
-
-@media (max-width: ${responsiveSizes.mediumSize}) {
-  font-size: 1rem;
-}
 `
 
 const StyledH2 = styled(Typography)`

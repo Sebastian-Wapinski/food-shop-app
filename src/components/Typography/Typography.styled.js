@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { responsiveSizes } from '../style/responsiveSizes'
 
 const DefaultStyledTypography = styled.span`
 
@@ -11,6 +12,10 @@ ${
   letter-spacing: 0.15px;
   text-align: left;
   color: ${props => props.theme.secondTextColor};
+
+  @media (max-width: ${responsiveSizes.mediumSize}) {
+  font-size: 1.5rem;
+}
   `
 }
 
@@ -35,6 +40,10 @@ ${
   letter-spacing: 0.15px;
   text-align: left;
   color: ${props => props.theme.secondTextColor};
+
+  @media (max-width: ${responsiveSizes.mediumSize}) {
+  font-size: 1rem;
+}
   `
 }
 
