@@ -1,70 +1,166 @@
-# Getting Started with Create React App
+![screen or GIF of your app](https://via.placeholder.com/1000x300)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# FOOD-SHOP-APP
 
-## Available Scripts
+See the live version of [FOOD-SHOP-APP](https://sw-food-shop-app.web.app/).
 
-In the project directory, you can run:
+This project mirrors an online store, offering a range of essential food items like vegetables and fruits. It focuses on the shopping process, starting from the customer adding products to the complete fulfillment, including making a payment and sending emails to customers.
 
-### `npm start`
+**Main features**:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Dynamic data management in Firebase for smooth interaction
+- Interactive menu for precise product selection
+- Addition of products to the shopping cart
+- Flexible adjustment of the cart contents before purchase
+- Step-by-step guide to complete the transaction
+- Secure online payments using Stripe
+- Transaction confirmation and rejection notifications via email
+- Efficient navigation through content pagination
+- Accessibility on mobile devices and computers
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+&nbsp;
 
-### `npm test`
+## 💡 Technologies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![React Hook Form](https://img.shields.io/badge/React%20Hook%20Form-%23EC5990.svg?style=for-the-badge&logo=reacthookform&logoColor=white)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![Stripe](https://img.shields.io/badge/Stripe-626CD9?style=for-the-badge&logo=Stripe&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
 
-### `npm run build`
+&nbsp;
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 💿 FRONTEND Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+git clone [repository_url]
+```
 
-### `npm run eject`
+2. Navigate to the project directory:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```
+cd [YOUR-REPO-NAME]
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. The project uses [node](https://nodejs.org/en/) and [npm](https://www.npmjs.com/). Having them installed, type into the terminal:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+npm i
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Create .env in main folder and paste empty variables from .env.example
 
-## Learn More
+5. Create firebase project
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+6. Initialize firebase project
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+firebase init
+```
 
-### Code Splitting
+7. Paste data to variables in .env
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+REACT_APP_FIREBASE_APP_KEY=
+REACT_APP_AUTH_DOMAIN=
+REACT_APP_PROJECT_ID=
+REACT_APP_STORAGE_BUCKET=
+REACT_APP_MESSAGING_SENDER_ID=
+REACT_APP_APP_ID=
+```
 
-### Analyzing the Bundle Size
+8. Initialize firebase database and past address to variable in .env for example:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+REACT_APP_FIREBASE_URL=https://project-name-rtdb.europe-west1.firebasedatabase.app
+```
 
-### Making a Progressive Web App
+9. Set firebase database rules:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+{
+  "rules": {
+    ".read": true,
+    ".write": false
+  }
+}
+```
 
-### Advanced Configuration
+10. Create navList object in firebase database and import ./assets/data/navList (disclaimer: navigation data are fetching because of the option "adding new products categories". The option will be available in the future administration panel)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+11. Do the same like into point 10. with: 'products', 'productPrices', 'deliveryMethods', 'paymentMethods'
 
-### Deployment
+&nbsp;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 💳 Payment simulation
 
-### `npm run build` fails to minify
+&nbsp;
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🤔 Solutions provided in the project
+
+- one
+
+&nbsp;
+
+- two:
+
+```
+some example code
+
+more code :)
+```
+
+&nbsp;
+
+- three
+
+| Issue | Solution             |     |
+| ----- | -------------------- | --- |
+| one   | `short code example` |     |
+| two   | `short code example` |     |
+| thre  | `short code example` |     |
+
+&nbsp;
+
+- four - some shortcut <kbd>Ctrl</kbd> + <kbd>C</kbd>
+
+&nbsp;
+
+- five - example with a screenshot
+  <img alt='what it is' src="https://via.placeholder.com/500x200" />
+
+&nbsp;
+
+## 💭 Conclusions for future projects
+
+I would like to improve...
+
+#### This is the first issue:
+
+```
+and this is a code example
+```
+
+#### This is the second issue:
+
+```
+and this is a code example
+```
+
+&nbsp;
+
+## 🙋‍♂️ Feel free to contact me
+
+Write sth nice ;) Find me on...
+
+&nbsp;
+
+## 👏 Thanks / Special thanks / Credits
+
+Thanks to my [Mentor - devmentor.pl](https://devmentor.pl/) – for providing me with this task and for code review.

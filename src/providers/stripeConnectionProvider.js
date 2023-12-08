@@ -1,5 +1,5 @@
 export const stripeConnectionProvider = async (cart) => {
-  const response = await fetch('https://us-central1-sw-food-shop-app.cloudfunctions.net/stripeConnection/create-checkout-session', {
+  const response = await fetch(process.env.REACT_APP_STRIPE_CONNECTION_PROVIDER_ENDPOINT, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

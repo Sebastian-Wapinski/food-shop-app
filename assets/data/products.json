@@ -1,0 +1,1551 @@
+{
+  "fruits": {
+    "apples": {
+      "-NipVNBD2KDcz8dx3S2v": {
+        "accessibility": 20,
+        "category": "Apples",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 16,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Braeburn"
+      },
+      "-NipVNBGXbvF0FE60CEw": {
+        "accessibility": 6,
+        "category": "Apples",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 10,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Fuji"
+      },
+      "-NipVNBIjGK5taDRR8Ba": {
+        "accessibility": 30,
+        "category": "Apples",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 19,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Cameo"
+      },
+      "-NipVNBLS_Q98K457HyB": {
+        "accessibility": 17,
+        "category": "Apples",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 16,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Granny Smith"
+      },
+      "-NipVNBNEWNmQSsTREn7": {
+        "accessibility": 24,
+        "category": "Apples",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 19,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Granny Smith"
+      },
+      "-NipVNBQcs6JGFwLhkfQ": {
+        "accessibility": 16,
+        "category": "Apples",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 15,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Jonathan"
+      },
+      "-NipVNBSvis9WRRhzMoW": {
+        "accessibility": 22,
+        "category": "Apples",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 25,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Golden Delicious"
+      },
+      "-NipVNBU_PhY0KPBAVso": {
+        "accessibility": 14,
+        "category": "Apples",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 20,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Braeburn"
+      },
+      "-NipVNBXzeI1XspeAZUz": {
+        "accessibility": 22,
+        "category": "Apples",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 11,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Empire"
+      },
+      "-NipVNB_mhXbq6SGqhjS": {
+        "accessibility": 7,
+        "category": "Apples",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 10,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Rome Beauty"
+      },
+      "-NipVNBb1-_y0pLb7J5t": {
+        "accessibility": 26,
+        "category": "Apples",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 9,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Braeburn"
+      },
+      "-NipVNBdna1nP64rIFzM": {
+        "accessibility": 23,
+        "category": "Apples",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 9,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Fuji"
+      },
+      "-NipVNBeUH5qE8x71YIQ": {
+        "accessibility": 32,
+        "category": "Apples",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 8,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Honey Gold"
+      },
+      "-NipVNBhI2JUYbR1L64-": {
+        "accessibility": 38,
+        "category": "Apples",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 19,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Winesap"
+      },
+      "-NipVNBjZTY0nkCDzV6u": {
+        "accessibility": 37,
+        "category": "Apples",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 24,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Empire"
+      },
+      "-NipVNBkCADTmyhz_BCD": {
+        "accessibility": 20,
+        "category": "Apples",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 25,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Gala"
+      },
+      "-NipVNBlbuHuUb1xuMRM": {
+        "accessibility": 19,
+        "category": "Apples",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 11,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Braeburn"
+      },
+      "-NipVNBnj4xCXeylvszz": {
+        "accessibility": 9,
+        "category": "Apples",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 27,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Opal"
+      }
+    },
+    "bananas": {
+      "-NipWpE-oobtim1E85ic": {
+        "accessibility": 14,
+        "category": "Bananas",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 29,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Banan burro"
+      },
+      "-NipWpE2bjt2yNoZv86l": {
+        "accessibility": 8,
+        "category": "Bananas",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 71,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Banan manzano"
+      },
+      "-NipWpE45Z86fgmEme5O": {
+        "accessibility": 15,
+        "category": "Bananas",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 32,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Banan macho"
+      },
+      "-NipWpE7Td_7AtsKbdkN": {
+        "accessibility": 49,
+        "category": "Bananas",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 94,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Banan macho"
+      },
+      "-NipWpE9uQ8QEpAi15Xj": {
+        "accessibility": 54,
+        "category": "Bananas",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 43,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Banan Dominico"
+      },
+      "-NipWpEBFLX5q5EhQ65L": {
+        "accessibility": 58,
+        "category": "Bananas",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 35,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Banan plantain verde"
+      },
+      "-NipWpEDHU4BaqmC6_tk": {
+        "accessibility": 12,
+        "category": "Bananas",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 50,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Banan Dominico"
+      },
+      "-NipWpEFNK8wf6zUfNrW": {
+        "accessibility": 3,
+        "category": "Bananas",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 67,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Banan manzano"
+      },
+      "-NipWpEHm0VusPZaDKmj": {
+        "accessibility": 34,
+        "category": "Bananas",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 78,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Banan gros Michel"
+      },
+      "-NipWpEKgwTZpp6LL8FL": {
+        "accessibility": 8,
+        "category": "Bananas",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 45,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Banan gros Michel"
+      }
+    },
+    "hasSubcategory": true,
+    "pears": {
+      "-NipW3-Q28ZJxAJNEQHF": {
+        "accessibility": 31,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 27,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Abate Fetel"
+      },
+      "-NipW3-SV8YyRtM-xrSf": {
+        "accessibility": 25,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 19,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Concorde"
+      },
+      "-NipW3-U8OOjp63I7N2Y": {
+        "accessibility": 17,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 40,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Abate Fetel"
+      },
+      "-NipW3-VBu3xYyDbhp9V": {
+        "accessibility": 13,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 27,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Abate Fetel"
+      },
+      "-NipW3-Xt5irBStR1fSg": {
+        "accessibility": 7,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 11,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Anjou"
+      },
+      "-NipW3-Z6GRInYuSOq9g": {
+        "accessibility": 0,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 48,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Moonglow"
+      },
+      "-NipW3-_RR8lKg55oDDq": {
+        "accessibility": 35,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 20,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Bosc"
+      },
+      "-NipW3-bTKC65Fgx3sC5": {
+        "accessibility": 20,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 26,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Hosui"
+      },
+      "-NipW3-dMfd7E6iqkZuD": {
+        "accessibility": 21,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 29,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Starkrimson"
+      },
+      "-NipW3-ebu6D-ZYPfNLo": {
+        "accessibility": 14,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 15,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Seckel"
+      },
+      "-NipW3-gERwgnjpapSW9": {
+        "accessibility": 4,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 33,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Pineapple Pear"
+      },
+      "-NipW3-i-YU-8u8pvkCu": {
+        "accessibility": 9,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 44,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Red Bartlett"
+      },
+      "-NipW3-jQvWkEz-G6b9Y": {
+        "accessibility": 8,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 35,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Red Bartlett"
+      },
+      "-NipW3-lYelvZOvEOoKH": {
+        "accessibility": 39,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 28,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Anjou"
+      },
+      "-NipW3-nwIF5xkRDcaX6": {
+        "accessibility": 21,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 10,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Forelle"
+      },
+      "-NipW3-p2TbhoLpNo9ql": {
+        "accessibility": 7,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 23,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Moonglow"
+      },
+      "-NipW3-q4Bk_fnVKMNdm": {
+        "accessibility": 28,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 54,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Anjou"
+      },
+      "-NipW3-sYFIFtY13QWYe": {
+        "accessibility": 7,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 14,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Harrow Sweet"
+      },
+      "-NipW3-uQcCp7mKzBTAX": {
+        "accessibility": 10,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 33,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Abate Fetel"
+      },
+      "-NipW3-vPAeOWnsvRi_S": {
+        "accessibility": 21,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 55,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Bosc"
+      },
+      "-NipW3-x7IyJ_Zg8DL8Q": {
+        "accessibility": 15,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 36,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Concorde"
+      },
+      "-NipW3-zzbpmczPbAJXX": {
+        "accessibility": 33,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 22,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Passe Crassane"
+      },
+      "-NipW30-v0v2VIulOt2J": {
+        "accessibility": 2,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 22,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Concorde"
+      },
+      "-NipW301ofwl5KMZ_f4w": {
+        "accessibility": 26,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 46,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Flemish Beauty"
+      },
+      "-NipW302o9ZlfHUYkF8B": {
+        "accessibility": 14,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 25,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Comice"
+      },
+      "-NipW304rxWwEIN_PmOl": {
+        "accessibility": 10,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 36,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Forelle"
+      },
+      "-NipW306lMaIkph38Zd-": {
+        "accessibility": 3,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 30,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Asian Pear"
+      },
+      "-NipW3070-5uB2meSjup": {
+        "accessibility": 0,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 58,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Red Bartlett"
+      },
+      "-NipW309nswJCNfqOSIM": {
+        "accessibility": 6,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 55,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Abate Fetel"
+      },
+      "-NipW30Bq8NS1Kql0dU7": {
+        "accessibility": 2,
+        "category": "Pears",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 42,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Conference"
+      }
+    }
+  },
+  "hasSubcategory": true,
+  "vegetables": {
+    "carrots": {
+      "-NipSrV_JA17_ORsMS25": {
+        "accessibility": 89,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 12,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Cosmic Purple"
+      },
+      "-NipSrVbnrKjZbsVYm36": {
+        "accessibility": 55,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 32,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Black Nebula"
+      },
+      "-NipSrVcYyyyEjxqLZfn": {
+        "accessibility": 27,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 38,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Little Finger"
+      },
+      "-NipSrVdmWzgrvYvIFGp": {
+        "accessibility": 2,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 36,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "White Satin"
+      },
+      "-NipSrVesRvcBcKvSa3Y": {
+        "accessibility": 80,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 33,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Nantes"
+      },
+      "-NipSrVf6VRA9Z7EXqiM": {
+        "accessibility": 98,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 22,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Purple Haze"
+      },
+      "-NipSrVg0vs_8ldlNYhG": {
+        "accessibility": 41,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 37,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Paris Market"
+      },
+      "-NipSrVi8tD5HKxoHKqn": {
+        "accessibility": 84,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 11,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Danvers"
+      },
+      "-NipSrVjDM6evkkq074c": {
+        "accessibility": 46,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 36,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Imperator"
+      },
+      "-NipSrVkTY7pi5lnpMpT": {
+        "accessibility": 81,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 33,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Solar Yellow"
+      },
+      "-NipSrVmOolSjEZahZyt": {
+        "accessibility": 16,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 12,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Black Nebula"
+      },
+      "-NipSrVoNdCukEBoD6HW": {
+        "accessibility": 10,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 40,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Paris Market"
+      },
+      "-NipSrVrHuHJXw07EdIX": {
+        "accessibility": 27,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 15,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Atomic Red"
+      },
+      "-NipSrVtkzAZBxOf8Lrx": {
+        "accessibility": 35,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 12,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Paris Market"
+      },
+      "-NipSrVvWK0IdjXaCh_F": {
+        "accessibility": 75,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 37,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Solar Yellow"
+      },
+      "-NipSrVwTcgqeJTPn32G": {
+        "accessibility": 27,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 23,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Tendersweet"
+      },
+      "-NipSrVxwx2GisGxadnx": {
+        "accessibility": 89,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 22,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Chantenay"
+      },
+      "-NipSrVyaxwVEs2lT7nM": {
+        "accessibility": 20,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 18,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Scarlet Keeper"
+      },
+      "-NipSrVz7MI7g49aB5gY": {
+        "accessibility": 51,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 15,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Tendersweet"
+      },
+      "-NipSrW0j-rGHDCh5mve": {
+        "accessibility": 20,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 28,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Cosmic Purple"
+      },
+      "-NipSrW1sYrUq8tPEMPF": {
+        "accessibility": 29,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 21,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Black Nebula"
+      },
+      "-NipSrW2RAwDxdXMu5Mk": {
+        "accessibility": 74,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 24,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Nantes"
+      },
+      "-NipSrW3N2JZzYX8bYrm": {
+        "accessibility": 86,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 23,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Scarlet Keeper"
+      },
+      "-NipSrW5Q6xRC5lPM-bK": {
+        "accessibility": 60,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 21,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Kuroda"
+      },
+      "-NipSrW6JAI9xz95YV7X": {
+        "accessibility": 36,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 18,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Purple Haze"
+      },
+      "-NipSrW7MZN0BaTkq-7f": {
+        "accessibility": 87,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 22,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Purple Haze"
+      },
+      "-NipSrW8uOkksd5AuC4h": {
+        "accessibility": 29,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 23,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Paris Market"
+      },
+      "-NipSrW9MaB-ERPqV4Ac": {
+        "accessibility": 61,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 34,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Little Finger"
+      },
+      "-NipSrWAzq9SVYEmy5N4": {
+        "accessibility": 95,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 29,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Chantenay"
+      },
+      "-NipSrWBAc9zXigdYoJa": {
+        "accessibility": 25,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 13,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Cosmic Purple"
+      },
+      "-NipSrWChT9Gty4rwXY0": {
+        "accessibility": 66,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 10,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Little Finger"
+      },
+      "-NipSrWEeQP6tATdhbno": {
+        "accessibility": 42,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 33,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Scarlet Nantes"
+      },
+      "-NipSrWFjcYpWM76Psl8": {
+        "accessibility": 98,
+        "category": "Carrots",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 11,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Kuroda"
+      }
+    },
+    "hasSubcategory": true,
+    "onions": {
+      "-NipTb6Q_LK9rYqyTX0P": {
+        "accessibility": 0,
+        "category": "Onions",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 18,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Sweet Onion"
+      },
+      "-NipTb6STACE57RjQMKY": {
+        "accessibility": 2,
+        "category": "Onions",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 25,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Red Onion"
+      },
+      "-NipTb6Tr44ED0gVaKIW": {
+        "accessibility": 2,
+        "category": "Onions",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 6,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Walla Walla Onion"
+      },
+      "-NipTb6UyM46hrD5InKy": {
+        "accessibility": 27,
+        "category": "Onions",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 23,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Sweet Onion"
+      },
+      "-NipTb6W4DslpdwidkVP": {
+        "accessibility": 20,
+        "category": "Onions",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 13,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Pearl Onion"
+      },
+      "-NipTb6Z_-iHiWMDr4Lv": {
+        "accessibility": 28,
+        "category": "Onions",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 22,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Shallot"
+      },
+      "-NipTb6aB_Z14NuILaOY": {
+        "accessibility": 19,
+        "category": "Onions",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 20,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Sweet Onion"
+      },
+      "-NipTb6c3BqMcx9a6YyF": {
+        "accessibility": 7,
+        "category": "Onions",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 22,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Leek"
+      },
+      "-NipTb6e0LKua6iKvDgu": {
+        "accessibility": 13,
+        "category": "Onions",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 17,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Leek"
+      },
+      "-NipTb6g_meoE1Ltz90V": {
+        "accessibility": 17,
+        "category": "Onions",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 23,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Green Onion"
+      },
+      "-NipTb6hElRdux7PUkln": {
+        "accessibility": 10,
+        "category": "Onions",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 14,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Green Onion"
+      },
+      "-NipTb6kkgU9RqldjIPd": {
+        "accessibility": 14,
+        "category": "Onions",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 24,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Red Onion"
+      },
+      "-NipTb6lRyTLQAcJKLHe": {
+        "accessibility": 12,
+        "category": "Onions",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 8,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Shallot"
+      },
+      "-NipTb6mleSrwJ-26hjZ": {
+        "accessibility": 20,
+        "category": "Onions",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 5,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Sweet Onion"
+      },
+      "-NipTb6nAdSmjdpJ19Cw": {
+        "accessibility": 5,
+        "category": "Onions",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 20,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "White Onion"
+      }
+    },
+    "potatoes": {
+      "-NipUUgDgZPB0qQk1yCc": {
+        "accessibility": 22,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 3,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "German Butterball"
+      },
+      "-NipUUgFJaTXIV5X2tRO": {
+        "accessibility": 97,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 8,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Desiree"
+      },
+      "-NipUUgHBoz79eijMLrL": {
+        "accessibility": 80,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 6,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Charlotte"
+      },
+      "-NipUUgIf4p6iAuq1LDL": {
+        "accessibility": 73,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 3,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Bintje"
+      },
+      "-NipUUgK6iN-ai91cMni": {
+        "accessibility": 43,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 9,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Yukon Gold"
+      },
+      "-NipUUgMCab_gWmackFn": {
+        "accessibility": 108,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 4,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Yukon Gem"
+      },
+      "-NipUUgNJ1SDqLMWvbLP": {
+        "accessibility": 178,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 10,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Fingerling"
+      },
+      "-NipUUgP7VVf0Ym91TnL": {
+        "accessibility": 196,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 3,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Red Bliss"
+      },
+      "-NipUUgRHw7mnEzryRcm": {
+        "accessibility": 101,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 6,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Purple Majesty"
+      },
+      "-NipUUgTPbptUlCBFgKr": {
+        "accessibility": 93,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 5,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "All Blue"
+      },
+      "-NipUUgUEQq1ts7iKgUA": {
+        "accessibility": 200,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 6,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "All Blue"
+      },
+      "-NipUUgW3_W1sIGTksJx": {
+        "accessibility": 111,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 5,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Elba"
+      },
+      "-NipUUgYpd8LkCjsjene": {
+        "accessibility": 186,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 4,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Purple Majesty"
+      },
+      "-NipUUg_cVU1gOZQ428n": {
+        "accessibility": 146,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 6,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Atlantic"
+      },
+      "-NipUUgc7cxpXU_OXTwS": {
+        "accessibility": 38,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 1,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Bintje"
+      },
+      "-NipUUgfAKzwi024UAod": {
+        "accessibility": 42,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 4,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Desiree"
+      },
+      "-NipUUgh3GzWOOFUOkyB": {
+        "accessibility": 69,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 10,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "All Blue"
+      },
+      "-NipUUgjNSKBlOdSfFC7": {
+        "accessibility": 30,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 4,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Maris Piper"
+      },
+      "-NipUUgmUhco1JQVaP8j": {
+        "accessibility": 136,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 7,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Nicola"
+      },
+      "-NipUUgobL3NDpWb52tj": {
+        "accessibility": 192,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 3,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Atlantic"
+      },
+      "-NipUUgrWP_31jqQHpR6": {
+        "accessibility": 96,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 10,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Atlantic"
+      },
+      "-NipUUgt6b3-HxVicRbE": {
+        "accessibility": 38,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 4,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "King Edward"
+      },
+      "-NipUUgwWpwinr5g5Mch": {
+        "accessibility": 106,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 7,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Adirondack Blue"
+      },
+      "-NipUUgybIm3BoDt642p": {
+        "accessibility": 145,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 2,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "King Edward"
+      },
+      "-NipUUh-1ucOVjG17bxm": {
+        "accessibility": 50,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 5,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Red Bliss"
+      },
+      "-NipUUh17ECOPbLsKDdW": {
+        "accessibility": 148,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 4,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Nicola"
+      },
+      "-NipUUh4vP8iTO5_52Zb": {
+        "accessibility": 101,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 8,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Inca Gold"
+      },
+      "-NipUUh6TC_SafRh52yz": {
+        "accessibility": 68,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 8,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Desiree"
+      },
+      "-NipUUh91bLjG0toIVK9": {
+        "accessibility": 73,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 1,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Kipfler"
+      },
+      "-NipUUhCMYNX1T0-DQdt": {
+        "accessibility": 132,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 1,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Atlantic"
+      },
+      "-NipUUhELoxQqHUiW1vQ": {
+        "accessibility": 109,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 3,
+        "producer": "UniCorn Farm",
+        "unit": "kg",
+        "variety": "Yukon Gold"
+      },
+      "-NipUUhGaAjdX1mnHYRN": {
+        "accessibility": 192,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 5,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Russet"
+      },
+      "-NipUUhJZq1mrxPU1ekC": {
+        "accessibility": 141,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 2,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Inca Gold"
+      },
+      "-NipUUhL76lusCZQvfoJ": {
+        "accessibility": 126,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 8,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Inca Gold"
+      },
+      "-NipUUhO-lBsa2ytdBV5": {
+        "accessibility": 128,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 8,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Inca Gold"
+      },
+      "-NipUUhQK_tE_rPmisQZ": {
+        "accessibility": 95,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 8,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "German Butterball"
+      },
+      "-NipUUhRQAGLjqKTqvQa": {
+        "accessibility": 153,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 1,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Elba"
+      },
+      "-NipUUhU7Lt5QU6gj3wh": {
+        "accessibility": 51,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 9,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "Yukon Gem"
+      },
+      "-NipUUhXjKy06fc1NCgw": {
+        "accessibility": 144,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 2,
+        "producer": "Farmers Inc.",
+        "unit": "kg",
+        "variety": "King Edward"
+      },
+      "-NipUUhZn3gpKvvi1wcu": {
+        "accessibility": 158,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 2,
+        "producer": "Organic Growers",
+        "unit": "kg",
+        "variety": "Nicola"
+      },
+      "-NipUUhbx0MlSg-L8xQf": {
+        "accessibility": 57,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 1,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "All Blue"
+      },
+      "-NipUUheeXIqVg1AzUm3": {
+        "accessibility": 34,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 4,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Kennebec"
+      },
+      "-NipUUhgaf0YMELDcOVp": {
+        "accessibility": 65,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 8,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Nicola"
+      },
+      "-NipUUhi3bFVu4C9gpMs": {
+        "accessibility": 166,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 6,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Red Bliss"
+      },
+      "-NipUUhlrnfj0YEjOXs8": {
+        "accessibility": 145,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 5,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "Kennebec"
+      },
+      "-NipUUhn2Fi7ipVlSI75": {
+        "accessibility": 32,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 1,
+        "producer": "Harvest Bounty",
+        "unit": "kg",
+        "variety": "All Blue"
+      },
+      "-NipUUhqSEuqIKRBFiWx": {
+        "accessibility": 60,
+        "category": "Potatoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+        "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+        "price": 6,
+        "producer": "Farmer&Farmer",
+        "unit": "kg",
+        "variety": "Atlantic"
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "navId1": {
+    "name": "Home"
+  },
+  "navId2": {
+    "hasSubcategory": true,
+    "menuList": {
+      "-NitM74129rkuXFGPkxQ": {
+        "hasSubcategory": true,
+        "menuList": {
+          "-NitOBIZURXSZcX8_eDQ": {
+            "name": "Apples"
+          },
+          "-NitOBI_rtn5y9ii0xAs": {
+            "name": "Bananas"
+          },
+          "-NitOBI_rtn5y9ii0xAt": {
+            "name": "Pears"
+          }
+        },
+        "name": "Fruits"
+      },
+      "-NitM74129rkuXFGPkxR": {
+        "hasSubcategory": true,
+        "menuList": {
+          "-NitOWNzx8KvpT1L17ux": {
+            "name": "Carrots"
+          },
+          "-NitOWO-IluPjFYfq-YN": {
+            "name": "Onions"
+          },
+          "-NitOWO-IluPjFYfq-YO": {
+            "name": "Potatoes"
+          }
+        },
+        "name": "Vegetables"
+      }
+    },
+    "name": "Products"
+  },
+  "navId3": {
+    "name": "About us"
+  }
+}

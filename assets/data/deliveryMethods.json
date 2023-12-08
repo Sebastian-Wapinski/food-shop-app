@@ -1,0 +1,42 @@
+{
+  "-NkVgEY108D0V3WciVSR": {
+    "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+    "isDelivery": true,
+    "labelName": "In-Store Pickup - 0€",
+    "price": 0,
+    "quantity": 1,
+    "value": "In-Store Pickup"
+  },
+  "-NkVgEY108D0V3WciVSS": {
+    "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+    "isDelivery": true,
+    "labelName": "Parcel Locker Delivery 1 - 6€",
+    "price": 6,
+    "quantity": 1,
+    "value": "Parcel Locker Delivery 1"
+  },
+  "-NkVgEY108D0V3WciVST": {
+    "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+    "isDelivery": true,
+    "labelName": "Parcel Locker Delivery 2 - 8€",
+    "price": 8,
+    "quantity": 1,
+    "value": "Parcel Locker Delivery 2"
+  },
+  "-NkVgEY108D0V3WciVSV": {
+    "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+    "isDelivery": true,
+    "labelName": "Home Delivery 1 - 10€",
+    "price": 10,
+    "quantity": 1,
+    "value": "Home Delivery 1"
+  },
+  "-NkVgEY108D0V3WciVSW": {
+    "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+    "isDelivery": true,
+    "labelName": "Home Delivery 2 - 15€",
+    "price": 15,
+    "quantity": 1,
+    "value": "Home Delivery 2"
+  }
+}
