@@ -3,9 +3,11 @@ import thunk from 'redux-thunk'
 import { STORE_NAME } from './consts'
 
 import cartReducer from './modules/Cart/Cart.reducer'
+import cacheFirebaseDataReducer from './modules/CacheFirebaseData/CacheFirebaseData.reducer'
 
 const reducers = combineReducers({
-  cart: cartReducer
+  cart: cartReducer,
+  cacheFirebaseData: cacheFirebaseDataReducer
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

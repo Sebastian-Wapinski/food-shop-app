@@ -8,9 +8,21 @@ import NavBar from '../../components/NavBar/NavBar'
 import { Outlet, useLocation } from 'react-router'
 import HomePageContent from './HomePageContent/HomePageContent'
 import Footer from '../../components/Footer/Footer'
+import { useDispatch, useSelector } from 'react-redux'
+import { actionAddData } from '../../modules/CacheFirebaseData/CacheFirebaseData.actions'
+import { checkIsLinkVisited, createNavData, setDataFromFirebaseDatabase } from '../../helper/helper'
 
 export const HomePage = () => {
+  const [navListData, setNavListData] = React.useState(null)
+  const { visitedLinks, firebaseData } = useSelector(state => state.cacheFirebaseData)
+  const dispatch = useDispatch()
   const location = useLocation()
+
+  React.useEffect(() => {
+    const isVisited = checkIsLinkVisited(visitedLinks, firebaseData, '/navList', setNavListData)
+    if (isVisited) return
+    dispatch(setDataFromFirebaseDatabase('/navList', createNavData, setNavListData, actionAddData, '/navList'))
+  }, [dispatch, firebaseData, visitedLinks])
 
   return (
     <StyledHomePage>
@@ -22,7 +34,9 @@ export const HomePage = () => {
         />
       </Helmet>
       <Header />
-      <NavBar />
+      <NavBar
+        navListData={navListData}
+      />
       {
         location.pathname === '/' ?
           <HomePageContent />

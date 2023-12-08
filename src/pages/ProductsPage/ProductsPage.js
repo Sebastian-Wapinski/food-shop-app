@@ -12,8 +12,10 @@ import Pagination from '../../components/Pagination/Pagination'
 import PaginationNav from '../../components/PaginationNav'
 import ButtonsChangingPages from '../../components/ButtonsChangingPages/ButtonsChangingPages'
 import AddedToCartOverlay from '../../overlays/AddedToCartOverlay/AddedToCartOverlay'
-import { setDataFromFirebaseDatabase } from '../../helper/helper'
+import { checkIsLinkVisited, setDataFromFirebaseDatabase } from '../../helper/helper'
 import { Helmet } from 'react-helmet-async'
+import { useDispatch, useSelector } from 'react-redux'
+import { actionAddData } from '../../modules/CacheFirebaseData/CacheFirebaseData.actions'
 
 export const ProductsPage = () => {
   const {
@@ -29,8 +31,11 @@ export const ProductsPage = () => {
   const [isActiveAddedToCartLayer, setIsActiveAddedToCartLayer] = React.useState(false)
 
   const location = useLocation()
+  const dispatch = useDispatch()
   const navigate = useNavigate()
-  const newPath = sliceLastBackslash(location)
+  const newPath = sliceLastBackslash(location.pathname)
+  const pathWithoutTwoLastBackslashes = sliceLastBackslash(newPath)
+  const { visitedLinks, firebaseData } = useSelector(state => state.cacheFirebaseData)
 
   const checkPageNumInURLIsCorrect = React.useCallback(() => {
     const checkIsURLCorrect = checkIsURLCorrectClosure(allPages, navigate)
@@ -51,8 +56,10 @@ export const ProductsPage = () => {
   }, [allProductsFromCategory, particularCategoryProducts])
 
   React.useEffect(() => {
-    setDataFromFirebaseDatabase(returnRightPath(allProductsFromCategory, particularCategoryProducts), createData, setProductsData)
-  }, [allProductsFromCategory, particularCategoryProducts])
+    const isVisited = checkIsLinkVisited(visitedLinks, firebaseData, pathWithoutTwoLastBackslashes, setProductsData)
+    if (isVisited) return
+    dispatch(setDataFromFirebaseDatabase(returnRightPath(allProductsFromCategory, particularCategoryProducts), createData, setProductsData, actionAddData, pathWithoutTwoLastBackslashes, navigate))
+  }, [allProductsFromCategory, dispatch, firebaseData, pathWithoutTwoLastBackslashes, particularCategoryProducts, visitedLinks, navigate])
 
   React.useEffect(() => {
     checkPageNumInURLIsCorrect()

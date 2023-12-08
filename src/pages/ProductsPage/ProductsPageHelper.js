@@ -35,7 +35,7 @@ export const createData = (rawData) => {
     .flat(Infinity)
 }
 
-export const sliceLastBackslash = (location) => location.pathname.slice(0, location.pathname.lastIndexOf('/'))
+export const sliceLastBackslash = (location) => location.slice(0, location.lastIndexOf('/'))
 
 export const checkIsURLCorrectClosure = (allPages, navigate) => {
   return (dataToCheck) => {

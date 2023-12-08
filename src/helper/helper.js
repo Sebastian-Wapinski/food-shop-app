@@ -1,13 +1,15 @@
 import { ref, onValue } from 'firebase/database'
 import { database } from '../firebaseConfig'
 
-export const setDataFromFirebaseDatabase = (path, dataCreator, dataSetter) => {
+export const setDataFromFirebaseDatabase = (path, dataCreator, dataSetter, setReduxState, link, navigate) => (dispatch, getState) => {
   const databaseRef = ref(database, path)
 
-  onValue(databaseRef, (snapshot) => {
+  return onValue(databaseRef, (snapshot) => {
     const rawData = snapshot.val()
+    if (rawData === null) return navigate('*')
     const data = dataCreator(rawData)
     dataSetter(data)
+    dispatch(setReduxState(data, link))
   })
 }
 
@@ -38,4 +40,15 @@ export const createNavData = (rawData) => {
       id: key
     }
   })
+}
+
+export const checkIsLinkVisited = (visitedLinks, firebaseData, dataName, setData) => {
+  const isThisLinkVisited = visitedLinks.find(visitedLink => visitedLink === dataName)
+
+  if (isThisLinkVisited) {
+    setData(firebaseData[dataName])
+    return true
+  }
+
+  return false
 }

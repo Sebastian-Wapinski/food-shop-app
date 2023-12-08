@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { useDispatch } from 'react-redux'
-
 import {
   StyledRenderMethods,
   RadioContainer,
@@ -11,8 +9,10 @@ import {
   StyledErrorsMessage
 } from './RenderMethods.styled'
 import { actionChangeProductQuantity } from '../../modules/Cart/Cart.actions'
-import { setDataFromFirebaseDatabase } from '../../helper/helper'
+import { checkIsLinkVisited, setDataFromFirebaseDatabase } from '../../helper/helper'
 import { createData } from '../../pages/ProductsPage/ProductsPageHelper'
+import { useDispatch, useSelector } from 'react-redux'
+import { actionAddData } from '../../modules/CacheFirebaseData/CacheFirebaseData.actions'
 
 export const RenderMethods = (props) => {
   const {
@@ -23,13 +23,16 @@ export const RenderMethods = (props) => {
     errorMessage
   } = props
 
-  const dispatch = useDispatch()
-
   const [methods, setMethods] = React.useState(null)
 
+  const dispatch = useDispatch()
+  const { visitedLinks, firebaseData } = useSelector(state => state.cacheFirebaseData)
+
   React.useEffect(() => {
-    setDataFromFirebaseDatabase(data, createData, setMethods)
-  }, [data])
+    const isVisited = checkIsLinkVisited(visitedLinks, firebaseData, `/method/${methodsName}`, setMethods)
+    if (isVisited) return
+    dispatch(setDataFromFirebaseDatabase(data, createData, setMethods, actionAddData, `/method/${methodsName}`))
+  }, [data, dispatch, firebaseData, methodsName, visitedLinks])
 
   return (
     <StyledRenderMethods>

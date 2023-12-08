@@ -14,7 +14,9 @@ import {
   StyledDisplayMenuContainer,
   StyledName
 } from './MenuMobile.styled'
-import { checkIsNameEqualHomeIfNotReturnName, createNavData, setDataFromFirebaseDatabase } from '../../helper/helper'
+import { checkIsLinkVisited, checkIsNameEqualHomeIfNotReturnName, createNavData, setDataFromFirebaseDatabase } from '../../helper/helper'
+import { useDispatch, useSelector } from 'react-redux'
+import { actionAddData } from '../../modules/CacheFirebaseData/CacheFirebaseData.actions'
 
 export const MenuMobile = (props) => {
   const {
@@ -23,10 +25,14 @@ export const MenuMobile = (props) => {
   } = props
 
   const [navListData, setNavListData] = React.useState(null)
+  const dispatch = useDispatch()
 
+  const { visitedLinks, firebaseData } = useSelector(state => state.cacheFirebaseData)
   React.useEffect(() => {
-    setDataFromFirebaseDatabase('/navList', createNavData, setNavListData)
-  }, [])
+    const isVisited = checkIsLinkVisited(visitedLinks, firebaseData, '/navList', setNavListData)
+    if (isVisited) return
+    dispatch(setDataFromFirebaseDatabase('/navList', createNavData, setNavListData, actionAddData, '/navList'))
+  }, [dispatch, firebaseData, visitedLinks])
 
   const displaySubcategory = React.useCallback((hasSubcategory, menuList, parentName = null) => {
     const splitParentName = parentName.split('/')

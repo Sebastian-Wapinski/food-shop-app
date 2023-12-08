@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import {
   StyledNavBar,
@@ -8,18 +9,17 @@ import {
 
 import { searchMenuList } from './NavBarHelper'
 import NestedTabs from '../NestedTabs/NestedTabs'
-import { checkIsNameEqualHomeIfNotReturnName, createNavData, setDataFromFirebaseDatabase } from '../../helper/helper'
+import { checkIsNameEqualHomeIfNotReturnName } from '../../helper/helper'
 
-export const NavBar = () => {
-  const [navListData, setNavListData] = React.useState(null)
+export const NavBar = (props) => {
+  const {
+    navListData
+  } = props
+
   const [isMenuShow, setIsMenuShow] = React.useState(false)
   const [menu, setMenu] = React.useState({})
   const [zeroFloorName, setZeroFloorName] = React.useState('')
   const [firstFloorName, setFirstFloorName] = React.useState('')
-
-  React.useEffect(() => {
-    setDataFromFirebaseDatabase('/navList', createNavData, setNavListData)
-  }, [])
 
   const onMouseEnterZeroFloorHandler = React.useCallback((e, name, menuList) => {
     const searchedMenuList = searchMenuList(e, navListData)
@@ -42,6 +42,7 @@ export const NavBar = () => {
           onClick={() => setIsMenuShow(false)}
           onMouseEnter={onMouseEnterCallback}
           onMouseLeave={() => setIsMenuShow(false)}
+          data-testid={id}
         >
           {name}
         </StyledZeroFloorNavLi>
@@ -69,6 +70,10 @@ export const NavBar = () => {
       :
       <StyledNavBar />
   )
+}
+
+NavBar.propTypes = {
+  navListData: PropTypes.array
 }
 
 export default NavBar
