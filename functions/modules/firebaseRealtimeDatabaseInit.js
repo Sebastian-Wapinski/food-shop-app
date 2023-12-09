@@ -3,7 +3,7 @@ const serviceAccount = require("../secretAdminKeyShop.json")
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://sw-food-shop-app-default-rtdb.europe-west1.firebasedatabase.app",
+  databaseURL: process.env.DATABASE_URL,
 })
 
 function dbFn() {
