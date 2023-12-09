@@ -20,7 +20,7 @@ This project mirrors an online store, offering a range of essential food items l
 
 &nbsp;
 
-## 💡 Technologies
+## ⚙️ Technologies
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
@@ -54,7 +54,7 @@ cd [YOUR-REPO-NAME]
 npm i
 ```
 
-4. Create .env in main directory and paste empty variables from .env.example
+4. Create .env in main directory and paste empty variables from .env.example:
 
 ```
 REACT_APP_FIREBASE_APP_KEY=
@@ -67,21 +67,15 @@ REACT_APP_APP_ID=
 
 5. Create firebase project
 
-6. Initialize firebase project and choose one You just created
+6. Paste data to variables in .env
 
-```
-firebase init
-```
-
-7. Paste data to variables in .env
-
-8. Initialize firebase database and past address to variable in .env for example:
+7. Initialize firebase database and past address to variable in .env for example:
 
 ```
 REACT_APP_FIREBASE_URL=https://project-name-rtdb.europe-west1.firebasedatabase.app
 ```
 
-9. Set firebase database rules:
+8. Set firebase database rules:
 
 ```
 {
@@ -92,11 +86,51 @@ REACT_APP_FIREBASE_URL=https://project-name-rtdb.europe-west1.firebasedatabase.a
 }
 ```
 
-10. Create navList object in firebase database and import ./assets/data/navList (disclaimer: navigation data are fetching because of the option "adding new products categories". The option will be available in the future administration panel)
+9. Create navList object in firebase database and import ./assets/data/navList (disclaimer: navigation data are fetching because of the option "adding new products categories". The option will be available in the future administration panel)
 
-11. Do the same like into point 10. with: 'products', 'productPrices', 'deliveryMethods', 'paymentMethods'
+10. Do the same like into point 10. with: 'products', 'productPrices', 'deliveryMethods', 'paymentMethods'
 
-12. To easier testing BE create firebase hosting and deploy it (Unless you want to test application with localhost, and using ngrok to tunneling bandwidth from stripe webhook):
+11. To easier testing BE create firebase hosting and deploy it (Unless you want to test application with localhost, and using ngrok to tunneling bandwidth from stripe webhook):
+
+```
+firebase init
+```
+
+- Choose hosting and paste to firebase.json this config:
+
+```
+{
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run lint"
+      ]
+    }
+  ],
+  "hosting": {
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
+```
 
 ```
 npm run build
@@ -170,17 +204,7 @@ DATABASE_URL=
 REACT_APP_STRIPE_CONNECTION_PROVIDER_ENDPOINT=https://us-central1-<project-id>.cloudfunctions.net/stripeConnection/create-checkout-session
 ```
 
-7. Next build and deploy function:
-
-```
-npm run build
-```
-
-```
-firebase deploy --only functions
-```
-
-8. Create [stripe](https://stripe.com/en-pl) account. Go to developers > API key >
+7. Create [stripe](https://stripe.com/en-pl) account. Go to developers > API key >
 
 - reveal secret key and paste into:
 
@@ -188,7 +212,7 @@ firebase deploy --only functions
 STRIPE_PRIVATE_KEY=
 ```
 
-9. Go to developers > Webhooks >
+8. Go to developers > Webhooks >
 
 - add endpoint
 - paste there url connection link:
@@ -207,73 +231,211 @@ https://us-central1-sw-<project-id>.cloudfunctions.net/stripeConnection/webhook
 ENDPOINT_SECRET=
 ```
 
-10.
+9. In Google Cloud > APIs & services > OAuth consent screen
 
-&nbsp;
+- Create external app and add Test user (emailName sends emails to customers)
 
-## 💳 Payment simulation
+- You can watch also video on [YouTube](https://www.youtube.com/watch?v=-rcRf7yswfM&list=PL9MMrvHUTay_1wD7kYqiAPSyuIpPh6j71&index=13)
 
-&nbsp;
+10. Go to Google Cloud > APIs & services> Credentials > Click create Credentials > OAuth Client ID
 
-## 🤔 Solutions provided in the project
-
-- one
-
-&nbsp;
-
-- two:
+- Into Authorized redirect URIs add - https://developers.google.com/oauthplayground
+- Go to created OAuth 2.0 Client IDs and copy to .env:
 
 ```
-some example code
+CLIENT_ID=
+CLIENT_SECRET=
+REDIRECT_URI=https://developers.google.com/oauthplayground
+```
 
-more code :)
+- also add to .env email's name to notify customers with emails:
+
+```
+MY_EMAIL=
+```
+
+11. Create an refresh token in [OAuth 2.0 Playground](https://developers.google.com/oauthplayground/):
+
+- first open options and check 'Use your own OAuth credentials'
+- next past credentials generated in step before
+- finally into 'Input your own scopes' choose https://mail.google.com and Authorize APIs
+
+Then in step 2 You can get refresh token and paste it to .env:
+
+```
+REFRESH_TOKEN=
+```
+
+12. Build and deploy function:
+
+```
+cd ..
+```
+
+```
+npm run build
+```
+
+```
+firebase deploy
 ```
 
 &nbsp;
 
-- three
+## 💳 Payment Simulation
 
-| Issue | Solution             |     |
-| ----- | -------------------- | --- |
-| one   | `short code example` |     |
-| two   | `short code example` |     |
-| thre  | `short code example` |     |
-
-&nbsp;
-
-- four - some shortcut <kbd>Ctrl</kbd> + <kbd>C</kbd>
+- Payment acceptation: 4242 4242 4242 4242
+  - experience date must be older then today
+  - any cvc
+- Payment rejection: 4000 0000 0000 0002
 
 &nbsp;
 
-- five - example with a screenshot
-  <img alt='what it is' src="https://via.placeholder.com/500x200" />
+## 💡 Solutions Provided In The Project
+
+- Reusable function to fetch data from firebase database:
+
+```
+export const setDataFromFirebaseDatabase = (path, dataCreator, dataSetter, setReduxState, link, navigate) => (dispatch, getState) => {
+  const databaseRef = ref(database, path)
+
+  return onValue(databaseRef, (snapshot) => {
+    const rawData = snapshot.val()
+    if (rawData === null) return navigate('*')
+    const data = dataCreator(rawData)
+    dataSetter(data)
+    dispatch(setReduxState(data, link))
+  })
+}
+```
 
 &nbsp;
 
-## 💭 Conclusions for future projects
-
-I would like to improve...
-
-#### This is the first issue:
+- Utilizing recursion to process data retrieved from Firebase:
 
 ```
-and this is a code example
+export const createData = (rawData) => {
+  const { hasSubcategory } = rawData
+  const array = Object.entries(rawData)
+  return array
+    .filter((item) => {
+      const key = item[0]
+      return key !== 'hasSubcategory'
+    })
+    .map((item) => {
+      const key = item[0]
+      const value = item[1]
+
+      if (hasSubcategory) {
+        const subCategoryData = createData(value)
+        return subCategoryData
+      }
+
+      return {
+        ...value,
+        id: key
+      }
+    })
+    .flat(Infinity)
+}
 ```
 
-#### This is the second issue:
+&nbsp;
+
+- Pagination restricted only to 5 displaying pages
+
+![screen or GIF of your app](https://via.placeholder.com/500x150)
+
+&nbsp;
+
+- Form created using a reusable component:
 
 ```
-and this is a code example
+formCreationData.map(input => {
+          const { label, id, validationParams, isRequired, placeholder } = input
+          return (
+            <StyledInputContainer key={id}>
+              <StyledLabel
+                htmlFor={id}
+                isRequired={isRequired}
+              >
+                {label}
+              </StyledLabel>
+              <StyledInput
+                autoComplete={'one-time-code'}
+                type={'text'}
+                id={id}
+                errors={errors}
+                placeholder={placeholder}
+                {...register(id, { ...validationParams })}
+              />
+            </StyledInputContainer>
+          )
+        })
 ```
+
+&nbsp;
+
+- Utilizing styled-components for enhanced style management and passing calculated values:
+
+```
+// src/components/ProductCard.js
+...
+ <StyledProductContainer
+    $isActive={accessibility > 0}
+  >
+...
+```
+
+```
+// src/components/ProductCard.styled.js
+
+const StyledProductContainer = styled.div`
+...
+z-index: 1;
+
+${
+  props => props.$isActive && css`
+  &:hover {
+    ...
+    z-index: 2;
+  }
+  `
+}
+`
+```
+
+&nbsp;
+
+| Issue                                                                   | Solution                           |     |
+| ----------------------------------------------------------------------- | ---------------------------------- | --- |
+| Long time of fetching data                                              | Caching data fetched from firebase |     |
+| Necessity of managing many pages                                        | Usage of React Router              |     |
+| Essential to store, modify, and maintain the state of the shopping cart | Usage of React Redux               |     |
+| Requirement for processing payments                                     | Usage of Stripe                    |     |
+| Necessity of sending notification emails to customers                   | Usage of OAuth 2.0                 |     |
+
+&nbsp;
+
+## ⏳ Future Ideas To Develop
+
+- Allowing customers filtering and sorting products at particular categories
+- Adding products to Favorites
 
 &nbsp;
 
 ## 🙋‍♂️ Feel free to contact me
 
-Write sth nice ;) Find me on...
+Thank you for investing your time. I hope you enjoyed exploring my project and have a pleasant experience testing it. For any inquiries, feel free to reach out to me via email at sebastian.pawel.wapinski@gmail.com.
 
 &nbsp;
 
-## 👏 Thanks / Special thanks / Credits
+## 👏 Thanks
 
-Thanks to my [Mentor - devmentor.pl](https://devmentor.pl/) – for providing me with this task and for code review.
+I am truly grateful for the guidance and support provided by my mentors. A heartfelt thank you to each of them for their invaluable contributions.
+
+#### Mateusz Choma - [coderoad](https://coderoad.pl/)
+
+#### Mateusz Bogolubow - [devmentor](https://devmentor.pl/)
+
+#### [Akademia Samouka](https://akademiasamouka.pl/) - Mateusz Bogolubow i Mateusz Choma
