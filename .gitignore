@@ -27,6 +27,6 @@ yarn-error.log*
 
 .vscode
 
-.firebase
+/.firebase
 .firebaserc
 firebase.json
