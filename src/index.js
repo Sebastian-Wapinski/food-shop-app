@@ -13,6 +13,7 @@ import { store } from './store'
 
 import { BrowserRouter as Router } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
+import UserContextProvider from './contexts/UserContext'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
@@ -22,7 +23,9 @@ root.render(
         <Provider store={store}>
           <ThemeProvider theme={theme}>
             <ResetStyle />
-            <App />
+            <UserContextProvider>
+              <App />
+            </UserContextProvider>
           </ThemeProvider>
         </Provider>
       </Router>

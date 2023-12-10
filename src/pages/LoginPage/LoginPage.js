@@ -8,7 +8,9 @@ import LoginForm from '../../components/LoginForm/LoginForm'
 
 export const LoginPage = (props) => {
   const {
-    setAuthenticationOperation
+    setAuthenticationOperation,
+    onClickLogin,
+    setShowLogInMenu
   } = props
 
   const methods = useForm()
@@ -20,7 +22,10 @@ export const LoginPage = (props) => {
         {...methods}
       >
         <LoginForm
-          onSubmit={handleSubmit()}
+          onSubmit={handleSubmit((data) => {
+            onClickLogin(data.logInEmail, data.password)
+            setShowLogInMenu(false)
+          })}
           setAuthenticationOperation={setAuthenticationOperation}
         />
       </FormProvider>
@@ -29,7 +34,9 @@ export const LoginPage = (props) => {
 }
 
 LoginPage.propTypes = {
-  setAuthenticationOperation: PropTypes.func
+  setAuthenticationOperation: PropTypes.func,
+  onClickLogin: PropTypes.func,
+  setShowLogInMenu: PropTypes.func
 }
 
 export default LoginPage

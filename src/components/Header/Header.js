@@ -1,11 +1,17 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { StyledHeader, StyledContainer } from './Header.styled'
 import Icons from '../Icons/Icons'
 import Logo from './Logo'
 import { Link } from 'react-router-dom'
 
-export const Header = () => {
+export const Header = (props) => {
+  const {
+    onClickLogin,
+    onClickCreateAccount
+  } = props
+
   return (
     <StyledHeader>
       <Link
@@ -14,10 +20,18 @@ export const Header = () => {
         <Logo />
       </Link>
       <StyledContainer>
-        <Icons />
+        <Icons
+          onClickLogin={onClickLogin}
+          onClickCreateAccount={onClickCreateAccount}
+        />
       </StyledContainer>
     </StyledHeader>
   )
+}
+
+Header.propTypes = {
+  onClickLogin: PropTypes.func,
+  onClickCreateAccount: PropTypes.func
 }
 
 export default Header

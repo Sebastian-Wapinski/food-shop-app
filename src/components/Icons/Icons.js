@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import {
   StyledIcons,
@@ -20,7 +21,12 @@ import { faBars, faBasketShopping } from '@fortawesome/free-solid-svg-icons'
 import MenuMobile from '../MenuMobile/MenuMobile'
 import UserActions from '../UserActions/UserActions'
 
-export const Icons = () => {
+export const Icons = (props) => {
+  const {
+    onClickLogin,
+    onClickCreateAccount
+  } = props
+
   const [showPreviewCartOverlay, setShowPreviewCartOverlay] = React.useState(false)
   const [showMenu, setShowMenu] = React.useState(false)
   const [showLogInMenu, setShowLogInMenu] = React.useState(false)
@@ -62,6 +68,8 @@ export const Icons = () => {
             <UserActions
               authenticationOperationInit={'logIn'}
               setShowLogInMenu={setShowLogInMenu}
+              onClickLogin={onClickLogin}
+              onClickCreateAccount={onClickCreateAccount}
             />
             :
             null
@@ -157,6 +165,11 @@ export const Icons = () => {
         }
     </>
   )
+}
+
+Icons.propTypes = {
+  onClickLogin: PropTypes.func,
+  onClickCreateAccount: PropTypes.func
 }
 
 export default Icons

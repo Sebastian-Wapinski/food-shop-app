@@ -9,7 +9,9 @@ import RecoveryPasswordPage from '../../pages/RecoveryPasswordPage/RecoveryPassw
 export const UserActions = (props) => {
   const {
     authenticationOperationInit,
-    setShowLogInMenu
+    setShowLogInMenu,
+    onClickLogin,
+    onClickCreateAccount
   } = props
 
   const [authenticationOperation, setAuthenticationOperation] = React.useState(authenticationOperationInit)
@@ -23,6 +25,8 @@ export const UserActions = (props) => {
         authenticationOperation === 'logIn' ?
           <LoginPage
             setAuthenticationOperation={setAuthenticationOperation}
+            onClickLogin={onClickLogin}
+            setShowLogInMenu={setShowLogInMenu}
           />
           :
           null
@@ -31,6 +35,8 @@ export const UserActions = (props) => {
         authenticationOperation === 'signUp' ?
           <SignUpPage
             setAuthenticationOperation={setAuthenticationOperation}
+            onClickCreateAccount={onClickCreateAccount}
+            setShowLogInMenu={setShowLogInMenu}
           />
           :
           null
@@ -49,7 +55,9 @@ export const UserActions = (props) => {
 
 UserActions.propTypes = {
   authenticationOperationInit: PropTypes.string,
-  setShowLogInMenu: PropTypes.func
+  setShowLogInMenu: PropTypes.func,
+  onClickLogin: PropTypes.func,
+  onClickCreateAccount: PropTypes.func
 }
 
 export default UserActions
