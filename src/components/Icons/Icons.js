@@ -18,10 +18,12 @@ import PreviewCartOverlay from '../../overlays/PreviewCartOverlay/PreviewCartOve
 import { faHeart, faUser } from '@fortawesome/free-regular-svg-icons'
 import { faBars, faBasketShopping } from '@fortawesome/free-solid-svg-icons'
 import MenuMobile from '../MenuMobile/MenuMobile'
+import UserActions from '../UserActions/UserActions'
 
 export const Icons = () => {
   const [showPreviewCartOverlay, setShowPreviewCartOverlay] = React.useState(false)
   const [showMenu, setShowMenu] = React.useState(false)
+  const [showLogInMenu, setShowLogInMenu] = React.useState(false)
 
   const { products, productsQuantity } = useSelector(state => state.cart)
   const location = useLocation()
@@ -43,7 +45,9 @@ export const Icons = () => {
             {menu.name}
           </StyledParagraph>
         </StyledIconContainer>
-        <StyledIconContainer>
+        <StyledIconContainer
+          onClick={() => setShowLogInMenu(true)}
+        >
           <StyledImgContainer>
             <StyledFontAwesomeIcon
               icon={faUser}
@@ -53,6 +57,15 @@ export const Icons = () => {
             {logIn.name}
           </StyledParagraph>
         </StyledIconContainer>
+        {
+          showLogInMenu ?
+            <UserActions
+              authenticationOperationInit={'logIn'}
+              setShowLogInMenu={setShowLogInMenu}
+            />
+            :
+            null
+        }
         <Link
           to={favorites.path}
         >

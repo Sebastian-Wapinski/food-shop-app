@@ -4,7 +4,7 @@ import Typography from '../Typography/Typography'
 const DefaultStyledInput = styled.input`
 
 ${
-props => props.type === 'text' && css`
+props => (props.type === 'text' || props.type === 'password') && css`
 width: 100%;
 padding: 0.5rem;
 background-color: ${props => props.theme.firstBackground};

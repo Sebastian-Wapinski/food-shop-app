@@ -1,19 +1,23 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { StyledRenderFormInputs, StyledLabel, StyledInput, StyledInputContainer } from './RenderFormInputs.styled'
 
 import { useFormContext } from 'react-hook-form'
-import { formCreationData } from '../../data/formCreationData'
 
-export const RenderFormInputs = () => {
+export const RenderFormInputs = (props) => {
+  const {
+    formData
+  } = props
+
   const methods = useFormContext()
   const { register, formState: { errors } } = methods
 
   return (
     <StyledRenderFormInputs>
       {
-        formCreationData.map(input => {
-          const { label, id, validationParams, isRequired, placeholder } = input
+        formData.map(input => {
+          const { label, id, validationParams, isRequired, placeholder, type = 'text' } = input
           return (
             <StyledInputContainer key={id}>
               <StyledLabel
@@ -24,7 +28,7 @@ export const RenderFormInputs = () => {
               </StyledLabel>
               <StyledInput
                 autoComplete={'one-time-code'}
-                type={'text'}
+                type={type}
                 id={id}
                 errors={errors}
                 placeholder={placeholder}
@@ -36,6 +40,10 @@ export const RenderFormInputs = () => {
       }
     </StyledRenderFormInputs>
   )
+}
+
+RenderFormInputs.propTypes = {
+  formData: PropTypes.array
 }
 
 export default RenderFormInputs

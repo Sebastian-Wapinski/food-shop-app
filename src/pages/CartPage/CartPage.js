@@ -24,6 +24,7 @@ import { Helmet } from 'react-helmet-async'
 import Loader from '../../overlays/Loader/Loader'
 import { stripeConnectionProvider } from '../../providers/stripeConnectionProvider'
 import { createItemsArrayToBuy } from './CartPageHelper'
+import { formCreationData } from '../../data/formCreationData'
 
 export const CartPage = () => {
   const methods = useForm({
@@ -101,8 +102,9 @@ export const CartPage = () => {
                 onSubmit={onSubmit}
                 autoComplete={'off'}
               >
-                <RenderFormInputs/>
-
+                <RenderFormInputs
+                  formData={formCreationData}
+                />
               </StyledShippingForm>
               <StyledDeliveryMethodsContainer>
                 <StyledMinorTitle

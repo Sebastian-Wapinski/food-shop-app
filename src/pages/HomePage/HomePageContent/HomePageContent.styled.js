@@ -11,6 +11,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: column;
+min-height: calc(100vh - 234.59px);
 `
 
 const StyledHomePageContent = styled(DefaultStyledHomePageContent)(
@@ -35,7 +36,7 @@ text-align: justify;
 `
 
 const StyledH2 = styled(Typography)`
-padding: 3rem 0;
+padding: 0 0 5rem 0;
 text-indent: 2rem;
 text-align: justify;
 
