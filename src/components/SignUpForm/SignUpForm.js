@@ -7,16 +7,20 @@ import {
   StyledFormContainer,
   StyledButton,
   StyledLabel,
-  StyledInput
+  StyledInput,
+  StyledImgContainer,
+  StyledFontAwesomeIcon
 } from './SignUpForm.styled'
 import Logo from '../Header/Logo'
 import { signUpFormData } from '../../data/signUpFormData'
 import { useFormContext } from 'react-hook-form'
+import { faCircleXmark } from '@fortawesome/free-regular-svg-icons'
 
 export const SignUpForm = (props) => {
   const {
     setAuthenticationOperation,
-    onSubmit
+    onSubmit,
+    setShowLogInMenu
   } = props
 
   const methods = useFormContext()
@@ -42,6 +46,13 @@ export const SignUpForm = (props) => {
     <StyledSignUpForm
       onSubmit={onSubmit}
     >
+      <StyledImgContainer
+        onClick={() => setShowLogInMenu(false)}
+      >
+        <StyledFontAwesomeIcon
+          icon={faCircleXmark}
+        />
+      </StyledImgContainer>
       <Logo />
       <StyledTypography
         variant={'h2'}
@@ -110,7 +121,8 @@ export const SignUpForm = (props) => {
 
 SignUpForm.propTypes = {
   setAuthenticationOperation: PropTypes.func,
-  onSubmit: PropTypes.func
+  onSubmit: PropTypes.func,
+  setShowLogInMenu: PropTypes.func
 }
 
 export default SignUpForm

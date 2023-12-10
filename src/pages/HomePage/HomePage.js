@@ -16,6 +16,8 @@ import { checkIsLinkVisited, createNavData, setDataFromFirebaseDatabase } from '
 import { signIn, signUp, checkIfUserIsLoggedIn, sendPasswordResetEmail, logOut, updateUser, getUserData as getUserDataAPICall } from '../../auth'
 import { signInWithFirebaseSDK } from '../../firebaseConfig'
 import { useAuthUser } from '../../contexts/UserContext'
+import Loader from '../../overlays/Loader/Loader'
+import MessagePage from '../MessagePage/MessagePage'
 
 export const HomePage = () => {
   const [navListData, setNavListData] = React.useState(null)
@@ -23,7 +25,7 @@ export const HomePage = () => {
   const dispatch = useDispatch()
   const location = useLocation()
 
-  const [isLoading, setIsLoading] = React.useState(true)
+  const [isLoading, setIsLoading] = React.useState(false)
   const [hasError, setHasError] = React.useState(false)
   const [errorMessage, setErrorMessage] = React.useState('')
   const [isInfoDisplayed, setIsInfoDisplayed] = React.useState(false)
@@ -94,16 +96,29 @@ export const HomePage = () => {
   React.useEffect(() => {
     (
       async () => {
-        handleAsyncAction(async () => {
+        try {
           const userIsLoggedIn = await checkIfUserIsLoggedIn()
           if (userIsLoggedIn) {
             await getUserData()
           }
-        })
+        } catch (error) {
+          setHasError(() => true)
+          setErrorMessage(() => error.message || error.data.error.message)
+        }
       }
     )()
     // mount only
   }, [getUserData, handleAsyncAction])
+
+  const dismissError = React.useCallback(() => {
+    setHasError(() => false)
+    setErrorMessage(() => '')
+  }, [])
+
+  const dismissMessage = React.useCallback(() => {
+    setIsInfoDisplayed(() => false)
+    setInfoMessage(() => '')
+  }, [])
 
   return (
     <StyledHomePage>
@@ -130,6 +145,36 @@ export const HomePage = () => {
       }
       <Outlet />
       <Footer />
+
+      {
+        isLoading ?
+          <Loader />
+          :
+          null
+        }
+
+      {
+        isInfoDisplayed ?
+          <MessagePage
+            message={infoMessage}
+            iconVariant={'info'}
+            buttonLabel={'OK'}
+            dismissInfo={dismissMessage}
+          />
+          :
+          null
+        }
+
+      {
+        hasError ?
+          <MessagePage
+            message={errorMessage}
+            iconVariant={'error'}
+            dismissInfo={dismissError}
+          />
+          :
+          null
+        }
     </StyledHomePage>
   )
 }

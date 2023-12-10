@@ -26,6 +26,7 @@ export const RecoveryPasswordPage = (props) => {
             setShowLogInMenu(false)
           })}
           setAuthenticationOperation={setAuthenticationOperation}
+          setShowLogInMenu={setShowLogInMenu}
         />
       </FormProvider>
     </StyledRecoveryPasswordPage>

@@ -26,6 +26,7 @@ export const SignUpPage = (props) => {
             setShowLogInMenu(false)
           })}
           setAuthenticationOperation={setAuthenticationOperation}
+          setShowLogInMenu={setShowLogInMenu}
         />
       </FormProvider>
     </StyledSignUpPage>

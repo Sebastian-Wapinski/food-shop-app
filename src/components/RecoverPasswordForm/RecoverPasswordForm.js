@@ -5,22 +5,33 @@ import {
   StyledRecoverPasswordForm,
   StyledTypography,
   StyledFormContainer,
-  StyledButton
+  StyledButton,
+  StyledImgContainer,
+  StyledFontAwesomeIcon
 } from './RecoverPasswordForm.styled'
 import Logo from '../Header/Logo'
 import RenderFormInputs from '../RenderFormInputs/RenderFormInputs'
 import { recoverPasswordFormData } from '../../data/recoverPasswordFormData'
+import { faCircleXmark } from '@fortawesome/free-regular-svg-icons'
 
 export const RecoverPasswordForm = (props) => {
   const {
     setAuthenticationOperation,
-    onSubmit
+    onSubmit,
+    setShowLogInMenu
   } = props
 
   return (
     <StyledRecoverPasswordForm
       onSubmit={onSubmit}
     >
+      <StyledImgContainer
+        onClick={() => setShowLogInMenu(false)}
+      >
+        <StyledFontAwesomeIcon
+          icon={faCircleXmark}
+        />
+      </StyledImgContainer>
       <Logo />
       <StyledTypography
         variant={'h2'}
@@ -50,7 +61,8 @@ export const RecoverPasswordForm = (props) => {
 
 RecoverPasswordForm.propTypes = {
   setAuthenticationOperation: PropTypes.func,
-  onSubmit: PropTypes.func
+  onSubmit: PropTypes.func,
+  setShowLogInMenu: PropTypes.func
 }
 
 export default RecoverPasswordForm

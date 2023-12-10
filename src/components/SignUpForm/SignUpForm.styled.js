@@ -3,6 +3,7 @@ import Typography from '../Typography/Typography'
 import Button from '../Button/Button'
 import Label from '../Label/Label'
 import Input from '../Input/Input'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const DefaultStyledSignUpForm = styled.form`
 margin: 1rem;
@@ -37,11 +38,30 @@ const StyledInput = styled(Input)`
 
 `
 
+const StyledFontAwesomeIcon = styled(FontAwesomeIcon)`
+color: ${props => props.theme.mainColor};
+font-size: 2rem;
+
+&:hover {
+  cursor: pointer;
+}
+`
+
+const StyledImgContainer = styled.div`
+position: relative;
+width: 100%;
+display: flex;
+justify-content: flex-end;
+align-items: center;
+`
+
 export {
   StyledSignUpForm,
   StyledTypography,
   StyledFormContainer,
   StyledButton,
   StyledLabel,
-  StyledInput
+  StyledInput,
+  StyledFontAwesomeIcon,
+  StyledImgContainer
 }

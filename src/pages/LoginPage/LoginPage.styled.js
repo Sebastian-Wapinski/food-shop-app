@@ -3,7 +3,7 @@ import { responsiveSizes } from '../../components/style/responsiveSizes'
 
 const DefaultStyledLoginPage = styled.div`
 width: ${responsiveSizes.mobileMenu};
-height: 40rem;
+min-height: 37rem;
 background-color: ${props => props.theme.firstBackground};
 z-index: 501;
 `

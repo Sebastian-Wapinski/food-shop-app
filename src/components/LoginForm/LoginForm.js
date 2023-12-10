@@ -5,22 +5,33 @@ import {
   StyledLoginForm,
   StyledTypography,
   StyledButton,
-  StyledFormContainer
+  StyledFormContainer,
+  StyledFontAwesomeIcon,
+  StyledImgContainer
 } from './LoginForm.styled'
 import Logo from '../Header/Logo'
 import RenderFormInputs from '../RenderFormInputs/RenderFormInputs'
 import { loginFormData } from '../../data/loginFormData'
+import { faCircleXmark } from '@fortawesome/free-regular-svg-icons'
 
 export const LoginForm = (props) => {
   const {
     onSubmit,
-    setAuthenticationOperation
+    setAuthenticationOperation,
+    setShowLogInMenu
   } = props
 
   return (
     <StyledLoginForm
       onSubmit={onSubmit}
     >
+      <StyledImgContainer
+        onClick={() => setShowLogInMenu(false)}
+      >
+        <StyledFontAwesomeIcon
+          icon={faCircleXmark}
+        />
+      </StyledImgContainer>
       <Logo />
       <StyledTypography
         variant={'h2'}
@@ -56,7 +67,8 @@ export const LoginForm = (props) => {
 
 LoginForm.propTypes = {
   onSubmit: PropTypes.func,
-  setAuthenticationOperation: PropTypes.func
+  setAuthenticationOperation: PropTypes.func,
+  setShowLogInMenu: PropTypes.func
 }
 
 export default LoginForm
