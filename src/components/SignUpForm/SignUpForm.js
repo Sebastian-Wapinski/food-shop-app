@@ -10,7 +10,7 @@ import {
   StyledInput
 } from './SignUpForm.styled'
 import Logo from '../Header/Logo'
-import { signUpFormData } from '../../data/SignUpFormData'
+import { signUpFormData } from '../../data/signUpFormData'
 import { useFormContext } from 'react-hook-form'
 
 export const SignUpForm = (props) => {

@@ -11,7 +11,8 @@ export const UserActions = (props) => {
     authenticationOperationInit,
     setShowLogInMenu,
     onClickLogin,
-    onClickCreateAccount
+    onClickCreateAccount,
+    onClickRecover
   } = props
 
   const [authenticationOperation, setAuthenticationOperation] = React.useState(authenticationOperationInit)
@@ -45,6 +46,8 @@ export const UserActions = (props) => {
         authenticationOperation === 'recoveryPassword' ?
           <RecoveryPasswordPage
             setAuthenticationOperation={setAuthenticationOperation}
+            onClickRecover={onClickRecover}
+            setShowLogInMenu={setShowLogInMenu}
           />
           :
           null
@@ -57,7 +60,8 @@ UserActions.propTypes = {
   authenticationOperationInit: PropTypes.string,
   setShowLogInMenu: PropTypes.func,
   onClickLogin: PropTypes.func,
-  onClickCreateAccount: PropTypes.func
+  onClickCreateAccount: PropTypes.func,
+  onClickRecover: PropTypes.func
 }
 
 export default UserActions

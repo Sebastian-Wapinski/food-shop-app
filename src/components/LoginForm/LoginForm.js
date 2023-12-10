@@ -9,7 +9,7 @@ import {
 } from './LoginForm.styled'
 import Logo from '../Header/Logo'
 import RenderFormInputs from '../RenderFormInputs/RenderFormInputs'
-import { loginFormData } from '../../data/LoginFormData'
+import { loginFormData } from '../../data/loginFormData'
 
 export const LoginForm = (props) => {
   const {

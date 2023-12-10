@@ -9,7 +9,8 @@ import { Link } from 'react-router-dom'
 export const Header = (props) => {
   const {
     onClickLogin,
-    onClickCreateAccount
+    onClickCreateAccount,
+    onClickRecover
   } = props
 
   return (
@@ -23,6 +24,7 @@ export const Header = (props) => {
         <Icons
           onClickLogin={onClickLogin}
           onClickCreateAccount={onClickCreateAccount}
+          onClickRecover={onClickRecover}
         />
       </StyledContainer>
     </StyledHeader>
@@ -31,7 +33,8 @@ export const Header = (props) => {
 
 Header.propTypes = {
   onClickLogin: PropTypes.func,
-  onClickCreateAccount: PropTypes.func
+  onClickCreateAccount: PropTypes.func,
+  onClickRecover: PropTypes.func
 }
 
 export default Header

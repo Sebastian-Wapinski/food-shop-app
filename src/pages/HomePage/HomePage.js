@@ -69,10 +69,18 @@ export const HomePage = () => {
 
   const onClickCreateAccount = React.useCallback(async (createAccountEmail, createAccountRepeatPassword) => {
     handleAsyncAction(async () => {
-      console.log(createAccountEmail, createAccountRepeatPassword)
       await signUp(createAccountEmail, createAccountRepeatPassword)
       setIsInfoDisplayed(() => true)
       setInfoMessage(() => 'User account created. User is logged in')
+      await getUserData()
+    })
+  }, [getUserData, handleAsyncAction])
+
+  const onClickRecover = React.useCallback(async (email) => {
+    handleAsyncAction(async () => {
+      await sendPasswordResetEmail(email)
+      setIsInfoDisplayed(() => true)
+      setInfoMessage(() => 'Check Your inbox!')
       await getUserData()
     })
   }, [getUserData, handleAsyncAction])
@@ -109,6 +117,7 @@ export const HomePage = () => {
       <Header
         onClickLogin={onClickLogin}
         onClickCreateAccount={onClickCreateAccount}
+        onClickRecover={onClickRecover}
       />
       <NavBar
         navListData={navListData}

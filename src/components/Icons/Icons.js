@@ -24,7 +24,8 @@ import UserActions from '../UserActions/UserActions'
 export const Icons = (props) => {
   const {
     onClickLogin,
-    onClickCreateAccount
+    onClickCreateAccount,
+    onClickRecover
   } = props
 
   const [showPreviewCartOverlay, setShowPreviewCartOverlay] = React.useState(false)
@@ -70,6 +71,7 @@ export const Icons = (props) => {
               setShowLogInMenu={setShowLogInMenu}
               onClickLogin={onClickLogin}
               onClickCreateAccount={onClickCreateAccount}
+              onClickRecover={onClickRecover}
             />
             :
             null
@@ -169,7 +171,8 @@ export const Icons = (props) => {
 
 Icons.propTypes = {
   onClickLogin: PropTypes.func,
-  onClickCreateAccount: PropTypes.func
+  onClickCreateAccount: PropTypes.func,
+  onClickRecover: PropTypes.func
 }
 
 export default Icons
