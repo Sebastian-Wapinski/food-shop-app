@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { actionAddData } from '../../modules/CacheFirebaseData/CacheFirebaseData.actions'
 import { useAuthUser } from '../../contexts/UserContext'
 import { useNavigate } from 'react-router'
+import RenderOrders from '../../components/RenderOrders/RenderOrders'
 
 export const OrdersPage = () => {
   const [ordersData, setOrdersData] = React.useState(null)
