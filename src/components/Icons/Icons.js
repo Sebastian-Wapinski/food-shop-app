@@ -27,7 +27,8 @@ export const Icons = (props) => {
   const {
     onClickLogin,
     onClickCreateAccount,
-    onClickRecover
+    onClickRecover,
+    onClickLogout
   } = props
 
   const [showPreviewCartOverlay, setShowPreviewCartOverlay] = React.useState(false)
@@ -39,7 +40,6 @@ export const Icons = (props) => {
   const location = useLocation()
 
   const {
-    // userEmail,
     isUserLoggedIn
   } = useAuthUser()
 
@@ -62,7 +62,7 @@ export const Icons = (props) => {
         </StyledIconContainer>
         <Link to={isUserLoggedIn ? '/profile/orders' : null}>
           <StyledIconContainer
-            onClick={() => setShowLogInMenu(true)}
+            onClick={!isUserLoggedIn ? () => setShowLogInMenu(true) : null}
             onMouseEnter={isUserLoggedIn ? () => setShowProfileMenu(true) : null}
             onMouseLeave={isUserLoggedIn ? () => setShowProfileMenu(false) : null}
           >
@@ -97,6 +97,7 @@ export const Icons = (props) => {
           showProfileMenu ?
             <ProfileMenu
               setShowProfileMenu={setShowProfileMenu}
+              onClickLogout={onClickLogout}
             />
             :
             null
@@ -197,7 +198,8 @@ export const Icons = (props) => {
 Icons.propTypes = {
   onClickLogin: PropTypes.func,
   onClickCreateAccount: PropTypes.func,
-  onClickRecover: PropTypes.func
+  onClickRecover: PropTypes.func,
+  onClickLogout: PropTypes.func
 }
 
 export default Icons

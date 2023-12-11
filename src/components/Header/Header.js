@@ -10,7 +10,8 @@ export const Header = (props) => {
   const {
     onClickLogin,
     onClickCreateAccount,
-    onClickRecover
+    onClickRecover,
+    onClickLogout
   } = props
 
   return (
@@ -25,6 +26,7 @@ export const Header = (props) => {
           onClickLogin={onClickLogin}
           onClickCreateAccount={onClickCreateAccount}
           onClickRecover={onClickRecover}
+          onClickLogout={onClickLogout}
         />
       </StyledContainer>
     </StyledHeader>
@@ -34,7 +36,8 @@ export const Header = (props) => {
 Header.propTypes = {
   onClickLogin: PropTypes.func,
   onClickCreateAccount: PropTypes.func,
-  onClickRecover: PropTypes.func
+  onClickRecover: PropTypes.func,
+  onClickLogout: PropTypes.func
 }
 
 export default Header

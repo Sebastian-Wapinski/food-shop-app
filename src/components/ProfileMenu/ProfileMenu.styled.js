@@ -37,9 +37,20 @@ const StyledLink = styled(Link)`
 
 `
 
+const StyledUserLi = styled.li`
+width: 100%;
+padding: 0.7rem;
+text-align: center;
+z-index: 501;
+text-overflow: ellipsis;
+overflow: hidden;
+white-space: nowrap;
+`
+
 export {
   StyledProfileMenu,
   StyledUl,
   StyledLi,
-  StyledLink
+  StyledLink,
+  StyledUserLi
 }

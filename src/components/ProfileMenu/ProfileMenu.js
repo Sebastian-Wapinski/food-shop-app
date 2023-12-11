@@ -5,13 +5,20 @@ import {
   StyledProfileMenu,
   StyledUl,
   StyledLi,
-  StyledLink
+  StyledLink,
+  StyledUserLi
 } from './ProfileMenu.styled'
+import { useAuthUser } from '../../contexts/UserContext'
 
 export const ProfileMenu = (props) => {
   const {
-    setShowProfileMenu
+    setShowProfileMenu,
+    onClickLogout
   } = props
+
+  const {
+    userEmail
+  } = useAuthUser()
 
   return (
     <StyledProfileMenu
@@ -19,27 +26,36 @@ export const ProfileMenu = (props) => {
       onMouseLeave={() => setShowProfileMenu(false)}
     >
       <StyledUl>
+        <StyledUserLi>
+          {userEmail}
+        </StyledUserLi>
         <StyledLink
           to={'/profile/orders'}
         >
-          <StyledLi
-            onClick={() => console.log('li')}
-          >
+          <StyledLi>
             Orders
           </StyledLi>
         </StyledLink>
-        <StyledLi
-          onClick={() => console.log('logOut')}
+        <StyledLink
+          to={'/'}
         >
-          Log Out
-        </StyledLi>
+          <StyledLi
+            onClick={() => {
+              onClickLogout()
+              setShowProfileMenu(false)
+            }}
+          >
+            Log Out
+          </StyledLi>
+        </StyledLink>
       </StyledUl>
     </StyledProfileMenu>
   )
 }
 
 ProfileMenu.propTypes = {
-  setShowProfileMenu: PropTypes.func
+  setShowProfileMenu: PropTypes.func,
+  onClickLogout: PropTypes.func
 }
 
 export default ProfileMenu

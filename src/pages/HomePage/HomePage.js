@@ -14,7 +14,7 @@ import { actionAddData } from '../../modules/CacheFirebaseData/CacheFirebaseData
 import { checkIsLinkVisited, createNavData, setDataFromFirebaseDatabase } from '../../helper/helper'
 
 import { signIn, signUp, checkIfUserIsLoggedIn, sendPasswordResetEmail, logOut, updateUser, getUserData as getUserDataAPICall } from '../../auth'
-import { signInWithFirebaseSDK } from '../../firebaseConfig'
+import { signInWithFirebaseSDK, signOutWithFirebaseSDK } from '../../firebaseConfig'
 import { useAuthUser } from '../../contexts/UserContext'
 import Loader from '../../overlays/Loader/Loader'
 import MessagePage from '../MessagePage/MessagePage'
@@ -110,6 +110,14 @@ export const HomePage = () => {
     // mount only
   }, [getUserData, handleAsyncAction])
 
+  const onClickLogout = React.useCallback(async () => {
+    await Promise.all([
+      signOutWithFirebaseSDK(),
+      logOut()
+    ])
+    clearUser()
+  }, [clearUser])
+
   const dismissError = React.useCallback(() => {
     setHasError(() => false)
     setErrorMessage(() => '')
@@ -133,6 +141,7 @@ export const HomePage = () => {
         onClickLogin={onClickLogin}
         onClickCreateAccount={onClickCreateAccount}
         onClickRecover={onClickRecover}
+        onClickLogout={onClickLogout}
       />
       <NavBar
         navListData={navListData}

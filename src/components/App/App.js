@@ -9,6 +9,8 @@ import ProductsPage from '../../pages/ProductsPage/ProductsPage'
 import CartPage from '../../pages/CartPage/CartPage'
 import PaymentStatusPage from '../../pages/PaymentStatusPage/PaymentStatusPage'
 import AboutUs from '../../pages/AboutUs/AboutUs'
+import OrdersPage from '../../pages/OrdersPage/OrdersPage'
+import FavoritesPage from '../../pages/FavoritesPage/FavoritesPage'
 
 export const App = () => {
   return (
@@ -26,14 +28,10 @@ export const App = () => {
             path={'/cart/:paymentStatus'}
             element={<PaymentStatusPage />}
           />
-          {/* <Route
+          <Route
             path={'/favorites'}
             element={<FavoritesPage />}
           />
-          <Route
-            path={'/LogInFavorites'}
-            element={<LogInFavoritesPage />}
-          /> */}
           <Route
             path={'/products/page/:pageNumAllProducts'}
             element={<ProductsPage />}
@@ -54,11 +52,11 @@ export const App = () => {
             path={'/about us'}
             element={<AboutUs />}
           />
+          <Route
+            path={'/profile/orders'}
+            element={<OrdersPage />}
+          />
         </Route>
-        {/* <Route
-            path={'/:product'}
-            element={<ProductPage />}
-          /> */}
         <Route
           path={'/'}
           element={<HomePage />}
