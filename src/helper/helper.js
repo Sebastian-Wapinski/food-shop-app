@@ -42,6 +42,19 @@ export const createNavData = (rawData) => {
   })
 }
 
+export const createOrdersData = (rawData) => {
+  const array = Object.entries(rawData)
+  return array.map(item => {
+    const key = item[0]
+    const value = item[1]
+
+    return {
+      ...value,
+      orderId: key
+    }
+  })
+}
+
 export const checkIsLinkVisited = (visitedLinks, firebaseData, dataName, setData) => {
   const isThisLinkVisited = visitedLinks.find(visitedLink => visitedLink === dataName)
 
