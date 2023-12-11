@@ -10,7 +10,6 @@ import { checkIsLinkVisited, createOrdersData, setDataFromFirebaseDatabase } fro
 import { useDispatch, useSelector } from 'react-redux'
 import { actionAddData } from '../../modules/CacheFirebaseData/CacheFirebaseData.actions'
 import { useAuthUser } from '../../contexts/UserContext'
-import { useNavigate } from 'react-router'
 import RenderOrders from '../../components/RenderOrders/RenderOrders'
 
 export const OrdersPage = () => {
@@ -18,7 +17,7 @@ export const OrdersPage = () => {
   const { visitedLinks, firebaseData } = useSelector(state => state.cacheFirebaseData)
   const dispatch = useDispatch()
   const { userId } = useAuthUser()
-  const navigate = useNavigate()
+  const navigate = React.useCallback(() => null, [])
 
   React.useEffect(() => {
     const isVisited = checkIsLinkVisited(visitedLinks, firebaseData, `/orders/loggedIn/${userId}`, setOrdersData)
@@ -35,18 +34,24 @@ export const OrdersPage = () => {
           content={'Displays orders'}
         />
       </Helmet>
-      <StyledTitle
-        variant={'h2'}
-      >
-        Orders
-      </StyledTitle>
       {
-        ordersData ?
+      ordersData ?
+        <>
+          <StyledTitle
+            variant={'h2'}
+          >
+            Orders
+          </StyledTitle>
           <StyledOrdersContainer>
             <RenderOrders ordersData={ordersData} />
           </StyledOrdersContainer>
-          :
-          null
+        </>
+        :
+        <StyledTitle
+          variant={'h2'}
+        >
+          No Orders Added Yet
+        </StyledTitle>
       }
     </StyledOrdersPage>
   )

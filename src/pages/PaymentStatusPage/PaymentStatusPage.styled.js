@@ -4,6 +4,7 @@ import { responsiveSizes } from '../../components/style/responsiveSizes'
 
 const DefaultStyledPaymentStatusPage = styled.div`
 min-height: calc(100vh - 234.59px);
+width: ${responsiveSizes.pageWidth};
 `
 
 const StyledPaymentStatusPage = styled(DefaultStyledPaymentStatusPage)(

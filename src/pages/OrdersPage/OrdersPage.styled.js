@@ -5,6 +5,14 @@ import { responsiveSizes } from '../../components/style/responsiveSizes'
 const DefaultStyledOrdersPage = styled.div`
 min-height: calc(100vh - 234.59px);
 width: ${responsiveSizes.pageWidth};
+
+@media (max-width: ${responsiveSizes.pageWidth}) {
+  width: ${responsiveSizes.mediumSize};
+}
+
+@media (max-width: ${responsiveSizes.mediumSizeCart}) {
+  width: ${responsiveSizes.mobileMenu};
+}
 `
 
 const StyledOrdersPage = styled(DefaultStyledOrdersPage)(
