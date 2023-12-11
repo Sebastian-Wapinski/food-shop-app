@@ -4,9 +4,9 @@ const createUnpaidOrder = require("./createUnpaidOrder")
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 
 async function createCheckoutSession(req, res) {
-  const { items, data, additionalInformation } = req.body
+  const { items, data, additionalInformation, loggedInUserId } = req.body
 
-  const { eMail, firstName, lastName, streetName, streetNumber, city, zipCode, phone, loggedInUserId = null } = data
+  const { eMail, firstName, lastName, streetName, streetNumber, city, zipCode, phone } = data
 
   const customer = await stripe.customers.create({
     email: eMail,
@@ -60,7 +60,7 @@ async function createCheckoutSession(req, res) {
     },
   })
 
-  await createUnpaidOrder(lineItems, uniqueId, data, shipping, additionalInformation, session)
+  await createUnpaidOrder(lineItems, session, eMail)
 
   res.json({ url: session.url })
 }

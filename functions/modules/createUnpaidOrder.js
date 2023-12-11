@@ -18,10 +18,9 @@ const createFirebaseFormatLineItems = (lineItems) => {
   })
 }
 
-async function createUnpaidOrder(lineItems, uniqueId, data, session) {
+async function createUnpaidOrder(lineItems, session, eMail) {
   const db = dbFn()
 
-  const { eMail, loggedInUserId = null } = data
 
   const processedLineItems = createFirebaseFormatLineItems(lineItems)
 
@@ -34,11 +33,13 @@ async function createUnpaidOrder(lineItems, uniqueId, data, session) {
     created,
   } = session
 
+  const { loggedInUserId, paymentId } = metadata
+
   const amountTotal = amount_total / 100
 
   if (loggedInUserId) {
     try {
-      await db.ref(`orders/loggedIn/${loggedInUserId}/${uniqueId}`).set({
+      await db.ref(`orders/loggedIn/${loggedInUserId}/${paymentId}`).set({
         id,
         amountTotal,
         processedLineItems,
@@ -53,7 +54,7 @@ async function createUnpaidOrder(lineItems, uniqueId, data, session) {
     }
   } else {
     try {
-      await db.ref(`orders/notLoggedIn/${uniqueId}`).set({
+      await db.ref(`orders/notLoggedIn/${paymentId}`).set({
         id,
         amountTotal,
         processedLineItems,

@@ -25,7 +25,7 @@ async function setRealtimeDatabase(paymentData) {
     try {
       const existingData = await getRealtimeDatabase(`orders/notLoggedIn/${paymentId}`)
 
-      await db.ref(`orders/${metadata.userId}`).set({
+      await db.ref(`orders/notLoggedIn/${paymentId}`).set({
         ...existingData,
         paymentStatus,
       })
