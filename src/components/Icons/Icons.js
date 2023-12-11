@@ -7,9 +7,7 @@ import {
   StyledParagraph,
   CartIconProductsQuantity,
   StyledImgContainer,
-  StyledFontAwesomeIcon,
-  StyledDarkOverlay,
-  StyledMenuBackground
+  StyledFontAwesomeIcon
 } from './Icons.styled'
 import { iconsData } from '../../data/iconsData'
 import { Link, useLocation } from 'react-router-dom'
@@ -22,6 +20,8 @@ import MenuMobile from '../MenuMobile/MenuMobile'
 import UserActions from '../UserActions/UserActions'
 import { useAuthUser } from '../../contexts/UserContext'
 import ProfileMenu from '../ProfileMenu/ProfileMenu'
+import MobileLeftMenuWrapper from '../MobileLeftMenuWrapper/MobileLeftMenuWrapper'
+import ProfileMenuMobile from '../ProfileMenuMobile/ProfileMenuMobile'
 
 export const Icons = (props) => {
   const {
@@ -33,6 +33,7 @@ export const Icons = (props) => {
 
   const [showPreviewCartOverlay, setShowPreviewCartOverlay] = React.useState(false)
   const [showMenu, setShowMenu] = React.useState(false)
+  const [showProfile, setShowProfile] = React.useState(false)
   const [showLogInMenu, setShowLogInMenu] = React.useState(false)
   const [showProfileMenu, setShowProfileMenu] = React.useState(false)
 
@@ -62,7 +63,14 @@ export const Icons = (props) => {
         </StyledIconContainer>
         <Link to={isUserLoggedIn ? '/profile/orders' : null}>
           <StyledIconContainer
-            onClick={!isUserLoggedIn ? () => setShowLogInMenu(true) : null}
+            onClick={() => {
+              if (!isUserLoggedIn) {
+                setShowLogInMenu(true)
+              } else {
+                setShowProfile(true)
+              }
+            }
+          }
             onMouseEnter={isUserLoggedIn ? () => setShowProfileMenu(true) : null}
             onMouseLeave={isUserLoggedIn ? () => setShowProfileMenu(false) : null}
           >
@@ -160,37 +168,25 @@ export const Icons = (props) => {
           null
         }
       </StyledIcons>
-      {
-          showMenu ?
-            <>
-              <StyledDarkOverlay
-                $showMenu={showMenu}
-                onClick={() => {
-                  setShowMenu(false)
-                }}
-              />
-              <StyledMenuBackground
-                $showMenu={showMenu}
-              >
-                <MenuMobile
-                  setShowMenu={setShowMenu}
-                  showMenu={showMenu}
-                />
-              </StyledMenuBackground>
-            </>
-            :
-            <>
-              <StyledDarkOverlay
-                $showMenu={showMenu}
-                onClick={() => {
-                  setShowMenu(false)
-                }}
-              />
-              <StyledMenuBackground
-                $showMenu={showMenu}
-              />
-            </>
-        }
+      <MobileLeftMenuWrapper
+        showWrapper={showMenu}
+        setShowWrapper={setShowMenu}
+      >
+        <MenuMobile
+          setShowMenu={setShowMenu}
+          showMenu={showMenu}
+        />
+      </MobileLeftMenuWrapper>
+      <MobileLeftMenuWrapper
+        showWrapper={showProfile}
+        setShowWrapper={setShowProfile}
+      >
+        <ProfileMenuMobile
+          showProfile={showProfile}
+          setShowProfile={setShowProfile}
+          onClickLogout={onClickLogout}
+        />
+      </MobileLeftMenuWrapper>
     </>
   )
 }
