@@ -6,7 +6,7 @@ const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 async function createCheckoutSession(req, res) {
   const { items, data, additionalInformation } = req.body
 
-  const { eMail, firstName, lastName, streetName, streetNumber, city, zipCode, phone } = data
+  const { eMail, firstName, lastName, streetName, streetNumber, city, zipCode, phone, loggedInUserId = null } = data
 
   const customer = await stripe.customers.create({
     email: eMail,
@@ -45,9 +45,6 @@ async function createCheckoutSession(req, res) {
     }
   })
 
-
-  await createUnpaidOrder(lineItems, uniqueId)
-
   const session = await stripe.checkout.sessions.create({
     customer: customer.id,
     payment_method_types: ["card"],
@@ -56,11 +53,14 @@ async function createCheckoutSession(req, res) {
     success_url: `${process.env.DOMAIN}/payment-status-success`,
     cancel_url: `${process.env.DOMAIN}/payment-status-canceled`,
     metadata: {
-      userId: uniqueId,
+      paymentId: uniqueId,
+      loggedInUserId,
       additionalInformation,
       ...shipping,
     },
   })
+
+  await createUnpaidOrder(lineItems, uniqueId, data, shipping, additionalInformation, session)
 
   res.json({ url: session.url })
 }

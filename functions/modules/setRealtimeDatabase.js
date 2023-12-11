@@ -4,30 +4,34 @@ const getRealtimeDatabase = require("./getRealtimeDatabase")
 async function setRealtimeDatabase(paymentData) {
   const db = dbFn()
   const {
-    id = null,
-    amountTotal = null,
     metadata = null,
-    paymentIntent = null,
     paymentStatus = null,
-    created = null,
-    email = null,
   } = paymentData
 
-  try {
-    const existingData = await getRealtimeDatabase(`orders/${metadata.userId}`)
+  const { loggedInUserId, paymentId } = metadata
 
-    await db.ref(`orders/${metadata.userId}`).set({
-      ...existingData,
-      id,
-      amountTotal,
-      metadata,
-      paymentIntent,
-      paymentStatus,
-      created,
-      email,
-    })
-  } catch (error) {
-    console.error("setRealtimeDatabase err", error)
+  if (loggedInUserId) {
+    try {
+      const existingData = await getRealtimeDatabase(`orders/loggedIn/${loggedInUserId}/${paymentId}`)
+
+      await db.ref(`orders/loggedIn/${loggedInUserId}/${paymentId}`).set({
+        ...existingData,
+        paymentStatus,
+      })
+    } catch (error) {
+      console.error("setRealtimeDatabase err", error)
+    }
+  } else {
+    try {
+      const existingData = await getRealtimeDatabase(`orders/notLoggedIn/${paymentId}`)
+
+      await db.ref(`orders/${metadata.userId}`).set({
+        ...existingData,
+        paymentStatus,
+      })
+    } catch (error) {
+      console.error("setRealtimeDatabase err", error)
+    }
   }
 }
 

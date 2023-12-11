@@ -18,18 +18,54 @@ const createFirebaseFormatLineItems = (lineItems) => {
   })
 }
 
-async function createUnpaidOrder(lineItems, uniqueId) {
+async function createUnpaidOrder(lineItems, uniqueId, data, session) {
   const db = dbFn()
+
+  const { eMail, loggedInUserId = null } = data
 
   const processedLineItems = createFirebaseFormatLineItems(lineItems)
 
-  try {
-    await db.ref(`orders/${uniqueId}`).set({
-      processedLineItems,
-      paymentStatus: "pending",
-    })
-  } catch (error) {
-    console.error("pending err", error)
+  const {
+    id,
+    amount_total,
+    metadata,
+    payment_intent,
+    payment_status,
+    created,
+  } = session
+
+  const amountTotal = amount_total / 100
+
+  if (loggedInUserId) {
+    try {
+      await db.ref(`orders/loggedIn/${loggedInUserId}/${uniqueId}`).set({
+        id,
+        amountTotal,
+        processedLineItems,
+        metadata,
+        paymentIntent: payment_intent,
+        paymentStatus: payment_status,
+        created,
+        email: eMail,
+      })
+    } catch (error) {
+      console.error("pending err", error)
+    }
+  } else {
+    try {
+      await db.ref(`orders/notLoggedIn/${uniqueId}`).set({
+        id,
+        amountTotal,
+        processedLineItems,
+        metadata,
+        paymentIntent: payment_intent,
+        paymentStatus: payment_status,
+        created,
+        email: eMail,
+      })
+    } catch (error) {
+      console.error("pending err", error)
+    }
   }
 }
 

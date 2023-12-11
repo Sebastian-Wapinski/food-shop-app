@@ -25,6 +25,7 @@ import Loader from '../../overlays/Loader/Loader'
 import { stripeConnectionProvider } from '../../providers/stripeConnectionProvider'
 import { createItemsArrayToBuy } from './CartPageHelper'
 import { formCreationData } from '../../data/formCreationData'
+import { useAuthUser } from '../../contexts/UserContext'
 
 export const CartPage = () => {
   const methods = useForm({
@@ -48,6 +49,7 @@ export const CartPage = () => {
   const [isLoading, setIsLoading] = React.useState(false)
 
   const { deliveryId, products, paymentId } = useSelector(state => state.cart)
+  const { userId } = useAuthUser()
 
   const onSubmit = handleSubmit(async (data, e) => {
     if (deliveryId.length === 0 || paymentId.length === 0 || products.length === 0) return
@@ -57,7 +59,8 @@ export const CartPage = () => {
     const cart = {
       items,
       data,
-      additionalInformation
+      additionalInformation,
+      loggedInUserId: userId || null
     }
 
     try {
