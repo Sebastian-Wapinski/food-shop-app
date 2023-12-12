@@ -17,7 +17,7 @@ padding: 1.5rem 2rem;
 width: 100%;
 border-bottom: 1px solid ${props => props.theme.secondTextColor};
 
-@media (max-width: ${responsiveSizes.mediumSize}) {
+@media (max-width: ${responsiveSizes.pageWidth}) {
   text-align: center;
   text-indent: 0;
 }

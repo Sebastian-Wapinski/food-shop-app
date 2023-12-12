@@ -21,50 +21,48 @@ import RenderOrderItems from '../RenderOrderItems/RenderOrderItems'
 
 export const RenderOrders = (props) => {
   const {
-    ordersData
+    orderData
   } = props
+
+  const { amountTotal, created, email, id, metadata, paymentStatus, processedLineItems } = orderData
+  const { additionalInformation, city, line1, name, paymentId, phone, postal_code: postalCode } = metadata
+
+  const date = new Date(created * 1000)
 
   const [showExtendedInfo, setShowExtendedInfo] = React.useState(false)
 
   return (
     <StyledRenderOrders>
-      {
-        ordersData.map(order => {
-          const { amountTotal, created, email, id, metadata, paymentStatus, processedLineItems } = order
-          const { additionalInformation, city, line1, name, paymentId, phone, postal_code: postalCode } = metadata
-
-          const date = new Date(created * 1000)
-          return (
-            <StyledOrderContainer
-              key={id}
-            >
-              <StyledBasicInfoContainer>
-                <StyledDate
-                  variant={'body1'}
-                >
-                  {date.toLocaleString()}
-                </StyledDate>
-                <StyledPaymentStatus>
-                  {paymentStatus}
-                </StyledPaymentStatus>
-                <StyledId
-                  variant={'body1'}
-                >
-                  Id: {id}
-                </StyledId>
-                <StyledAmountTotal
-                  variant={'body1'}
-                >
-                  {amountTotal}€
-                </StyledAmountTotal>
-                <StyledArrow
-                  variant={'customText'}
-                  onClick={() => setShowExtendedInfo(!showExtendedInfo)}
-                >
-                  {showExtendedInfo ? <StyledFontAwesomeIcon icon={faAngleUp}/> : <StyledFontAwesomeIcon icon={faAngleDown}/>}
-                </StyledArrow>
-              </StyledBasicInfoContainer>
-              {
+      <StyledOrderContainer
+        key={id}
+      >
+        <StyledBasicInfoContainer>
+          <StyledDate
+            variant={'body1'}
+          >
+            {date.toLocaleString()}
+          </StyledDate>
+          <StyledPaymentStatus>
+            {paymentStatus}
+          </StyledPaymentStatus>
+          <StyledId
+            variant={'body1'}
+          >
+            Id: {id}
+          </StyledId>
+          <StyledAmountTotal
+            variant={'body1'}
+          >
+            {amountTotal}€
+          </StyledAmountTotal>
+          <StyledArrow
+            variant={'customText'}
+            onClick={() => setShowExtendedInfo(!showExtendedInfo)}
+          >
+            {showExtendedInfo ? <StyledFontAwesomeIcon icon={faAngleUp}/> : <StyledFontAwesomeIcon icon={faAngleDown}/>}
+          </StyledArrow>
+        </StyledBasicInfoContainer>
+        {
               showExtendedInfo ?
                 <StyledExtendedInfoContainer>
                   <StyledFormContainer>
@@ -84,16 +82,13 @@ export const RenderOrders = (props) => {
                 :
                 null
               }
-            </StyledOrderContainer>
-          )
-        })
-      }
+      </StyledOrderContainer>
     </StyledRenderOrders>
   )
 }
 
 RenderOrders.propTypes = {
-  ordersData: PropTypes.array
+  orderData: PropTypes.object
 }
 
 export default RenderOrders

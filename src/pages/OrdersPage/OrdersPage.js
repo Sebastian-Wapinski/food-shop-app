@@ -6,24 +6,28 @@ import {
   StyledOrdersContainer
 } from './OrdersPage.styled'
 import { Helmet } from 'react-helmet-async'
-import { checkIsLinkVisited, createOrdersData, setDataFromFirebaseDatabase } from '../../helper/helper'
+import { createOrdersData } from '../../helper/helper'
 import { useDispatch, useSelector } from 'react-redux'
-import { actionAddData } from '../../modules/CacheFirebaseData/CacheFirebaseData.actions'
 import { useAuthUser } from '../../contexts/UserContext'
 import RenderOrders from '../../components/RenderOrders/RenderOrders'
+import { database } from '../../firebaseConfig'
+import { onValue, ref } from 'firebase/database'
 
 export const OrdersPage = () => {
   const [ordersData, setOrdersData] = React.useState(null)
   const { visitedLinks, firebaseData } = useSelector(state => state.cacheFirebaseData)
   const dispatch = useDispatch()
   const { userId } = useAuthUser()
-  const navigate = React.useCallback(() => null, [])
 
   React.useEffect(() => {
-    const isVisited = checkIsLinkVisited(visitedLinks, firebaseData, `/orders/loggedIn/${userId}`, setOrdersData)
-    if (isVisited) return
-    dispatch(setDataFromFirebaseDatabase(`/orders/loggedIn/${userId}`, createOrdersData, setOrdersData, actionAddData, `/orders/loggedIn/${userId}`, navigate))
-  }, [dispatch, firebaseData, navigate, userId, visitedLinks])
+    const databaseRef = ref(database, `/orders/loggedIn/${userId}`)
+
+    return onValue(databaseRef, (snapshot) => {
+      const rawData = snapshot.val()
+      const data = createOrdersData(rawData)
+      setOrdersData(data)
+    })
+  }, [dispatch, firebaseData, userId, visitedLinks])
 
   return (
     <StyledOrdersPage>
@@ -43,7 +47,16 @@ export const OrdersPage = () => {
             Orders
           </StyledTitle>
           <StyledOrdersContainer>
-            <RenderOrders ordersData={ordersData} />
+            {
+              ordersData.map(order => {
+                return (
+                  <RenderOrders
+                    key={order.id}
+                    orderData={order}
+                  />
+                )
+              })
+            }
           </StyledOrdersContainer>
         </>
         :
