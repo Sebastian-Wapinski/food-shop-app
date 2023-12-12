@@ -65,7 +65,7 @@ REACT_APP_MESSAGING_SENDER_ID=
 REACT_APP_APP_ID=
 ```
 
-5. Create firebase project
+5. Create firebase project and initialize authentication
 
 6. Paste data to variables in .env
 
