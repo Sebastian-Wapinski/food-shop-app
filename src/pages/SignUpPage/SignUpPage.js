@@ -4,16 +4,18 @@ import PropTypes from 'prop-types'
 import { StyledSignUpPage } from './SignUpPage.styled'
 import { FormProvider, useForm } from 'react-hook-form'
 import SignUpForm from '../../components/SignUpForm/SignUpForm'
+import { useAuthFunc } from '../../contexts/AuthFuncContext'
 
 export const SignUpPage = (props) => {
   const {
     setAuthenticationOperation,
-    onClickCreateAccount,
     setShowLogInMenu
   } = props
 
   const methods = useForm()
   const { handleSubmit } = methods
+
+  const { onClickCreateAccount } = useAuthFunc()
 
   return (
     <StyledSignUpPage>
@@ -35,7 +37,6 @@ export const SignUpPage = (props) => {
 
 SignUpPage.propTypes = {
   setAuthenticationOperation: PropTypes.func,
-  onClickCreateAccount: PropTypes.func,
   setShowLogInMenu: PropTypes.func
 }
 

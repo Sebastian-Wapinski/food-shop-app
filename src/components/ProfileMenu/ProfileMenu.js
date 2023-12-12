@@ -9,16 +9,18 @@ import {
   StyledUserLi
 } from './ProfileMenu.styled'
 import { useAuthUser } from '../../contexts/UserContext'
+import { useAuthFunc } from '../../contexts/AuthFuncContext'
 
 export const ProfileMenu = (props) => {
   const {
-    setShowProfileMenu,
-    onClickLogout
+    setShowProfileMenu
   } = props
 
   const {
     userEmail
   } = useAuthUser()
+
+  const { onClickLogout } = useAuthFunc()
 
   return (
     <StyledProfileMenu
@@ -54,8 +56,7 @@ export const ProfileMenu = (props) => {
 }
 
 ProfileMenu.propTypes = {
-  setShowProfileMenu: PropTypes.func,
-  onClickLogout: PropTypes.func
+  setShowProfileMenu: PropTypes.func
 }
 
 export default ProfileMenu

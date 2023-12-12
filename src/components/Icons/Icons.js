@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import {
   StyledIcons,
@@ -19,14 +18,7 @@ import ProfileMenuMobile from '../ProfileMenuMobile/ProfileMenuMobile'
 import IconLogin from '../IconLogin/IconLogin'
 import IconCart from '../IconCart/IconCart'
 
-export const Icons = (props) => {
-  const {
-    onClickLogin,
-    onClickCreateAccount,
-    onClickRecover,
-    onClickLogout
-  } = props
-
+export const Icons = () => {
   const [showMenu, setShowMenu] = React.useState(false)
   const [showProfile, setShowProfile] = React.useState(false)
   const [showLogInMenu, setShowLogInMenu] = React.useState(false)
@@ -55,10 +47,6 @@ export const Icons = (props) => {
           setShowProfileMenu={setShowProfileMenu}
           showLogInMenu={showLogInMenu}
           showProfileMenu={showProfileMenu}
-          onClickLogin={onClickLogin}
-          onClickCreateAccount={onClickCreateAccount}
-          onClickRecover={onClickRecover}
-          onClickLogout={onClickLogout}
         />
         <Link
           to={favorites.path}
@@ -92,18 +80,10 @@ export const Icons = (props) => {
         <ProfileMenuMobile
           showProfile={showProfile}
           setShowProfile={setShowProfile}
-          onClickLogout={onClickLogout}
         />
       </MobileLeftMenuWrapper>
     </>
   )
-}
-
-Icons.propTypes = {
-  onClickLogin: PropTypes.func,
-  onClickCreateAccount: PropTypes.func,
-  onClickRecover: PropTypes.func,
-  onClickLogout: PropTypes.func
 }
 
 export default Icons

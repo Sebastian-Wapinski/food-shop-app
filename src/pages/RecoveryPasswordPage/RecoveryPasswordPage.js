@@ -4,16 +4,18 @@ import PropTypes from 'prop-types'
 import { StyledRecoveryPasswordPage } from './RecoveryPasswordPage.styled'
 import { FormProvider, useForm } from 'react-hook-form'
 import RecoverPasswordForm from '../../components/RecoverPasswordForm/RecoverPasswordForm'
+import { useAuthFunc } from '../../contexts/AuthFuncContext'
 
 export const RecoveryPasswordPage = (props) => {
   const {
     setAuthenticationOperation,
-    onClickRecover,
     setShowLogInMenu
   } = props
 
   const methods = useForm()
   const { handleSubmit } = methods
+
+  const { onClickRecover } = useAuthFunc()
 
   return (
     <StyledRecoveryPasswordPage >
@@ -35,8 +37,7 @@ export const RecoveryPasswordPage = (props) => {
 
 RecoveryPasswordPage.propTypes = {
   setAuthenticationOperation: PropTypes.func,
-  setShowLogInMenu: PropTypes.func,
-  onClickRecover: PropTypes.func
+  setShowLogInMenu: PropTypes.func
 }
 
 export default RecoveryPasswordPage

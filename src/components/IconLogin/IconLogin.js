@@ -20,11 +20,7 @@ export const IconLogin = (props) => {
     setShowProfile,
     setShowProfileMenu,
     showLogInMenu,
-    showProfileMenu,
-    onClickLogin,
-    onClickCreateAccount,
-    onClickRecover,
-    onClickLogout
+    showProfileMenu
   } = props
 
   const { isUserLoggedIn } = useAuthUser()
@@ -65,9 +61,6 @@ export const IconLogin = (props) => {
             <UserActions
               authenticationOperationInit={'logIn'}
               setShowLogInMenu={setShowLogInMenu}
-              onClickLogin={onClickLogin}
-              onClickCreateAccount={onClickCreateAccount}
-              onClickRecover={onClickRecover}
             />
             :
             null
@@ -76,7 +69,6 @@ export const IconLogin = (props) => {
           showProfileMenu ?
             <ProfileMenu
               setShowProfileMenu={setShowProfileMenu}
-              onClickLogout={onClickLogout}
             />
             :
             null
@@ -90,11 +82,7 @@ IconLogin.propTypes = {
   setShowProfile: PropTypes.func,
   setShowProfileMenu: PropTypes.func,
   showLogInMenu: PropTypes.bool,
-  showProfileMenu: PropTypes.bool,
-  onClickLogin: PropTypes.func,
-  onClickCreateAccount: PropTypes.func,
-  onClickRecover: PropTypes.func,
-  onClickLogout: PropTypes.func
+  showProfileMenu: PropTypes.bool
 }
 
 export default IconLogin

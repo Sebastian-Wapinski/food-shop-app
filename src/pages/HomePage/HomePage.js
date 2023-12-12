@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react'
 
 import { StyledHomePage } from './HomePage.styled'
@@ -13,11 +12,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { actionAddData } from '../../modules/CacheFirebaseData/CacheFirebaseData.actions'
 import { checkIsLinkVisited, createNavData, setDataFromFirebaseDatabase } from '../../helper/helper'
 
-import { signIn, signUp, checkIfUserIsLoggedIn, sendPasswordResetEmail, logOut, updateUser, getUserData as getUserDataAPICall } from '../../auth'
-import { signInWithFirebaseSDK, signOutWithFirebaseSDK } from '../../firebaseConfig'
-import { useAuthUser } from '../../contexts/UserContext'
+import { checkIfUserIsLoggedIn } from '../../auth'
 import Loader from '../../overlays/Loader/Loader'
 import MessagePage from '../MessagePage/MessagePage'
+import { useAuthFunc } from '../../contexts/AuthFuncContext'
 
 export const HomePage = () => {
   const [navListData, setNavListData] = React.useState(null)
@@ -25,67 +23,18 @@ export const HomePage = () => {
   const dispatch = useDispatch()
   const location = useLocation()
 
-  const [isLoading, setIsLoading] = React.useState(false)
-  const [hasError, setHasError] = React.useState(false)
-  const [errorMessage, setErrorMessage] = React.useState('')
-  const [isInfoDisplayed, setIsInfoDisplayed] = React.useState(false)
-  const [infoMessage, setInfoMessage] = React.useState('')
-
   const {
-    userId,
-    isUserLoggedIn,
-    clearUser,
-    setUser
-  } = useAuthUser()
-
-  const handleAsyncAction = React.useCallback(async (asyncAction) => {
-    setIsLoading(() => true)
-    try {
-      await asyncAction()
-    } catch (error) {
-      setHasError(() => true)
-      setErrorMessage(() => error.message || error.data.error.message)
-    } finally {
-      setIsLoading(() => false)
-    }
-  }, [])
-
-  const getUserData = React.useCallback(async () => {
-    const user = await getUserDataAPICall()
-
-    setUser({
-      id: user.localId,
-      email: user.email
-    })
-  }, [setUser])
-
-  const onClickLogin = React.useCallback(async (email, password) => {
-    handleAsyncAction(async () => {
-      await signIn(email, password)
-      await Promise.all([
-        signInWithFirebaseSDK(email, password),
-        getUserData()
-      ])
-    })
-  }, [getUserData, handleAsyncAction])
-
-  const onClickCreateAccount = React.useCallback(async (createAccountEmail, createAccountRepeatPassword) => {
-    handleAsyncAction(async () => {
-      await signUp(createAccountEmail, createAccountRepeatPassword)
-      setIsInfoDisplayed(() => true)
-      setInfoMessage(() => 'User account created. User is logged in')
-      await getUserData()
-    })
-  }, [getUserData, handleAsyncAction])
-
-  const onClickRecover = React.useCallback(async (email) => {
-    handleAsyncAction(async () => {
-      await sendPasswordResetEmail(email)
-      setIsInfoDisplayed(() => true)
-      setInfoMessage(() => 'Check Your inbox!')
-      await getUserData()
-    })
-  }, [getUserData, handleAsyncAction])
+    isLoading,
+    hasError,
+    errorMessage,
+    isInfoDisplayed,
+    infoMessage,
+    setHasError,
+    setErrorMessage,
+    getUserData,
+    dismissError,
+    dismissMessage
+  } = useAuthFunc()
 
   React.useEffect(() => {
     const isVisited = checkIsLinkVisited(visitedLinks, firebaseData, '/navList', setNavListData)
@@ -108,25 +57,7 @@ export const HomePage = () => {
       }
     )()
     // mount only
-  }, [getUserData, handleAsyncAction])
-
-  const onClickLogout = React.useCallback(async () => {
-    await Promise.all([
-      signOutWithFirebaseSDK(),
-      logOut()
-    ])
-    clearUser()
-  }, [clearUser])
-
-  const dismissError = React.useCallback(() => {
-    setHasError(() => false)
-    setErrorMessage(() => '')
-  }, [])
-
-  const dismissMessage = React.useCallback(() => {
-    setIsInfoDisplayed(() => false)
-    setInfoMessage(() => '')
-  }, [])
+  }, [getUserData, setErrorMessage, setHasError])
 
   return (
     <StyledHomePage>
@@ -137,12 +68,7 @@ export const HomePage = () => {
           content={'Icons with navBar and most popular tabs'}
         />
       </Helmet>
-      <Header
-        onClickLogin={onClickLogin}
-        onClickCreateAccount={onClickCreateAccount}
-        onClickRecover={onClickRecover}
-        onClickLogout={onClickLogout}
-      />
+      <Header />
       <NavBar
         navListData={navListData}
       />

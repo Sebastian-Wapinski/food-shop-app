@@ -14,6 +14,7 @@ import { store } from './store'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import UserContextProvider from './contexts/UserContext'
+import AuthFuncContextProvider from './contexts/AuthFuncContext'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
@@ -24,7 +25,9 @@ root.render(
           <ThemeProvider theme={theme}>
             <ResetStyle />
             <UserContextProvider>
-              <App />
+              <AuthFuncContextProvider>
+                <App />
+              </AuthFuncContextProvider>
             </UserContextProvider>
           </ThemeProvider>
         </Provider>
