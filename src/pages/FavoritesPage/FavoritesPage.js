@@ -1,25 +1,25 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-import { StyledFavoritesPage } from './FavoritesPage.styled'
+import { StyledFavoritesPage, StyledTitle } from './FavoritesPage.styled'
+import { Helmet } from 'react-helmet-async'
 
-export const FavoritesPage = (props) => {
-  const {
-    children,
-    ...otherProps
-  } = props
-
+export const FavoritesPage = () => {
   return (
-    <StyledFavoritesPage
-      {...otherProps}
-    >
-      Page In Progress
+    <StyledFavoritesPage>
+      <Helmet>
+        <title>Favorites</title>
+        <meta
+          name={'Favorites'}
+          content={'Favorites products'}
+        />
+      </Helmet>
+      <StyledTitle
+        variant={'h2'}
+      >
+        Favorites in progress
+      </StyledTitle>
     </StyledFavoritesPage>
   )
-}
-
-FavoritesPage.propTypes = {
-  children: PropTypes.node
 }
 
 export default FavoritesPage
