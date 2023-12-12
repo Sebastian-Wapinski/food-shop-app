@@ -24,6 +24,7 @@ export const OrdersPage = () => {
 
     return onValue(databaseRef, (snapshot) => {
       const rawData = snapshot.val()
+      if (rawData === null) return
       const data = createOrdersData(rawData)
       setOrdersData(data)
     })

@@ -14,14 +14,12 @@ import { Link, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import PreviewCartOverlay from '../../overlays/PreviewCartOverlay/PreviewCartOverlay'
 
-import { faHeart, faUser } from '@fortawesome/free-regular-svg-icons'
+import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import { faBars, faBasketShopping } from '@fortawesome/free-solid-svg-icons'
 import MenuMobile from '../MenuMobile/MenuMobile'
-import UserActions from '../UserActions/UserActions'
-import { useAuthUser } from '../../contexts/UserContext'
-import ProfileMenu from '../ProfileMenu/ProfileMenu'
 import MobileLeftMenuWrapper from '../MobileLeftMenuWrapper/MobileLeftMenuWrapper'
 import ProfileMenuMobile from '../ProfileMenuMobile/ProfileMenuMobile'
+import IconLogin from '../IconLogin/IconLogin'
 
 export const Icons = (props) => {
   const {
@@ -40,11 +38,7 @@ export const Icons = (props) => {
   const { products, productsQuantity } = useSelector(state => state.cart)
   const location = useLocation()
 
-  const {
-    isUserLoggedIn
-  } = useAuthUser()
-
-  const { logIn, favorites, cart, menu } = iconsData
+  const { favorites, cart, menu } = iconsData
   return (
     <>
       <StyledIcons>
@@ -61,55 +55,17 @@ export const Icons = (props) => {
             {menu.name}
           </StyledParagraph>
         </StyledIconContainer>
-        <Link to={isUserLoggedIn ? '/profile/orders' : null}>
-          <StyledIconContainer
-            onClick={() => {
-              if (!isUserLoggedIn) {
-                setShowLogInMenu(true)
-              } else {
-                setShowProfile(true)
-              }
-            }
-          }
-            onMouseEnter={isUserLoggedIn ? () => setShowProfileMenu(true) : null}
-            onMouseLeave={isUserLoggedIn ? () => setShowProfileMenu(false) : null}
-          >
-            <StyledImgContainer>
-              <StyledFontAwesomeIcon
-                icon={faUser}
-              />
-            </StyledImgContainer>
-            <StyledParagraph>
-              {
-            isUserLoggedIn ?
-              'Profile'
-              :
-              logIn.name
-            }
-            </StyledParagraph>
-          </StyledIconContainer>
-        </Link>
-        {
-          showLogInMenu && !isUserLoggedIn ?
-            <UserActions
-              authenticationOperationInit={'logIn'}
-              setShowLogInMenu={setShowLogInMenu}
-              onClickLogin={onClickLogin}
-              onClickCreateAccount={onClickCreateAccount}
-              onClickRecover={onClickRecover}
-            />
-            :
-            null
-        }
-        {
-          showProfileMenu ?
-            <ProfileMenu
-              setShowProfileMenu={setShowProfileMenu}
-              onClickLogout={onClickLogout}
-            />
-            :
-            null
-        }
+        <IconLogin
+          setShowLogInMenu={setShowLogInMenu}
+          setShowProfile={setShowProfile}
+          setShowProfileMenu={setShowProfileMenu}
+          showLogInMenu={showLogInMenu}
+          showProfileMenu={showProfileMenu}
+          onClickLogin={onClickLogin}
+          onClickCreateAccount={onClickCreateAccount}
+          onClickRecover={onClickRecover}
+          onClickLogout={onClickLogout}
+        />
         <Link
           to={favorites.path}
         >
