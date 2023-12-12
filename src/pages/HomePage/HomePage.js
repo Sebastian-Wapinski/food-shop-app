@@ -56,7 +56,6 @@ export const HomePage = () => {
         }
       }
     )()
-    // mount only
   }, [getUserData, setErrorMessage, setHasError])
 
   return (

@@ -6,7 +6,7 @@ import {
   StyledOrdersContainer
 } from './OrdersPage.styled'
 import { Helmet } from 'react-helmet-async'
-import { createOrdersData } from '../../helper/helper'
+import { createBasicData } from '../../helper/helper'
 import { useDispatch, useSelector } from 'react-redux'
 import { useAuthUser } from '../../contexts/UserContext'
 import RenderOrders from '../../components/RenderOrders/RenderOrders'
@@ -25,7 +25,7 @@ export const OrdersPage = () => {
     return onValue(databaseRef, (snapshot) => {
       const rawData = snapshot.val()
       if (rawData === null) return
-      const data = createOrdersData(rawData)
+      const data = createBasicData(rawData)
       setOrdersData(data)
     })
   }, [dispatch, firebaseData, userId, visitedLinks])

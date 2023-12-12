@@ -42,7 +42,7 @@ export const createNavData = (rawData) => {
   })
 }
 
-export const createOrdersData = (rawData) => {
+export const createBasicData = (rawData) => {
   const array = Object.entries(rawData)
   return array.map(item => {
     const key = item[0]

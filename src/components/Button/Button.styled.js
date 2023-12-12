@@ -79,6 +79,13 @@ ${
     border: 1px solid ${props => props.theme.mainColor};
     cursor: pointer;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: ${props => props.theme.firstBackground};
+    background-color: ${props => props.theme.mainColorLighterShade};
+    border: 1px solid ${props => props.theme.mainColorLighterShade};
+  }
   `
 }
 

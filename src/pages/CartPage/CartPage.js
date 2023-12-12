@@ -54,8 +54,6 @@ export const CartPage = () => {
   const onSubmit = handleSubmit(async (data, e) => {
     if (deliveryId.length === 0 || paymentId.length === 0 || products.length === 0) return
 
-    console.log(userId)
-
     setIsLoading(true)
     const items = createItemsArrayToBuy(products)
     const cart = {
