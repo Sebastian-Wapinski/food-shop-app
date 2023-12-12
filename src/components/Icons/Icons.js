@@ -5,21 +5,19 @@ import {
   StyledIcons,
   StyledIconContainer,
   StyledParagraph,
-  CartIconProductsQuantity,
   StyledImgContainer,
   StyledFontAwesomeIcon
 } from './Icons.styled'
 import { iconsData } from '../../data/iconsData'
-import { Link, useLocation } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import PreviewCartOverlay from '../../overlays/PreviewCartOverlay/PreviewCartOverlay'
+import { Link } from 'react-router-dom'
 
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
-import { faBars, faBasketShopping } from '@fortawesome/free-solid-svg-icons'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 import MenuMobile from '../MenuMobile/MenuMobile'
 import MobileLeftMenuWrapper from '../MobileLeftMenuWrapper/MobileLeftMenuWrapper'
 import ProfileMenuMobile from '../ProfileMenuMobile/ProfileMenuMobile'
 import IconLogin from '../IconLogin/IconLogin'
+import IconCart from '../IconCart/IconCart'
 
 export const Icons = (props) => {
   const {
@@ -29,16 +27,12 @@ export const Icons = (props) => {
     onClickLogout
   } = props
 
-  const [showPreviewCartOverlay, setShowPreviewCartOverlay] = React.useState(false)
   const [showMenu, setShowMenu] = React.useState(false)
   const [showProfile, setShowProfile] = React.useState(false)
   const [showLogInMenu, setShowLogInMenu] = React.useState(false)
   const [showProfileMenu, setShowProfileMenu] = React.useState(false)
 
-  const { products, productsQuantity } = useSelector(state => state.cart)
-  const location = useLocation()
-
-  const { favorites, cart, menu } = iconsData
+  const { favorites, menu } = iconsData
   return (
     <>
       <StyledIcons>
@@ -80,49 +74,7 @@ export const Icons = (props) => {
             </StyledParagraph>
           </StyledIconContainer>
         </Link>
-        <Link
-          to={cart.path}
-          onMouseEnter={() => {
-            setShowPreviewCartOverlay(true)
-          }}
-          onMouseLeave={() => {
-            setShowPreviewCartOverlay(false)
-          }}
-        >
-          <StyledIconContainer>
-            <StyledImgContainer>
-              <StyledFontAwesomeIcon
-                icon={faBasketShopping}
-              />
-              {
-              products ?
-                <CartIconProductsQuantity
-                  variant={'body2'}
-                >
-                  {productsQuantity}
-                </CartIconProductsQuantity>
-                :
-                null
-              }
-            </StyledImgContainer>
-            <StyledParagraph>
-              {cart.name}
-            </StyledParagraph>
-          </StyledIconContainer>
-        </Link>
-        {
-        showPreviewCartOverlay && products.length !== 0 && location.pathname !== '/cart' ?
-          <PreviewCartOverlay
-            onMouseEnter={() => {
-              setShowPreviewCartOverlay(true)
-            }}
-            onMouseLeave={() => {
-              setShowPreviewCartOverlay(false)
-            }}
-          />
-          :
-          null
-        }
+        <IconCart />
       </StyledIcons>
       <MobileLeftMenuWrapper
         showWrapper={showMenu}
