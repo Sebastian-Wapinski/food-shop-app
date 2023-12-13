@@ -39,6 +39,7 @@ export const PreviewCartOverlay = (props) => {
         >
           <StyledButton
             variant={'customText'}
+            onClick={onMouseLeave}
           >
             Go To Cart
           </StyledButton>

@@ -407,13 +407,13 @@ ${
 
 &nbsp;
 
-| Issue                                                                   | Solution                           |     |
-| ----------------------------------------------------------------------- | ---------------------------------- | --- |
-| Long time of fetching data                                              | Caching data fetched from firebase |     |
-| Necessity of managing many pages                                        | Usage of React Router              |     |
-| Essential to store, modify, and maintain the state of the shopping cart | Usage of React Redux               |     |
-| Requirement for processing payments                                     | Usage of Stripe                    |     |
-| Necessity of sending notification emails to customers                   | Usage of OAuth 2.0                 |     |
+| Issue                                                                   | Solution                           |
+| ----------------------------------------------------------------------- | ---------------------------------- |
+| Long time of fetching data                                              | Caching data fetched from firebase |
+| Necessity of managing many pages                                        | Usage of React Router              |
+| Essential to store, modify, and maintain the state of the shopping cart | Usage of React Redux               |
+| Requirement for processing payments                                     | Usage of Stripe                    |
+| Necessity of sending notification emails to customers                   | Usage of OAuth 2.0                 |
 
 &nbsp;
 
