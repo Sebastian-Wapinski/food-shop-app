@@ -1,4 +1,4 @@
-![screen or GIF of your app](https://via.placeholder.com/1000x300)
+![screen or GIF of your app](/assets/img/HomePagePreview.png)
 
 # FOOD-SHOP-APP
 
@@ -15,6 +15,7 @@ This project mirrors an online store, offering a range of essential food items l
 - Step-by-step guide to complete the transaction
 - Secure online payments using Stripe
 - Transaction confirmation and rejection notifications via email
+- Capability of creating account and storing shipping history
 - Efficient navigation through content pagination
 - Accessibility on mobile devices and computers
 
@@ -31,6 +32,42 @@ This project mirrors an online store, offering a range of essential food items l
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![Stripe](https://img.shields.io/badge/Stripe-626CD9?style=for-the-badge&logo=Stripe&logoColor=white)
 ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
+
+&nbsp;
+
+## ✈️ Application Tour
+
+### Desktop version
+
+- Creating account (require only for shipping history):
+
+![](/assets/gif/creatingAccount.gif)
+
+- Adding to cart:
+
+![](/assets/gif/addingToCart.gif)
+
+- Finalizing transaction (also without creating account):
+
+![](/assets/img/finalizingTransaction.png)
+
+- Checking shipping history after stripe payment:
+
+![](/assets/gif/checkingShippingHistory.gif)
+
+### Mobile version
+
+- Creating account (require only for shipping history):
+
+![](/assets/gif/creatingAccountMobile.gif)
+
+- Adding to cart:
+
+![](/assets/gif/addingToCartMobile.gif)
+
+- Finalizing transaction (also without creating account):
+
+- Checking shipping history after stripe payment:
 
 &nbsp;
 
@@ -88,7 +125,7 @@ REACT_APP_FIREBASE_URL=https://project-name-rtdb.europe-west1.firebasedatabase.a
 
 9. Create navList object in firebase database and import ./assets/data/navList (disclaimer: navigation data are fetching because of the option "adding new products categories". The option will be available in the future administration panel)
 
-10. Do the same like into point 10. with: 'products', 'productPrices', 'deliveryMethods', 'paymentMethods'
+10. Do the same like into point 10. with: 'products', 'productPrices', 'deliveryMethods', 'paymentMethods', 'bestProducts'
 
 11. To easier testing BE create firebase hosting and deploy it (Unless you want to test application with localhost, and using ngrok to tunneling bandwidth from stripe webhook):
 
@@ -344,7 +381,7 @@ export const createData = (rawData) => {
 
 - Pagination restricted only to 5 displaying pages
 
-![screen or GIF of your app](https://via.placeholder.com/500x150)
+![](/assets/img/paginationPreview.png)
 
 &nbsp;
 
@@ -372,6 +409,34 @@ formCreationData.map(input => {
             </StyledInputContainer>
           )
         })
+```
+
+&nbsp;
+
+- Using closure to avoid having to pass the same arguments multiple times:
+
+```
+// src/pages/ProductsPage/ProductsPageHelper
+
+export const checkIsURLCorrectClosure = (allPages, navigate) => {
+  return (dataToCheck) => {
+    ...
+  }
+}
+```
+
+```
+// src/pages/ProductsPage/ProductsPage
+
+const checkPageNumInURLIsCorrect = React.useCallback(() => {
+    const checkIsURLCorrect = checkIsURLCorrectClosure(allPages, navigate)
+
+    return (
+      checkIsURLCorrect(pageNumAllProducts) ||
+      checkIsURLCorrect(pageNumFromCategory) ||
+      checkIsURLCorrect(pageNumParticularCategory)
+    )
+  }, [allPages, navigate, pageNumAllProducts, pageNumFromCategory, pageNumParticularCategory])
 ```
 
 &nbsp;
@@ -410,6 +475,8 @@ ${
 | Issue                                                                   | Solution                           |
 | ----------------------------------------------------------------------- | ---------------------------------- |
 | Long time of fetching data                                              | Caching data fetched from firebase |
+| Repeatedly passing the same functions deep into components              | Usage of contexts                  |
+| Storing history shopping                                                | Usage of firebase authentication   |
 | Necessity of managing many pages                                        | Usage of React Router              |
 | Essential to store, modify, and maintain the state of the shopping cart | Usage of React Redux               |
 | Requirement for processing payments                                     | Usage of Stripe                    |
@@ -421,6 +488,8 @@ ${
 
 - Allowing customers filtering and sorting products at particular categories
 - Adding products to Favorites
+- Adding contact form to About Us
+- Saving basket in firebase database for logged in user
 
 &nbsp;
 
