@@ -44,7 +44,7 @@ min-width: 23rem;
 }
 
 @media (max-width: ${responsiveSizes.mediumSizeCart}) {
-  inline-size: 15rem;
+  inline-size: 12rem;
   overflow-wrap: break-word;
   text-align: center;
   padding: 1rem 0;
