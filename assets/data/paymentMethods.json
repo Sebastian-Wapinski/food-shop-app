@@ -1,6 +1,6 @@
 {
   "-NkVkOUKEkpe9GGRVRne": {
-    "img": "https://dummyimage.com/200x150/00A650/ffffff.png",
+    "img": "/img/cardPayment.png",
     "isPayment": true,
     "labelName": "Card Payment - 0€",
     "price": 0,

@@ -1,0 +1,62 @@
+{
+  "-NipSrVdmWzgrvYvIFGp": {
+    "accessibility": 2,
+    "category": "Carrots",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+    "img": "/img/carrots.png",
+    "price": 36,
+    "producer": "Harvest Bounty",
+    "unit": "kg",
+    "variety": "White Satin"
+  },
+  "-NipTb6lRyTLQAcJKLHe": {
+    "accessibility": 12,
+    "category": "Onions",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+    "img": "/img/onions.png",
+    "price": 8,
+    "producer": "UniCorn Farm",
+    "unit": "kg",
+    "variety": "Shallot"
+  },
+  "-NipUUhRQAGLjqKTqvQa": {
+    "accessibility": 153,
+    "category": "Potatoes",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+    "img": "/img/potatoes.png",
+    "price": 1,
+    "producer": "Farmers Inc.",
+    "unit": "kg",
+    "variety": "Elba"
+  },
+  "-NipVNBD2KDcz8dx3S2v": {
+    "accessibility": 20,
+    "category": "Apples",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+    "img": "/img/apples.png",
+    "price": 16,
+    "producer": "UniCorn Farm",
+    "unit": "kg",
+    "variety": "Braeburn"
+  },
+  "-NipW3-Xt5irBStR1fSg": {
+    "accessibility": 7,
+    "category": "Pears",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+    "img": "/img/pears.png",
+    "price": 11,
+    "producer": "Farmers Inc.",
+    "unit": "kg",
+    "variety": "Anjou"
+  },
+  "-NipWpE45Z86fgmEme5O": {
+    "accessibility": 15,
+    "category": "Bananas",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer mattis erat eget est congue laoreet vestibulum sit amet ligula. In ultricies nibh vitae ligula congue, non faucibus arcu convallis.",
+    "img": "/img/bananas.png",
+    "price": 32,
+    "producer": "Harvest Bounty",
+    "unit": "kg",
+    "variety": "Banan macho"
+  }
+}
