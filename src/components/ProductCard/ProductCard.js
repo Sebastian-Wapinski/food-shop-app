@@ -135,14 +135,14 @@ export const ProductCard = (props) => {
             IN STOCK: {accessibility}
           </StyledAccessibility>
         </StyledPriceAccessibilityContainer>
+        <StyledUnit
+          variant={'cardBody1'}
+        >
+          Price for 1{unit}
+        </StyledUnit>
         {
       isFullCardShow && accessibility > 0 ?
         <>
-          <StyledUnit
-            variant={'cardBody1'}
-          >
-            Price for 1{unit}
-          </StyledUnit>
           <StyledAddToCartContainer>
             <ChangeProductQuantityComplex
               decreaseProductQuantity={decreaseProductQuantity}

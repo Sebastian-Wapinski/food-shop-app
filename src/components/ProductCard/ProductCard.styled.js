@@ -56,7 +56,7 @@ text-align: center;
 const StyledPriceAccessibilityContainer = styled.div`
 display: flex;
 justify-content: space-between;
-padding: 1.5rem 0;
+padding: 1.5rem 0 0 0;
 `
 
 const StyledPrice = styled(Typography)`
