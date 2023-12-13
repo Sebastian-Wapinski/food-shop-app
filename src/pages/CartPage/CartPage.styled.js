@@ -37,7 +37,7 @@ grid-template-areas:
 'StyledProductsContainer StyledProductsContainer StyledShippingContainer'
 'StyledDeliveryMethods StyledPaymentMethods StyledShippingContainer'
 'StyledDeliveryMethods StyledPaymentMethods StyledAdditionalInformation'
-'StyledDeliveryMethods StyledPaymentMethods StyledPayWithStripe';
+'StyledDeliveryMethods StyledPaymentMethods StyledPayWithStripeContainer';
 
 @media (max-width: ${responsiveSizes.pageWidth}) {
   grid-template-columns: 1.5fr 1.5fr;
@@ -46,7 +46,7 @@ grid-template-areas:
   'StyledProductsContainer StyledProductsContainer'
   'StyledShippingContainer StyledShippingContainer'
   'StyledAdditionalInformation StyledAdditionalInformation'
-  'StyledPayWithStripe StyledPayWithStripe';
+  'StyledPayWithStripeContainer StyledPayWithStripeContainer';
 }
 
 @media (max-width: ${responsiveSizes.mediumSizeCart}) {
@@ -58,7 +58,7 @@ grid-template-areas:
   'StyledProductsContainer'
   'StyledShippingContainer'
   'StyledAdditionalInformation'
-  'StyledPayWithStripe';
+  'StyledPayWithStripeContainer';
 }
 `
 
@@ -90,12 +90,12 @@ color: ${props => props.theme.mainColorLighterShade};
 `
 
 const StyledPayWithStripe = styled(Button)`
-grid-area: StyledPayWithStripe;
 display: flex;
 justify-content: center;
 align-items: center;
 min-height: 3rem;
 margin: 0;
+width: 100%;
 
 @media (max-width: ${responsiveSizes.mediumSizeCart}) {
   width: ${responsiveSizes.mobileMenu};
@@ -149,6 +149,17 @@ width: 100%;
 }
 `
 
+const StyledErrorsMessage = styled(Typography)`
+display: block;
+width: 100%;
+text-align: center;
+padding: 0.5rem 0;
+`
+
+const StyledStripeButtonContainer = styled.div`
+grid-area: StyledPayWithStripeContainer;
+`
+
 export {
   StyledCartPage,
   StyledTitle,
@@ -160,5 +171,7 @@ export {
   StyledDeliveryMethodsContainer,
   StyledPaymentMethodsContainer,
   StyledMinorTitle,
-  StyledInfo
+  StyledInfo,
+  StyledErrorsMessage,
+  StyledStripeButtonContainer
 }

@@ -11,7 +11,9 @@ import {
   StyledDeliveryMethodsContainer,
   StyledPaymentMethodsContainer,
   StyledMinorTitle,
-  StyledInfo
+  StyledInfo,
+  StyledErrorsMessage,
+  StyledStripeButtonContainer
 } from './CartPage.styled'
 import Cart from '../../modules/Cart/Cart'
 import TotalPrice from '../../components/TotalPrice/TotalPrice'
@@ -23,7 +25,7 @@ import { actionAddToCartDeliveryType, actionAddToCartPaymentType } from '../../m
 import { Helmet } from 'react-helmet-async'
 import Loader from '../../overlays/Loader/Loader'
 import { stripeConnectionProvider } from '../../providers/stripeConnectionProvider'
-import { createItemsArrayToBuy } from './CartPageHelper'
+import { checkIsAnyProductInTheCart, createItemsArrayToBuy } from './CartPageHelper'
 import { formCreationData } from '../../data/formCreationData'
 import { useAuthUser } from '../../contexts/UserContext'
 
@@ -47,11 +49,19 @@ export const CartPage = () => {
   const [additionalInformation, setAdditionalInformation] = React.useState('')
   const [onSubmitClicked, setOnSubmitClicked] = React.useState(false)
   const [isLoading, setIsLoading] = React.useState(false)
+  const [checkAllTextFields, setCheckAllTextFields] = React.useState(false)
+  const [checkIsAnyProductInCart, setCheckIsAnyProductInCart] = React.useState(false)
 
   const { deliveryId, products, paymentId } = useSelector(state => state.cart)
   const { userId } = useAuthUser()
 
   const onSubmit = handleSubmit(async (data, e) => {
+    if (deliveryId.length === 0 || paymentId.length === 0) {
+      setCheckAllTextFields(true)
+    }
+
+    checkIsAnyProductInTheCart(deliveryId, paymentId, products, setCheckIsAnyProductInCart)
+
     if (deliveryId.length === 0 || paymentId.length === 0 || products.length === 0) return
 
     setIsLoading(true)
@@ -62,6 +72,7 @@ export const CartPage = () => {
       additionalInformation,
       loggedInUserId: userId
     }
+    setCheckAllTextFields(false)
 
     try {
       const { url } = await stripeConnectionProvider(cart)
@@ -69,7 +80,13 @@ export const CartPage = () => {
     } catch (err) {
       console.error(err.error)
     }
-  })
+  },
+  (error, e) => {
+    setCheckAllTextFields(true)
+
+    checkIsAnyProductInTheCart(deliveryId, paymentId, products, setCheckIsAnyProductInCart)
+  }
+  )
 
   return (
     <StyledCartPage>
@@ -146,18 +163,32 @@ export const CartPage = () => {
               >
 
               </StyledAdditionalInformation>
-              <StyledPayWithStripe
-                variant={'customText'}
-                type={'submit'}
-                onClick={() => {
-                  if (deliveryId.length === 0 || paymentId.length === 0) {
-                    setOnSubmitClicked(true)
-                  }
-                  onSubmit()
-                }}
-              >
-                Pay With Stripe
-              </StyledPayWithStripe>
+              <StyledStripeButtonContainer>
+                <StyledPayWithStripe
+                  variant={'customText'}
+                  type={'submit'}
+                  onClick={() => {
+                    if (deliveryId.length === 0 || paymentId.length === 0) {
+                      setOnSubmitClicked(true)
+                    }
+                    onSubmit()
+                  }}
+                >
+                  Pay With Stripe
+                </StyledPayWithStripe>
+                {
+                  checkAllTextFields ?
+                    <StyledErrorsMessage variant={'errorMessageForm'}>Check All Text Fields</StyledErrorsMessage>
+                    :
+                    null
+                }
+                {
+                  checkIsAnyProductInCart ?
+                    <StyledErrorsMessage variant={'errorMessageForm'}>First Add Some Products</StyledErrorsMessage>
+                    :
+                    null
+                }
+              </StyledStripeButtonContainer>
             </StyledInfoContainer>
           </FormProvider>
           :
