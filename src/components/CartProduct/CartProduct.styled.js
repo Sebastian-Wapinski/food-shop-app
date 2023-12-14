@@ -43,7 +43,11 @@ width: 15rem;
 const StyledName = styled(Typography)`
 display: block;
 padding-bottom: 0.5rem;
-text-align: center;
+
+@media (max-width: ${responsiveSizes.mediumSizeCart}) {
+  text-align: center;
+}
+
 `
 
 const StyledProducer = styled(Typography)`

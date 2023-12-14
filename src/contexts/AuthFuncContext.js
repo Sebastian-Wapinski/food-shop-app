@@ -55,7 +55,13 @@ const AuthFuncContextProvider = (props) => {
       await asyncAction()
     } catch (error) {
       setHasError(() => true)
-      setErrorMessage(() => error.message || error.data.error.message)
+      if (error.message || error.data.error.message === 'EMAIL_EXISTS') {
+        setErrorMessage(() => 'Try another email - this email exists')
+      } else if (error.message || error.data.error.message === 'INVALID_LOGIN_CREDENTIALS') {
+        setErrorMessage(() => 'Wrong Email or Password')
+      } else {
+        setErrorMessage(() => error.message || error.data.error.message)
+      }
     } finally {
       setIsLoading(() => false)
     }
@@ -94,9 +100,8 @@ const AuthFuncContextProvider = (props) => {
       await sendPasswordResetEmail(email)
       setIsInfoDisplayed(() => true)
       setInfoMessage(() => 'Check Your inbox!')
-      await getUserData()
     })
-  }, [getUserData, handleAsyncAction])
+  }, [handleAsyncAction])
 
   const onClickLogout = React.useCallback(async () => {
     await Promise.all([
