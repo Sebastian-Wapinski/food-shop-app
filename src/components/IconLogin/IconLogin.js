@@ -13,6 +13,7 @@ import UserActions from '../UserActions/UserActions'
 import ProfileMenu from '../ProfileMenu/ProfileMenu'
 import { iconsData } from '../../data/iconsData'
 import { faUser } from '@fortawesome/free-regular-svg-icons'
+import { responsiveSizes } from '../style/responsiveSizes'
 
 export const IconLogin = (props) => {
   const {
@@ -28,7 +29,7 @@ export const IconLogin = (props) => {
 
   return (
     <>
-      <Link to={isUserLoggedIn ? '/profile/orders' : null}>
+      <Link to={isUserLoggedIn && window.innerWidth > responsiveSizes.mediumSize ? '/profile/orders' : null}>
         <StyledIconLogin
           onClick={() => {
             if (!isUserLoggedIn) {

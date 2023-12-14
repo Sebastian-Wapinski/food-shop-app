@@ -11,6 +11,7 @@ import {
 } from './ProfileMenuMobile.styled'
 import { NavLink } from 'react-router-dom'
 import { useAuthFunc } from '../../contexts/AuthFuncContext'
+import { useAuthUser } from '../../contexts/UserContext'
 
 export const ProfileMenuMobile = (props) => {
   const {
@@ -19,6 +20,7 @@ export const ProfileMenuMobile = (props) => {
   } = props
 
   const { onClickLogout } = useAuthFunc()
+  const { userEmail } = useAuthUser()
 
   return (
     <StyledProfileMenuMobile>
@@ -36,6 +38,11 @@ export const ProfileMenuMobile = (props) => {
           Menu:
         </StyledTitle>
         <StyledMainMenu>
+          <StyledName
+            variant={'body1'}
+          >
+            {userEmail}
+          </StyledName>
           <NavLink
             to={'/profile/orders'}
             onClick={() => setShowProfile(false)}

@@ -50,12 +50,15 @@ This project mirrors an online store, offering a range of essential food items l
 - Finalizing transaction (also without creating account):
 
 ![](/assets/img/finalizingTransaction.png)
+![](/assets/img/stripeDesktop.png)
 
 - Checking shipping history after stripe payment:
 
 ![](/assets/gif/checkingShippingHistory.gif)
 
 ### Mobile version
+
+Before testing the mobile version on desktop, refresh the page after selecting the testing device width to ensure that everything will work properly.
 
 - Creating account (require only for shipping history):
 
@@ -67,7 +70,21 @@ This project mirrors an online store, offering a range of essential food items l
 
 - Finalizing transaction (also without creating account):
 
+![](/assets/gif/finalizingTransactionMobile.gif)
+![](/assets/gif/stripeMobile.gif)
+
 - Checking shipping history after stripe payment:
+
+![](/assets/gif/checkingShippingHistoryMobile.gif)
+
+&nbsp;
+
+## 💳 Payment Simulation
+
+- Payment acceptation: 4242 4242 4242 4242
+  - experience date must be older then today
+  - any cvc
+- Payment rejection: 4000 0000 0000 0002
 
 &nbsp;
 
@@ -316,15 +333,6 @@ npm run build
 ```
 firebase deploy
 ```
-
-&nbsp;
-
-## 💳 Payment Simulation
-
-- Payment acceptation: 4242 4242 4242 4242
-  - experience date must be older then today
-  - any cvc
-- Payment rejection: 4000 0000 0000 0002
 
 &nbsp;
 
