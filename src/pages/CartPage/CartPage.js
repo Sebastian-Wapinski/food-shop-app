@@ -62,7 +62,7 @@ export const CartPage = () => {
 
     checkIsAnyProductInTheCart(deliveryId, paymentId, products, setCheckIsAnyProductInCart)
 
-    if (deliveryId.length === 0 || paymentId.length === 0 || products.length === 0) return
+    if (deliveryId.length === 0 || paymentId.length === 0 || products.length <= 2) return
 
     setIsLoading(true)
     const items = createItemsArrayToBuy(products)
@@ -178,13 +178,13 @@ export const CartPage = () => {
                 </StyledPayWithStripe>
                 {
                   checkAllTextFields ?
-                    <StyledErrorsMessage variant={'errorMessageForm'}>Check All Text Fields</StyledErrorsMessage>
+                    <StyledErrorsMessage variant={'errorMessageForm'}>Check All Text Fields and Try Again</StyledErrorsMessage>
                     :
                     null
                 }
                 {
                   checkIsAnyProductInCart ?
-                    <StyledErrorsMessage variant={'errorMessageForm'}>First Add Some Products</StyledErrorsMessage>
+                    <StyledErrorsMessage variant={'errorMessageForm'}>First Add Some Products and Try Again</StyledErrorsMessage>
                     :
                     null
                 }
