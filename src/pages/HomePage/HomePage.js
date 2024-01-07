@@ -72,10 +72,7 @@ export const HomePage = () => {
         navListData={navListData}
       />
       {
-        location.pathname === '/' ?
-          <HomePageContent />
-          :
-          null
+        location.pathname === '/' && <HomePageContent />
       }
       <Outlet />
       <Footer />
