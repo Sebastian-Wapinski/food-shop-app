@@ -11,14 +11,12 @@ const errorProviderNotFound = () => {
 const initialContextState = {
   isLoading: false,
   hasError: false,
-  errorMessage: '',
+  message: '',
   isInfoDisplayed: false,
-  infoMessage: '',
   setIsLoading: errorProviderNotFound,
   setHasError: errorProviderNotFound,
-  setErrorMessage: errorProviderNotFound,
   setIsInfoDisplayed: errorProviderNotFound,
-  setInfoMessage: errorProviderNotFound,
+  setMessage: errorProviderNotFound,
   onClickLogin: errorProviderNotFound,
   onClickCreateAccount: errorProviderNotFound,
   onClickRecover: errorProviderNotFound,
@@ -45,9 +43,8 @@ const AuthFuncContextProvider = (props) => {
 
   const [isLoading, setIsLoading] = React.useState(initialContextState.isLoading)
   const [hasError, setHasError] = React.useState(initialContextState.hasError)
-  const [errorMessage, setErrorMessage] = React.useState(initialContextState.errorMessage)
   const [isInfoDisplayed, setIsInfoDisplayed] = React.useState(initialContextState.isInfoDisplayed)
-  const [infoMessage, setInfoMessage] = React.useState(initialContextState.infoMessage)
+  const [message, setMessage] = React.useState(initialContextState.message)
 
   const handleAsyncAction = React.useCallback(async (asyncAction) => {
     setIsLoading(() => true)
@@ -56,11 +53,11 @@ const AuthFuncContextProvider = (props) => {
     } catch (error) {
       setHasError(() => true)
       if (error.message || error.data.error.message === 'EMAIL_EXISTS') {
-        setErrorMessage(() => 'Try another email - this email exists')
+        setMessage(() => 'Try another email - this email exists')
       } else if (error.message || error.data.error.message === 'INVALID_LOGIN_CREDENTIALS') {
-        setErrorMessage(() => 'Wrong Email or Password')
+        setMessage(() => 'Wrong Email or Password')
       } else {
-        setErrorMessage(() => error.message || error.data.error.message)
+        setMessage(() => error.message || error.data.error.message)
       }
     } finally {
       setIsLoading(() => false)
@@ -90,7 +87,7 @@ const AuthFuncContextProvider = (props) => {
     handleAsyncAction(async () => {
       await signUp(createAccountEmail, createAccountRepeatPassword)
       setIsInfoDisplayed(() => true)
-      setInfoMessage(() => 'User account created. User is logged in')
+      setMessage(() => 'User account created. User is logged in')
       await getUserData()
     })
   }, [getUserData, handleAsyncAction])
@@ -99,7 +96,7 @@ const AuthFuncContextProvider = (props) => {
     handleAsyncAction(async () => {
       await sendPasswordResetEmail(email)
       setIsInfoDisplayed(() => true)
-      setInfoMessage(() => 'Check Your inbox!')
+      setMessage(() => 'Check Your inbox!')
     })
   }, [handleAsyncAction])
 
@@ -113,13 +110,13 @@ const AuthFuncContextProvider = (props) => {
 
   const dismissError = React.useCallback(() => {
     setHasError(() => false)
-    setErrorMessage(() => '')
-  }, [setErrorMessage, setHasError])
+    setMessage(() => '')
+  }, [setMessage, setHasError])
 
   const dismissMessage = React.useCallback(() => {
     setIsInfoDisplayed(() => false)
-    setInfoMessage(() => '')
-  }, [setInfoMessage, setIsInfoDisplayed])
+    setMessage(() => '')
+  }, [setMessage, setIsInfoDisplayed])
 
   return (
     <AuthFuncContext.Provider
@@ -127,14 +124,12 @@ const AuthFuncContextProvider = (props) => {
         {
           isLoading,
           hasError,
-          errorMessage,
+          message,
           isInfoDisplayed,
-          infoMessage,
           setIsLoading,
           setHasError,
-          setErrorMessage,
+          setMessage,
           setIsInfoDisplayed,
-          setInfoMessage,
           onClickLogin,
           onClickCreateAccount,
           onClickRecover,

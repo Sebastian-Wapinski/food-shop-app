@@ -26,11 +26,10 @@ export const HomePage = () => {
   const {
     isLoading,
     hasError,
-    errorMessage,
+    message,
     isInfoDisplayed,
-    infoMessage,
     setHasError,
-    setErrorMessage,
+    setMessage,
     getUserData,
     dismissError,
     dismissMessage
@@ -52,11 +51,11 @@ export const HomePage = () => {
           }
         } catch (error) {
           setHasError(() => true)
-          setErrorMessage(() => error.message || error.data.error.message)
+          setMessage(() => error.message || error.data.error.message)
         }
       }
     )()
-  }, [getUserData, setErrorMessage, setHasError])
+  }, [getUserData, setMessage, setHasError])
 
   return (
     <StyledHomePage>
@@ -85,23 +84,12 @@ export const HomePage = () => {
         }
 
       {
-        isInfoDisplayed ?
+        isInfoDisplayed || hasError ?
           <MessagePage
-            message={infoMessage}
-            iconVariant={'info'}
-            buttonLabel={'OK'}
-            dismissInfo={dismissMessage}
-          />
-          :
-          null
-        }
-
-      {
-        hasError ?
-          <MessagePage
-            message={errorMessage}
-            iconVariant={'error'}
-            dismissInfo={dismissError}
+            message={message}
+            iconVariant={isInfoDisplayed ? 'info' : hasError ? 'error' : null}
+            buttonLabel={isInfoDisplayed ? 'OK' : hasError ? 'GO BACK' : null}
+            dismissInfo={isInfoDisplayed ? dismissMessage : hasError ? dismissError : null}
           />
           :
           null
